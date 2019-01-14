@@ -41,6 +41,7 @@ public class Calendar extends Applet implements Runnable, KeyListener {
     public void addEvents(){
         addEvent("Whitebook",1,14, 1);
         addEvent("Socratic Seminar",1,16, 1);
+        addEvent("Welcome Back",1,22, 1);
         addEvent("My Birthday",1,31, 1);
         addEvent("Rand Vocab Test",2,4, 1);
         addEvent("Start Essay",2,14, 1);
