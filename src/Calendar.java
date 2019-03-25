@@ -24,8 +24,8 @@ public class Calendar extends Applet implements Runnable, KeyListener {
     int[] daysPerMonth=new int[]{ 31  , 28  , 31  , 30  , 31  , 30   , 31   , 31  , 30   , 31  , 30  , 31  };
     String[] months=new String[]{"Jan","Feb","Mar","Apr","May","June","July","Aug","Sept","Oct","Nov","Dec"};
     int adj=2;
-    int start=getDayofYear(13,1);
-    int end=getDayofYear(15,3);
+    int start=getDayofYear(24,3);
+    int end=getDayofYear(25,5);
     int rows=(int)(Math.ceil((end-start)/7.0));
     ArrayList<String>[] events;
     boolean vert=false;
@@ -39,39 +39,44 @@ public class Calendar extends Applet implements Runnable, KeyListener {
 
     //           ADD EVENTS TO THE CALENDAR
     public void addEvents(){
-        addEvent("Whitebook",1,14, 1);
-        addEvent("Socratic Seminar",1,16, 1);
-        addEvent("Welcome Back",1,22, 1);
-        addEvent("My Birthday",1,31, 1);
-        addEvent("Rand Vocab Test",2,4, 1);
-        addEvent("Start Essay",2,14, 1);
-        addEvent("Grammar Test",2,21, 1);
-        addEvent("Essay Due",2,22, 1);
-        addEvent("Rhet Vocab Test",3,1, 1);
-        addEvent("Comp Book Due",3,1, 1);
-        addEvent("Grammar Test 2",3,11, 1);
-        addEvent("ACT",3,12, 1);
-        addEvent("End of Q3",3,15, 1);
-        addEvent("Last Day of School",5,23, 1);
         addWeeklyEvents();
+        addEvent("Reading Due",3,25,1);
+        addEvent("Calc FRQs",3,25,1);
+        addEvent("Calc MC 1",3,26,1);
+        addEvent("Calc MC 2",3,27,1);
+        addEvent("SciOly State",4,6,1);
+        addEvent("Vocab Test",4,8,1);
+        addEvent("ACT",4,13,1);
+        addEvent("Seminar",4,17,1);
+        addEvent("Prom",4,27,1);
+        addEvent("Start A&P Essay",4,26, 1);
+        addEvent("Cold Mountain Due",4,29, 1);
+        addEvent("Vocab Test",4,30, 1);
+        addEvent("A&P Essay Due",5,1, 1);
+        addEvent("Comp Books Due",5,8, 1);
+        addEvent("AP US History",5,10, 1);
+        addEvent("AP Physics C",5,13, 1);
+        addEvent("AP Calc AB",5,14, 1);
+        addEvent("AP Lang",5,15, 1);
+        addEvent("Practicum Exam",5,20, 1);
+        addEvent("AV Exam",5,21, 1);
+        addEvent("Last Day of School",5,23, 1);
     }
 
     private void addWeeklyEvents(){
+        int lastSciOly=getDayofYear(1,5);
         for (int i=start; i<=end; i++){
             int day=getDayOfWeek(i);
             if (!noSchool[i-start]) {
-                if (day == 3) {
+                if (day == 3&& i<lastSciOly) {
                     addEvent("Science Olympiad", i, 2);
-                } else if (day == 5) {
-                    addEvent("Comp Sci Club", i, 2);
-                    addEvent("Science Bowl", i, 2);
-
                 }
             }
         }
     }
 
     private void setHasSchool(){
+        int lastday=getDayofYear(24,5);
         for (int i=start; i<=end; i++){
             int day=getDayOfWeek(i);
             if (day==0||day==6){
@@ -83,12 +88,17 @@ public class Calendar extends Applet implements Runnable, KeyListener {
                 noSchool[i-start]=true;
             }
         }
-        noSchool[getDayofYear(21,1)-start]=true;
-        noSchool[getDayofYear(18,2)-start]=true;
+        for (int i=lastday; i<end; i++){
+            noSchool[i-start]=true;
+        }
+        noSchool[getDayofYear(19,4)-start]=true;
+        noSchool[getDayofYear(22,5)-start]=true;
+        noSchool[getDayofYear(23,5)-start]=true;
     }
 
     private void addPowerMondays(){
-        for (int i=start; i<=end; i++){
+        int lastMonday=getDayofYear(8,4);
+        for (int i=start; i<=lastMonday; i++){
             int day=getDayOfWeek(i);
             if (day==1&&!noSchool[i-start]){
                 addEvent("Power Monday", i, 2);
@@ -208,7 +218,7 @@ public class Calendar extends Applet implements Runnable, KeyListener {
     public void keyTyped(KeyEvent e) { }
 
     public void exportImg(){
-        String export="B:\\Libraries\\Programming\\Calendar Generator\\images\\t.png";
+        String export="C:\\Users\\Mike\\Documents\\GitHub\\Calendar-Generator\\images\\t.png";
         RenderedImage rendImage = toBufferedImage(img);
         File file = new File(export);
         try {
