@@ -11,25 +11,26 @@ import java.util.ArrayList;
 
 public class Calendar extends Applet implements Runnable, KeyListener {
 
-    float pw=8.4f, ph=11f;
+    float pw=8f, ph=11f;
     private int WIDTH=1280, HEIGHT=1280;
     private Thread thread;
     Graphics gfx;
     Image img;
     Color background=new Color(255, 255, 255);
-    Color noSchoolCol=new Color(210, 210, 210);
+    Color noSchoolCol=new Color(217, 219, 255);
     Color gridColor=new Color(0,0,0);
     int borderSize=40;
     String[] days=new String[]{"Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday",};
     int[] daysPerMonth=new int[]{ 31  , 28  , 31  , 30  , 31  , 30   , 31   , 31  , 30   , 31  , 30  , 31  };
     String[] months=new String[]{"Jan","Feb","Mar","Apr","May","June","July","Aug","Sept","Oct","Nov","Dec"};
     int adj=2;
-    int start=getDayofYear(24,3);
-    int end=getDayofYear(25,5);
+    int start=getDayofYear(28,4);
+    int end=getDayofYear(17,8);
     int rows=(int)(Math.ceil((end-start)/7.0));
     ArrayList<String>[] events;
     boolean vert=false;
     boolean[] noSchool;
+    Color[] colors;
     Color[] catcolors= new Color[]{
             new Color(0,0,0),
             new Color(82, 92, 170),
@@ -61,6 +62,9 @@ public class Calendar extends Applet implements Runnable, KeyListener {
         addEvent("Practicum Exam",5,20, 1);
         addEvent("AV Exam",5,21, 1);
         addEvent("Last Day of School",5,23, 1);
+        addEvent("First Day of School",8,9, 1);
+
+
     }
 
     private void addWeeklyEvents(){
@@ -73,6 +77,29 @@ public class Calendar extends Applet implements Runnable, KeyListener {
                 }
             }
         }
+    }
+
+    private void addGSSE(){
+        int m=6;
+        int sd=2;
+        int ed=29;
+        Color c=new Color(255, 222, 204);
+        int start=getDayofYear(sd,m);
+        int end=getDayofYear(ed,m);
+        for (int i=start; i<=end; i++){
+            if (i>this.end){continue;}
+            colors[i-this.start]=c;
+        }
+        addEvent("GSSE Starts",6,2, 1);
+        addEvent("Evening Activity",6,3, 1);
+        addEvent("Ice Cream Social",6,5, 1);
+        addEvent("Pool Party",6,9, 1);
+        addEvent("'The Ocoee Dams'",6,13, 1);
+        addEvent("River Trip",6,15, 1);
+        addEvent("Prom",6,21, 1);
+        addEvent("Talent Show",6,23, 1);
+        addEvent("Classes End",6,28, 1);
+        addEvent("GSSE Ends",6,29, 1);
     }
 
     private void setHasSchool(){
@@ -88,12 +115,18 @@ public class Calendar extends Applet implements Runnable, KeyListener {
                 noSchool[i-start]=true;
             }
         }
-        for (int i=lastday; i<end; i++){
+        int firstDayBack=getDayofYear(9,8);
+        for (int i=lastday; i<firstDayBack; i++){
+            if (i>end){continue;}
             noSchool[i-start]=true;
         }
-        noSchool[getDayofYear(19,4)-start]=true;
+        //noSchool[getDayofYear(19,4)-start]=true;
         noSchool[getDayofYear(22,5)-start]=true;
         noSchool[getDayofYear(23,5)-start]=true;
+        noSchool[getDayofYear(10,5)-start]=true;
+        noSchool[getDayofYear(13,5)-start]=true;
+        noSchool[getDayofYear(14,5)-start]=true;
+        noSchool[getDayofYear(15,5)-start]=true;
     }
 
     private void addPowerMondays(){
@@ -117,13 +150,27 @@ public class Calendar extends Applet implements Runnable, KeyListener {
         this.addKeyListener(this);
         img=createImage(WIDTH,HEIGHT);
         gfx=img.getGraphics();
+        Font currentFont = gfx.getFont();
+        Font newFont = currentFont.deriveFont(18f);
+        gfx.setFont(newFont);
         events=new ArrayList[end-start+1];
         noSchool =new boolean[end-start+1];
+        colors=new Color[end-start+1];
         setHasSchool();
+        setColors();
         addPowerMondays();
         addEvents();
+        addGSSE();
         thread=new Thread(this);
         thread.start();
+    }
+
+    public void setColors(){
+        for (int i=start; i<=end; i++){
+            if (noSchool[i-start]){
+                colors[i-start]=noSchoolCol;
+            }
+        }
     }
 
     public void create(){
@@ -184,6 +231,7 @@ public class Calendar extends Applet implements Runnable, KeyListener {
         int day=getDayofYear(dayofMonth,month);
         if (day<0||day>end){return;}
         int i=day-start;
+        if (i<0||i>events.length){return;}
         e=type+" "+ e;
         if (events[i]==null){
             events[i]=new ArrayList<>();
@@ -218,7 +266,7 @@ public class Calendar extends Applet implements Runnable, KeyListener {
     public void keyTyped(KeyEvent e) { }
 
     public void exportImg(){
-        String export="C:\\Users\\Mike\\Documents\\GitHub\\Calendar-Generator\\images\\t.png";
+        String export="B:\\Libraries\\Programming\\Calender\\Calendar-Generator\\calendarImgs\\t.png";
         RenderedImage rendImage = toBufferedImage(img);
         File file = new File(export);
         try {
@@ -243,9 +291,7 @@ public class Calendar extends Applet implements Runnable, KeyListener {
 
     public void paintGrid(Graphics gfx){
         gfx.setColor(gridColor);
-        Font currentFont = gfx.getFont();
-        Font newFont = currentFont.deriveFont(20f);
-        gfx.setFont(newFont);
+
         int fontsize=gfx.getFont().getSize();
 
         int adj=(2+start)%7-1;
@@ -256,17 +302,17 @@ public class Calendar extends Applet implements Runnable, KeyListener {
         }
 
         for (int i=start; i<=end; i++){
-            int x=(i-start+adj)%7;
-            int y=((i+adj-start)/7);
-            int x1=WIDTH/7*(x);
-            int y1=borderSize+((HEIGHT-borderSize)/rows)*y;
-            gfx.setColor(noSchoolCol);
-            if (noSchool[i-start]){
-                gfx.fillRect(x1,y1,WIDTH/7, (HEIGHT-borderSize)/rows);
-            }
-            gfx.setColor(Color.black);
+            if (colors[i-start]!=null) {
+                int x = (i - start + adj) % 7;
+                int y = ((i + adj - start) / 7);
+                int x1 = WIDTH / 7 * (x);
+                int y1 = borderSize + ((HEIGHT - borderSize) / rows) * y;
+                gfx.setColor(colors[i-start]);
+                gfx.fillRect(x1, y1, WIDTH / 7, (HEIGHT - borderSize) / rows);
 
+            }
         }
+        gfx.setColor(Color.black);
 
         gfx.fillRect(0, borderSize, WIDTH, 3);
         gfx.fillRect(0, 0, WIDTH, 3);
