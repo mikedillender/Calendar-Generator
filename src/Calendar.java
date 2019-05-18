@@ -12,7 +12,8 @@ import java.util.ArrayList;
 public class Calendar extends Applet implements Runnable, KeyListener {
 
     float pw=8f, ph=11f;
-    private int WIDTH=1280, HEIGHT=1280;
+    private int WIDTH=1620, HEIGHT=1620;
+    int defaultFont=24;
     private Thread thread;
     Graphics gfx;
     Image img;
@@ -24,7 +25,7 @@ public class Calendar extends Applet implements Runnable, KeyListener {
     int[] daysPerMonth=new int[]{ 31  , 28  , 31  , 30  , 31  , 30   , 31   , 31  , 30   , 31  , 30  , 31  };
     String[] months=new String[]{"Jan","Feb","Mar","Apr","May","June","July","Aug","Sept","Oct","Nov","Dec"};
     int adj=2;
-    int start=getDayofYear(28,4);
+    int start=getDayofYear(19,5);
     int end=getDayofYear(17,8);
     int rows=(int)(Math.ceil((end-start)/7.0));
     ArrayList<String>[] events;
@@ -37,35 +38,45 @@ public class Calendar extends Applet implements Runnable, KeyListener {
             new Color(138, 53, 49)
     };
 
+    public void init(){//STARTS THE PROGRAM
+        HEIGHT=(int)(WIDTH*((vert)?(pw/ph):(ph/pw)));
+        WIDTH=(WIDTH/7);
+        WIDTH=(WIDTH*7);
+        HEIGHT=(HEIGHT/rows);
+        HEIGHT=(HEIGHT*rows)+borderSize;
+
+        this.resize(WIDTH, HEIGHT);
+        this.addKeyListener(this);
+        img=createImage(WIDTH,HEIGHT);
+        gfx=img.getGraphics();
+        gfx.setFont(gfx.getFont().deriveFont(defaultFont));
+        events=new ArrayList[end-start+1];
+        noSchool =new boolean[end-start+1];
+        colors=new Color[end-start+1];
+        setHasSchool();
+        setColors();
+        addPowerMondays();
+        addEvents();
+        addGSSE();
+        addVacations();
+        thread=new Thread(this);
+        thread.start();
+    }
 
     //           ADD EVENTS TO THE CALENDAR
     public void addEvents(){
         addWeeklyEvents();
-        addEvent("Reading Due",3,25,1);
-        addEvent("Calc FRQs",3,25,1);
-        addEvent("Calc MC 1",3,26,1);
-        addEvent("Calc MC 2",3,27,1);
-        addEvent("SciOly State",4,6,1);
-        addEvent("Vocab Test",4,8,1);
-        addEvent("ACT",4,13,1);
-        addEvent("Seminar",4,17,1);
-        addEvent("Prom",4,27,1);
-        addEvent("Start A&P Essay",4,26, 1);
-        addEvent("Cold Mountain Due",4,29, 1);
-        addEvent("Vocab Test",4,30, 1);
-        addEvent("A&P Essay Due",5,1, 1);
-        addEvent("Comp Books Due",5,8, 1);
-        addEvent("AP US History",5,10, 1);
-        addEvent("AP Physics C",5,13, 1);
-        addEvent("AP Calc AB",5,14, 1);
-        addEvent("AP Lang",5,15, 1);
         addEvent("Practicum Exam",5,20, 1);
         addEvent("AV Exam",5,21, 1);
         addEvent("Last Day of School",5,23, 1);
+        addEvent("SAT Physics",6,1, 1);
+        addEvent("SAT Math",6,1, 1);
         addEvent("First Day of School",8,9, 1);
 
 
     }
+
+
 
     private void addWeeklyEvents(){
         int lastSciOly=getDayofYear(1,5);
@@ -100,6 +111,34 @@ public class Calendar extends Applet implements Runnable, KeyListener {
         addEvent("Talent Show",6,23, 1);
         addEvent("Classes End",6,28, 1);
         addEvent("GSSE Ends",6,29, 1);
+        addEvent("Independence Day",7,4, 1);
+        addEvent("AP Scores Released",7,5, 1);
+        addEvent("Freshman Orientation",7,31, 1);
+        addEvent("Freshman Orientation",8,1, 1);
+
+    }
+    private void addVacations(){
+        Color c=new Color(250, 229, 255);
+        int start=getDayofYear(24,5);
+        int end=getDayofYear(26,5);
+        for (int i=start; i<=end; i++){
+            if (i>this.end){continue;}
+            colors[i-this.start]=c;
+        }
+        addEvent("Fly to NYC",5,24, 1);
+        addEvent("Return from NYC",5,26, 1);
+
+        c=new Color(201, 255, 206);
+        start=getDayofYear(1,7);
+        end=getDayofYear(7,7);
+        for (int i=start; i<=end; i++){
+            if (i>this.end){continue;}
+            colors[i-this.start]=c;
+        }
+        addEvent("Fly to Yosemite",7,1, 1);
+        addEvent("Leave Yosemite",7,7, 1);
+
+
     }
 
     private void setHasSchool(){
@@ -123,10 +162,6 @@ public class Calendar extends Applet implements Runnable, KeyListener {
         //noSchool[getDayofYear(19,4)-start]=true;
         noSchool[getDayofYear(22,5)-start]=true;
         noSchool[getDayofYear(23,5)-start]=true;
-        noSchool[getDayofYear(10,5)-start]=true;
-        noSchool[getDayofYear(13,5)-start]=true;
-        noSchool[getDayofYear(14,5)-start]=true;
-        noSchool[getDayofYear(15,5)-start]=true;
     }
 
     private void addPowerMondays(){
@@ -139,31 +174,7 @@ public class Calendar extends Applet implements Runnable, KeyListener {
         }
     }
 
-    public void init(){//STARTS THE PROGRAM
-        HEIGHT=(int)(1280f*((vert)?(pw/ph):(ph/pw)));
-        WIDTH=(WIDTH/7);
-        WIDTH=(WIDTH*7);
-        HEIGHT=(HEIGHT/rows);
-        HEIGHT=(HEIGHT*rows)+borderSize;
 
-        this.resize(WIDTH, HEIGHT);
-        this.addKeyListener(this);
-        img=createImage(WIDTH,HEIGHT);
-        gfx=img.getGraphics();
-        Font currentFont = gfx.getFont();
-        Font newFont = currentFont.deriveFont(18f);
-        gfx.setFont(newFont);
-        events=new ArrayList[end-start+1];
-        noSchool =new boolean[end-start+1];
-        colors=new Color[end-start+1];
-        setHasSchool();
-        setColors();
-        addPowerMondays();
-        addEvents();
-        addGSSE();
-        thread=new Thread(this);
-        thread.start();
-    }
 
     public void setColors(){
         for (int i=start; i<=end; i++){
@@ -353,11 +364,6 @@ public class Calendar extends Applet implements Runnable, KeyListener {
                         c= Integer.parseInt(String.valueOf(ctext));
                     } catch (NumberFormatException q) {}
 
-                    switch (c){
-
-                        default:
-                            break;
-                    }
                     //Graphics2D g2 = (Graphics2D) gfx;
                     //g2.drawString(text+"<p color=\"#00FF00\">NOTICE</p>", x, y);
                     if (c<catcolors.length){
@@ -365,7 +371,14 @@ public class Calendar extends Applet implements Runnable, KeyListener {
                     }else {
                         gfx.setColor(catcolors[0]);
                     }
-                    gfx.drawString(text, x1, y1+((e+1)*(fontsize+5)));
+
+                    if (text.length()>16){
+                        gfx.setFont(gfx.getFont().deriveFont(defaultFont*.9f));
+                        gfx.drawString(text, x1, y1 + ((e + 1) * (fontsize + 5)));
+                        gfx.setFont(gfx.getFont().deriveFont(defaultFont));
+                    }else {
+                        gfx.drawString(text, x1, y1 + ((e + 1) * (fontsize + 5)));
+                    }
 
                 }
             }
