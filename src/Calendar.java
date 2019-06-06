@@ -12,8 +12,8 @@ import java.util.ArrayList;
 public class Calendar extends Applet implements Runnable, KeyListener {
 
     float pw=8f, ph=11f;
-    private int WIDTH=1620, HEIGHT=1620;
-    int defaultFont=24;
+    private int WIDTH=1480, HEIGHT=1480;
+    int defaultFont=20;
     private Thread thread;
     Graphics gfx;
     Image img;
@@ -25,7 +25,7 @@ public class Calendar extends Applet implements Runnable, KeyListener {
     int[] daysPerMonth=new int[]{ 31  , 28  , 31  , 30  , 31  , 30   , 31   , 31  , 30   , 31  , 30  , 31  };
     String[] months=new String[]{"Jan","Feb","Mar","Apr","May","June","July","Aug","Sept","Oct","Nov","Dec"};
     int adj=2;
-    int start=getDayofYear(19,5);
+    int start=getDayofYear(2,6);
     int end=getDayofYear(17,8);
     int rows=(int)(Math.ceil((end-start)/7.0));
     ArrayList<String>[] events;
@@ -66,12 +66,6 @@ public class Calendar extends Applet implements Runnable, KeyListener {
     //           ADD EVENTS TO THE CALENDAR
     public void addEvents(){
         addWeeklyEvents();
-        addEvent("Practicum Exam",5,20, 1);
-        addEvent("AV Exam",5,21, 1);
-        addEvent("Last Day of School",5,23, 1);
-        addEvent("SAT Physics",6,1, 1);
-        addEvent("SAT Math",6,1, 1);
-        addEvent("First Day of School",8,9, 1);
 
 
     }
@@ -105,8 +99,11 @@ public class Calendar extends Applet implements Runnable, KeyListener {
         addEvent("Evening Activity",6,3, 1);
         addEvent("Ice Cream Social",6,5, 1);
         addEvent("Pool Party",6,9, 1);
+        addEvent("Research Paper Due",6,11, 1);
         addEvent("'The Ocoee Dams'",6,13, 1);
+        addEvent("STEM in Society Ends",6,14, 1);
         addEvent("River Trip",6,15, 1);
+        addEvent("Start of STEM Skills",6,17, 1);
         addEvent("Prom",6,21, 1);
         addEvent("Talent Show",6,23, 1);
         addEvent("Classes End",6,28, 1);
@@ -122,7 +119,7 @@ public class Calendar extends Applet implements Runnable, KeyListener {
         int start=getDayofYear(24,5);
         int end=getDayofYear(26,5);
         for (int i=start; i<=end; i++){
-            if (i>this.end){continue;}
+            if (i>this.end||i-this.start<0){continue;}
             colors[i-this.start]=c;
         }
         addEvent("Fly to NYC",5,24, 1);
@@ -156,12 +153,12 @@ public class Calendar extends Applet implements Runnable, KeyListener {
         }
         int firstDayBack=getDayofYear(9,8);
         for (int i=lastday; i<firstDayBack; i++){
-            if (i>end){continue;}
+            if (i>end||i-start<0){continue;}
             noSchool[i-start]=true;
         }
         //noSchool[getDayofYear(19,4)-start]=true;
-        noSchool[getDayofYear(22,5)-start]=true;
-        noSchool[getDayofYear(23,5)-start]=true;
+//        noSchool[getDayofYear(22,5)-start]=true;
+  //      noSchool[getDayofYear(23,5)-start]=true;
     }
 
     private void addPowerMondays(){
@@ -277,7 +274,7 @@ public class Calendar extends Applet implements Runnable, KeyListener {
     public void keyTyped(KeyEvent e) { }
 
     public void exportImg(){
-        String export="B:\\Libraries\\Programming\\Calender\\Calendar-Generator\\calendarImgs\\t.png";
+        String export="C:\\Users\\Mike\\Documents\\GitHub\\Calendar-Generator\\calendarImgs\\t.png";
         RenderedImage rendImage = toBufferedImage(img);
         File file = new File(export);
         try {
@@ -302,6 +299,7 @@ public class Calendar extends Applet implements Runnable, KeyListener {
 
     public void paintGrid(Graphics gfx){
         gfx.setColor(gridColor);
+        gfx.setFont(gfx.getFont().deriveFont(defaultFont*1f));
 
         int fontsize=gfx.getFont().getSize();
 
