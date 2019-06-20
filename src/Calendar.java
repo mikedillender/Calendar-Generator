@@ -25,7 +25,7 @@ public class Calendar extends Applet implements Runnable, KeyListener {
     int[] daysPerMonth=new int[]{ 31  , 28  , 31  , 30  , 31  , 30   , 31   , 31  , 30   , 31  , 30  , 31  };
     String[] months=new String[]{"Jan","Feb","Mar","Apr","May","June","July","Aug","Sept","Oct","Nov","Dec"};
     int adj=2;
-    int start=getDayofYear(2,6);
+    int start=getDayofYear(26,5);
     int end=getDayofYear(17,8);
     int rows=(int)(Math.ceil((end-start)/7.0));
     ArrayList<String>[] events;
@@ -66,7 +66,11 @@ public class Calendar extends Applet implements Runnable, KeyListener {
     //           ADD EVENTS TO THE CALENDAR
     public void addEvents(){
         addWeeklyEvents();
-
+        addEvent("Subject Tests", getDayofYear(1,6),1);
+        addEvent("Yearbook Pic Due", getDayofYear(23,6),1);
+        addEvent("STEM Skills Due", getDayofYear(24,6),1);
+        addEvent("Neodymium Due", getDayofYear(26,6),1);
+        addEvent("SAT Scores Released", getDayofYear(10,7), 1);
 
     }
 
