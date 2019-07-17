@@ -57,8 +57,6 @@ public class Calendar extends Applet implements Runnable, KeyListener {
         setColors();
         addPowerMondays();
         addEvents();
-        addGSSE();
-        addVacations();
         thread=new Thread(this);
         thread.start();
     }
@@ -66,12 +64,16 @@ public class Calendar extends Applet implements Runnable, KeyListener {
     //           ADD EVENTS TO THE CALENDAR
     public void addEvents(){
         addWeeklyEvents();
-        addEvent("Subject Tests", getDayofYear(1,6),1);
-        addEvent("Yearbook Pic Due", getDayofYear(23,6),1);
-        addEvent("STEM Skills Due", getDayofYear(24,6),1);
-        addEvent("Neodymium Due", getDayofYear(26,6),1);
-        addEvent("SAT Scores Released", getDayofYear(10,7), 1);
-
+        addEvent("Senior Kickoff", getDayofYear(5,8), 1);
+        addEvent("First Day of School", getDayofYear(9,8), 1);
+        addEvent("Homecoming", getDayofYear(28,9), 1);
+        addEvent("SAT", getDayofYear(24,8), 1);
+        addEvent("SAT", getDayofYear(5,10), 1);
+        addEvent("Senior ACT", getDayofYear(1,10), 1);
+        addEvent("End Q1", getDayofYear(9,10), 1);
+        addEvent("Career Shadow Day", getDayofYear(16,10), 1);
+        addEvent("MAT Test", getDayofYear(30,10), 1);
+        addEvent("MIT App Due", getDayofYear(1,11), 1);
     }
 
 
@@ -86,60 +88,6 @@ public class Calendar extends Applet implements Runnable, KeyListener {
                 }
             }
         }
-    }
-
-    private void addGSSE(){
-        int m=6;
-        int sd=2;
-        int ed=29;
-        Color c=new Color(255, 222, 204);
-        int start=getDayofYear(sd,m);
-        int end=getDayofYear(ed,m);
-        for (int i=start; i<=end; i++){
-            if (i>this.end||i-this.start<0){continue;}
-            colors[i-this.start]=c;
-        }
-        addEvent("GSSE Starts",6,2, 1);
-        addEvent("Evening Activity",6,3, 1);
-        addEvent("Ice Cream Social",6,5, 1);
-        addEvent("Pool Party",6,9, 1);
-        addEvent("Research Paper Due",6,11, 1);
-        addEvent("'The Ocoee Dams'",6,13, 1);
-        addEvent("STEM in Society Ends",6,14, 1);
-        addEvent("River Trip",6,15, 1);
-        addEvent("Start of STEM Skills",6,17, 1);
-        addEvent("Prom",6,21, 1);
-        addEvent("Talent Show",6,23, 1);
-        addEvent("Classes End",6,28, 1);
-        addEvent("GSSE Ends",6,29, 1);
-        addEvent("Independence Day",7,4, 1);
-        addEvent("AP Scores Released",7,5, 1);
-        addEvent("Freshman Orientation",7,31, 1);
-        addEvent("Freshman Orientation",8,1, 1);
-
-    }
-    private void addVacations(){
-        Color c=new Color(250, 229, 255);
-        int start=getDayofYear(24,5);
-        int end=getDayofYear(26,5);
-        for (int i=start; i<=end; i++){
-            if (i>this.end||i-this.start<0){continue;}
-            colors[i-this.start]=c;
-        }
-        addEvent("Fly to NYC",5,24, 1);
-        addEvent("Return from NYC",5,26, 1);
-
-        c=new Color(201, 255, 206);
-        start=getDayofYear(1,7);
-        end=getDayofYear(7,7);
-        for (int i=start; i<=end; i++){
-            if (i>this.end||i-this.start<0){continue;}
-            colors[i-this.start]=c;
-        }
-        addEvent("Fly to Yosemite",7,1, 1);
-        addEvent("Leave Yosemite",7,7, 1);
-
-
     }
 
     private void setHasSchool(){
@@ -161,6 +109,8 @@ public class Calendar extends Applet implements Runnable, KeyListener {
             noSchool[i-start]=true;
         }
         noSchool[getDayofYear(2,9)-start]=true;
+        noSchool[getDayofYear(11,10)-start]=true;
+        noSchool[getDayofYear(10,10)-start]=true;
         //noSchool[getDayofYear(19,4)-start]=true;
 //        noSchool[getDayofYear(22,5)-start]=true;
   //      noSchool[getDayofYear(23,5)-start]=true;
