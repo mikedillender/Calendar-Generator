@@ -67,7 +67,7 @@ public class Calendar extends Applet implements Runnable, KeyListener {
         addEvent("Senior Kickoff", getDayofYear(5,8), 1);
         addEvent("First Day of School", getDayofYear(9,8), 1);
         addEvent("Ask About Discipline", getDayofYear(12,8), 1);
-        addEvent("Submit Sulcer Rec", getDayofYear(15,8), 1);
+        addEvent("Get Sulcer Rec", getDayofYear(15,8), 1);
         addEvent("Take SAT", getDayofYear(24,8), 1);
         addEvent("Oxford Essay Due", getDayofYear(15,9), 1);
         addEvent("Common Essay Due", getDayofYear(15,9), 1);
