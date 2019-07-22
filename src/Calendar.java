@@ -25,8 +25,8 @@ public class Calendar extends Applet implements Runnable, KeyListener {
     int[] daysPerMonth=new int[]{ 31  , 28  , 31  , 30  , 31  , 30   , 31   , 31  , 30   , 31  , 30  , 31  };
     String[] months=new String[]{"Jan","Feb","Mar","Apr","May","June","July","Aug","Sept","Oct","Nov","Dec"};
     int adj=2;
-    int start=getDayofYear(14,7);
-    int end=getDayofYear(3,11);
+    int start=getDayofYear(21,7);
+    int end=getDayofYear(9,11);
     int rows=(int)(Math.ceil((end-start)/7.0));
     ArrayList<String>[] events;
     boolean vert=false;
@@ -66,14 +66,23 @@ public class Calendar extends Applet implements Runnable, KeyListener {
         addWeeklyEvents();
         addEvent("Senior Kickoff", getDayofYear(5,8), 1);
         addEvent("First Day of School", getDayofYear(9,8), 1);
+        addEvent("Ask About Discipline", getDayofYear(12,8), 1);
+        addEvent("Submit Sulcer Rec", getDayofYear(15,8), 1);
+        addEvent("Take SAT", getDayofYear(24,8), 1);
+        addEvent("Oxford Essay", getDayofYear(15,9), 1);
+        addEvent("Common Essay", getDayofYear(15,9), 1);
+        addEvent("Complete Common App", getDayofYear(15,9), 1);
         addEvent("Homecoming", getDayofYear(28,9), 1);
-        addEvent("SAT", getDayofYear(24,8), 1);
         addEvent("SAT", getDayofYear(5,10), 1);
         addEvent("Senior ACT", getDayofYear(1,10), 1);
         addEvent("End Q1", getDayofYear(9,10), 1);
+        addEvent("GA Tech App Due", getDayofYear(15,10), 1);
         addEvent("Career Shadow Day", getDayofYear(16,10), 1);
         addEvent("MAT Test", getDayofYear(30,10), 1);
         addEvent("MIT App Due", getDayofYear(1,11), 1);
+        addEvent("Princeton App Due", getDayofYear(1,11), 1);
+        addEvent("Michigan App Due", getDayofYear(1,11), 1);
+        addEvent("Submit Art Portfolio", getDayofYear(6,11), 1);
     }
 
 
