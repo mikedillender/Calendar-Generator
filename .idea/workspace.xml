@@ -1,9 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="4770a16a-6c54-4d19-ad3f-f56bc7ae7ac3" name="Default" comment="">
+    <list default="true" id="4770a16a-6c54-4d19-ad3f-f56bc7ae7ac3" name="Default" comment="updated">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/calendarImgs/t.png" afterPath="$PROJECT_DIR$/calendarImgs/t.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Calendar Generator/Calendar.class" afterPath="$PROJECT_DIR$/out/production/Calendar Generator/Calendar.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Calendar.java" afterPath="$PROJECT_DIR$/src/Calendar.java" />
     </list>
@@ -42,8 +41,8 @@
       <file leaf-file-name="Calendar.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/Calendar.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="382">
-              <caret line="78" column="33" lean-forward="false" selection-start-line="78" selection-start-column="33" selection-end-line="78" selection-end-column="33" />
+            <state relative-caret-position="263">
+              <caret line="71" column="34" lean-forward="false" selection-start-line="71" selection-start-column="34" selection-end-line="71" selection-end-column="34" />
               <folding />
             </state>
           </provider>
@@ -328,7 +327,14 @@
       <option name="project" value="LOCAL" />
       <updated>1563333579852</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="updated">
+      <created>1563814165940</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1563814165940</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -601,8 +607,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Calendar.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="382">
-          <caret line="78" column="33" lean-forward="false" selection-start-line="78" selection-start-column="33" selection-end-line="78" selection-end-column="33" />
+        <state relative-caret-position="263">
+          <caret line="71" column="34" lean-forward="false" selection-start-line="71" selection-start-column="34" selection-end-line="71" selection-end-column="34" />
           <folding />
         </state>
       </provider>
