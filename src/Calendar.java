@@ -21,12 +21,12 @@ public class Calendar extends Applet implements Runnable, KeyListener {
     Color noSchoolCol=new Color(217, 219, 255);
     Color gridColor=new Color(0,0,0);
     int borderSize=40;
-    String[] days=new String[]{"Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday",};
+    String[] days=new String[]{"Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"};
     int[] daysPerMonth=new int[]{ 31  , 28  , 31  , 30  , 31  , 30   , 31   , 31  , 30   , 31  , 30  , 31  };
     String[] months=new String[]{"Jan","Feb","Mar","Apr","May","June","July","Aug","Sept","Oct","Nov","Dec"};
-    int adj=2;
-    int start=getDayofYear(21,7);
-    int end=getDayofYear(9,11);
+    int adj=1;
+    int start=getDayofYear(29,7);
+    int end=getDayofYear(17,11);
     int rows=(int)(Math.ceil((end-start)/7.0));
     ArrayList<String>[] events;
     boolean vert=false;
@@ -66,8 +66,6 @@ public class Calendar extends Applet implements Runnable, KeyListener {
         addWeeklyEvents();
         addEvent("Senior Kickoff", getDayofYear(5,8), 1);
         addEvent("First Day of School", getDayofYear(9,8), 1);
-        addEvent("Ask About Discipline", getDayofYear(12,8), 1);
-        addEvent("Get Sulcer Rec", getDayofYear(15,8), 1);
         addEvent("Take SAT", getDayofYear(24,8), 1);
         addEvent("Oxford Essay Due", getDayofYear(15,9), 1);
         addEvent("Common Essay Due", getDayofYear(15,9), 1);
@@ -103,7 +101,7 @@ public class Calendar extends Applet implements Runnable, KeyListener {
         int lastday=getDayofYear(24,5);
         for (int i=start; i<=end; i++){
             int day=getDayOfWeek(i);
-            if (day==0||day==6){
+            if (day==5||day==6){
                 noSchool[i-start]=true;
             }
         }
@@ -129,7 +127,7 @@ public class Calendar extends Applet implements Runnable, KeyListener {
         int lastMonday=getDayofYear(8,4);
         for (int i=getDayofYear(19,8); i<=end; i++){
             int day=getDayOfWeek(i);
-            if (day==1&&!noSchool[i-start]&&i!=getDayofYear(7,10)){
+            if (day==0&&!noSchool[i-start]&&i!=getDayofYear(7,10)){
                 addEvent("Power Monday", i, 2);
             }
         }
@@ -251,7 +249,7 @@ public class Calendar extends Applet implements Runnable, KeyListener {
     }
 
     private int getDayOfWeek(int day){
-        int adj=(2+start)%7-1;
+        int adj=(this.adj+start)%7-1;
         if (adj>7){
             adj-=7;
         }else if (adj<0){
@@ -267,7 +265,7 @@ public class Calendar extends Applet implements Runnable, KeyListener {
 
         int fontsize=gfx.getFont().getSize();
 
-        int adj=(2+start)%7-1;
+        int adj=(this.adj+start)%7-1;
         if (adj>7){
             adj-=7;
         }else if (adj<0){
