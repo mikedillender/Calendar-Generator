@@ -25,7 +25,7 @@ public class Calendar extends Applet implements Runnable, KeyListener {
     int[] daysPerMonth=new int[]{ 31  , 28  , 31  , 30  , 31  , 30   , 31   , 31  , 30   , 31  , 30  , 31  };
     String[] months=new String[]{"Jan","Feb","Mar","Apr","May","June","July","Aug","Sept","Oct","Nov","Dec"};
     int adj=1;
-    int start=getDayofYear(29,7);
+    int start=getDayofYear(12,8);
     int end=getDayofYear(17,11);
     int rows=(int)(Math.ceil((end-start)/7.0));
     ArrayList<String>[] events;
@@ -66,7 +66,13 @@ public class Calendar extends Applet implements Runnable, KeyListener {
         addWeeklyEvents();
         addEvent("Senior Kickoff", getDayofYear(5,8), 1);
         addEvent("First Day of School", getDayofYear(9,8), 1);
-        addEvent("Take SAT", getDayofYear(24,8), 1);
+        addEvent("APAH Form Due", getDayofYear(16,8), 1);
+        addEvent("YouScience Printed", getDayofYear(16,8), 1);
+        addEvent("College Essay Draft", getDayofYear(16,8), 1);
+        addEvent("OED Word Selection", getDayofYear(16,8), 1);
+        addEvent("College Essay", getDayofYear(19,8), 1);
+        addEvent("NPR/NYT/Q", getDayofYear(22,8), 1);
+        addEvent("OED word report", getDayofYear(29,8), 1);
         addEvent("Oxford Essay Due", getDayofYear(15,9), 1);
         addEvent("Common Essay Due", getDayofYear(15,9), 1);
         addEvent("Complete Common App", getDayofYear(15,9), 1);
@@ -236,7 +242,9 @@ public class Calendar extends Applet implements Runnable, KeyListener {
     public void keyTyped(KeyEvent e) { }
 
     public void exportImg(){
-        String export="B:\\Libraries\\Programming\\Calender\\Calendar-Generator\\calendarImgs\\t.png";
+        //String export="B:\\Libraries\\Programming\\Calender\\Calendar-Generator\\calendarImgs\\t.png";
+        String export="C:\\Users\\Mike\\Documents\\GitHub\\Calendar-Generator\\calendarImgs\\t.png";
+
         RenderedImage rendImage = toBufferedImage(img);
         File file = new File(export);
         try {
