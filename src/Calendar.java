@@ -105,6 +105,7 @@ public class Calendar extends Applet implements Runnable, KeyListener {
         addEvent("Princeton App Due", getDayofYear(1,11), 1);
         addEvent("Michigan App Due", getDayofYear(1,11), 1);
         addEvent("Submit Art Portfolio", getDayofYear(6,11), 1);
+        addEvent("Stanford App Due", getDayofYear(1,12), 1);
     }
 
 
