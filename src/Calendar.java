@@ -7,7 +7,12 @@ import java.awt.image.BufferedImage;
 import java.awt.image.RenderedImage;
 import java.io.File;
 import java.io.IOException;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
+import java.util.Date;
 
 public class Calendar extends Applet implements Runnable, KeyListener {
 
@@ -26,8 +31,9 @@ public class Calendar extends Applet implements Runnable, KeyListener {
     String[] months=new String[]{"Jan","Feb","Mar","Apr","May","June","July","Aug","Sept","Oct","Nov","Dec"};
     int adj=1;
     int start=getDayofYear(12,8);
-    int end=getDayofYear(17,11);
+    int end=getDayofYear(1,12);
     int rows=(int)(Math.ceil((end-start)/7.0));
+    int currentDay=start;
     ArrayList<String>[] events;
     boolean vert=false;
     boolean[] noSchool;
@@ -57,16 +63,28 @@ public class Calendar extends Applet implements Runnable, KeyListener {
         setColors();
         addPowerMondays();
         addEvents();
+        setCurrentDay();
         thread=new Thread(this);
         thread.start();
     }
 
+    public void setCurrentDay(){
+        DateFormat dateFormat = new SimpleDateFormat("MM/dd");
+        Date date = new Date();
+        DateFormat sdf = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
+        DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy/MM/dd HH:mm:ss");
+        LocalDate localDate = LocalDate.now();
+        int month= Integer.parseInt( DateTimeFormatter.ofPattern("MM").format(localDate));
+        int day=Integer.parseInt(DateTimeFormatter.ofPattern("dd").format(localDate));
+        System.out.println(day+", "+month);
+        currentDay=getDayofYear(day,month);
+
+    }
     //           ADD EVENTS TO THE CALENDAR
     public void addEvents(){
         addWeeklyEvents();
         addEvent("Senior Kickoff", getDayofYear(5,8), 1);
         addEvent("First Day of School", getDayofYear(9,8), 1);
-        addEvent("APAH Form Due", getDayofYear(16,8), 1);
         addEvent("YouScience Printed", getDayofYear(16,8), 1);
         addEvent("College Essay Draft", getDayofYear(16,8), 1);
         addEvent("OED Word Selection", getDayofYear(16,8), 1);
@@ -312,6 +330,22 @@ public class Calendar extends Applet implements Runnable, KeyListener {
         for (int r=1; r<rows; r++){
             int y=borderSize+((HEIGHT-borderSize)/rows)*r;
             gfx.fillRect(0, y, WIDTH, 3);
+        }
+
+        gfx.setColor(Color.BLACK);
+        for (int i=start; i<=end; i++){
+            if (i<currentDay){
+
+                int x = (i - start + adj) % 7;
+                int y = ((i + adj - start) / 7);
+                int x1 = WIDTH / 7 * (x);
+                int y1 = borderSize + ((HEIGHT - borderSize) / rows) * y;
+                int x2=x1+(WIDTH/7);
+                int y2=y1+((HEIGHT - borderSize) / rows);
+                gfx.drawLine(x1,y1,x2,y2);
+                gfx.drawLine(x2,y1,x1,y2);
+                //gfx.fillRect(x1, y1, WIDTH / 7, (HEIGHT - borderSize) / rows);
+            }
         }
 
 
