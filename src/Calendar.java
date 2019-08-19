@@ -94,7 +94,7 @@ public class Calendar extends Applet implements Runnable, KeyListener {
         addEvent("ODrive Should Ship?", getDayofYear(26,8), 1);
         addEvent("NPR/NYT/Q", getDayofYear(22,8), 1);
         addEvent("OED word report", getDayofYear(29,8), 1);
-        addEvent("Oxford Essay Due", getDayofYear(15,9), 3);
+        addEvent("Complete Oxford Essay", getDayofYear(15,9), 1);
         addEvent("Common Essay Due", getDayofYear(15,9), 1);
         addEvent("Complete Common App", getDayofYear(15,9), 1);
         addEvent("Homecoming", getDayofYear(28,9), 1);
@@ -102,6 +102,7 @@ public class Calendar extends Applet implements Runnable, KeyListener {
         addEvent("Senior ACT", getDayofYear(1,10), 1);
         addEvent("End Q1", getDayofYear(9,10), 1);
         addEvent("GA Tech App Due", getDayofYear(15,10), 3);
+        addEvent("Oxford App Due", getDayofYear(15,10), 3);
         addEvent("Career Shadow Day", getDayofYear(16,10), 1);
         addEvent("Baker 'Mid October'", getDayofYear(15,10), 1);
         addEvent("MAT Test", getDayofYear(30,10), 3);
