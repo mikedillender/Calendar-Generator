@@ -41,7 +41,8 @@ public class Calendar extends Applet implements Runnable, KeyListener {
     Color[] catcolors= new Color[]{
             new Color(0,0,0),
             new Color(82, 92, 170),
-            new Color(138, 53, 49)
+            new Color(138, 53, 49),
+            new Color(91, 146, 86)
     };
 
     public void init(){//STARTS THE PROGRAM
@@ -89,23 +90,26 @@ public class Calendar extends Applet implements Runnable, KeyListener {
         addEvent("College Essay Draft", getDayofYear(16,8), 1);
         addEvent("OED Word Selection", getDayofYear(16,8), 1);
         addEvent("College Essay", getDayofYear(19,8), 1);
+        addEvent("ODrive Restock", getDayofYear(21,8), 1);
+        addEvent("ODrive Should Ship?", getDayofYear(26,8), 1);
         addEvent("NPR/NYT/Q", getDayofYear(22,8), 1);
         addEvent("OED word report", getDayofYear(29,8), 1);
-        addEvent("Oxford Essay Due", getDayofYear(15,9), 1);
+        addEvent("Oxford Essay Due", getDayofYear(15,9), 3);
         addEvent("Common Essay Due", getDayofYear(15,9), 1);
         addEvent("Complete Common App", getDayofYear(15,9), 1);
         addEvent("Homecoming", getDayofYear(28,9), 1);
         addEvent("SAT", getDayofYear(5,10), 1);
         addEvent("Senior ACT", getDayofYear(1,10), 1);
         addEvent("End Q1", getDayofYear(9,10), 1);
-        addEvent("GA Tech App Due", getDayofYear(15,10), 1);
+        addEvent("GA Tech App Due", getDayofYear(15,10), 3);
         addEvent("Career Shadow Day", getDayofYear(16,10), 1);
-        addEvent("MAT Test", getDayofYear(30,10), 1);
-        addEvent("MIT App Due", getDayofYear(1,11), 1);
-        addEvent("Princeton App Due", getDayofYear(1,11), 1);
-        addEvent("Michigan App Due", getDayofYear(1,11), 1);
+        addEvent("Baker 'Mid October'", getDayofYear(15,10), 1);
+        addEvent("MAT Test", getDayofYear(30,10), 3);
+        addEvent("MIT App Due", getDayofYear(1,11), 3);
+        addEvent("Princeton App Due", getDayofYear(1,11), 3);
+        addEvent("Michigan App Due", getDayofYear(1,11), 3);
         addEvent("Submit Art Portfolio", getDayofYear(6,11), 1);
-        addEvent("Stanford App Due", getDayofYear(1,12), 1);
+        addEvent("Stanford App Due", getDayofYear(1,12), 3);
     }
 
 
@@ -262,7 +266,8 @@ public class Calendar extends Applet implements Runnable, KeyListener {
 
     public void exportImg(){
         //String export="B:\\Libraries\\Programming\\Calender\\Calendar-Generator\\calendarImgs\\t.png";
-        String export="C:\\Users\\Mike\\Documents\\GitHub\\Calendar-Generator\\calendarImgs\\t.png";
+        //String export="C:\\Users\\Mike\\Documents\\GitHub\\Calendar-Generator\\calendarImgs\\t.png";
+        String export="C:\\Users\\dillemic000\\Documents\\GitHub\\Calendar-Generator\\t.png";
 
         RenderedImage rendImage = toBufferedImage(img);
         File file = new File(export);
