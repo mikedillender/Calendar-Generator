@@ -30,7 +30,7 @@ public class Calendar extends Applet implements Runnable, KeyListener {
     int[] daysPerMonth=new int[]{ 31  , 28  , 31  , 30  , 31  , 30   , 31   , 31  , 30   , 31  , 30  , 31  };
     String[] months=new String[]{"Jan","Feb","Mar","Apr","May","June","July","Aug","Sept","Oct","Nov","Dec"};
     int adj=1;
-    int start=getDayofYear(30,9);
+    int start=getDayofYear(14,10);
     int end=getDayofYear(5,13);
     int rows=(int)(Math.ceil((end-start)/7.0));
     int currentDay=start;
@@ -146,8 +146,8 @@ public class Calendar extends Applet implements Runnable, KeyListener {
             noSchool[i-start]=true;
         }
         //noSchool[getDayofYear(2,9)-start]=true;
-        noSchool[getDayofYear(11,10)-start]=true;
-        noSchool[getDayofYear(10,10)-start]=true;
+        //noSchool[getDayofYear(11,10)-start]=true;
+        //noSchool[getDayofYear(10,10)-start]=true;
         //noSchool[getDayofYear(19,4)-start]=true;
 //        noSchool[getDayofYear(22,5)-start]=true;
   //      noSchool[getDayofYear(23,5)-start]=true;
