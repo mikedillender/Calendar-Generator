@@ -84,27 +84,15 @@ public class Calendar extends Applet implements Runnable, KeyListener {
     //           ADD EVENTS TO THE CALENDAR
     public void addEvents(){
         addWeeklyEvents();
-        addEvent("Senior Kickoff", getDayofYear(5,8), 1);
-        addEvent("First Day of School", getDayofYear(9,8), 1);
-        addEvent("YouScience Printed", getDayofYear(16,8), 1);
-        addEvent("College Essay Draft", getDayofYear(16,8), 1);
-        addEvent("OED Word Selection", getDayofYear(16,8), 1);
-        addEvent("College Essay", getDayofYear(19,8), 1);
-        addEvent("ODrive Restock", getDayofYear(21,8), 1);
-        addEvent("ODrive Should Ship?", getDayofYear(26,8), 1);
-        addEvent("NPR/NYT/Q", getDayofYear(22,8), 1);
-        addEvent("OED word report", getDayofYear(29,8), 1);
-        addEvent("Complete Oxford Essay", getDayofYear(15,9), 1);
-        addEvent("Common Essay Due", getDayofYear(15,9), 1);
-        addEvent("Complete Common App", getDayofYear(15,9), 1);
-        addEvent("Homecoming", getDayofYear(28,9), 1);
-        addEvent("SAT", getDayofYear(5,10), 1);
-        addEvent("Senior ACT", getDayofYear(1,10), 1);
+
         addEvent("End Q1", getDayofYear(9,10), 1);
         addEvent("GA Tech App Due", getDayofYear(14,10), 3);
         addEvent("Oxford App Due", getDayofYear(14,10), 3);
         addEvent("Career Shadow Day", getDayofYear(16,10), 1);
         addEvent("Baker 'Mid October'", getDayofYear(15,10), 1);
+        addEvent("Baker Meeting", getDayofYear(22,10), 1);
+        addEvent("Mastering", getDayofYear(22,10), 1);
+        addEvent("Mastering", getDayofYear(25,10), 1);
         addEvent("MAT Test", getDayofYear(30,10), 3);
         addEvent("MIT App Due", getDayofYear(1,11), 3);
         addEvent("Princeton App Due", getDayofYear(1,11), 3);
