@@ -92,6 +92,8 @@ public class Calendar extends Applet implements Runnable, KeyListener {
         addEvent("Baker 'Mid October'", getDayofYear(15,10), 1);
         addEvent("Baker Meeting", getDayofYear(22,10), 1);
         addEvent("Mastering", getDayofYear(22,10), 1);
+        addEvent("SciOly Tryouts", getDayofYear(23,10), 1);
+        addEvent("Gun Control Essay", getDayofYear(22,10), 1);
         addEvent("Mastering", getDayofYear(25,10), 1);
         addEvent("MAT Test", getDayofYear(30,10), 3);
         addEvent("MIT App Due", getDayofYear(1,11), 3);
@@ -104,12 +106,14 @@ public class Calendar extends Applet implements Runnable, KeyListener {
 
 
     private void addWeeklyEvents(){
-        int lastSciOly=getDayofYear(1,5);
+        int lastSciOly=getDayofYear(8,12);
         for (int i=start; i<=end; i++){
             int day=getDayOfWeek(i);
             if (!noSchool[i-start]) {
-                if (day == 3&& i<lastSciOly) {
+                if (day == 2&& i<=lastSciOly) {
                     addEvent("Science Olympiad", i, 2);
+                }if (day == 4&& i<=lastSciOly) {
+                    addEvent("Science Bowl", i, 2);
                 }
             }
         }
