@@ -30,8 +30,8 @@ public class Calendar extends Applet implements Runnable, KeyListener {
     int[] daysPerMonth=new int[]{ 31  , 28  , 31  , 30  , 31  , 30   , 31   , 31  , 30   , 31  , 30  , 31  };
     String[] months=new String[]{"Jan","Feb","Mar","Apr","May","June","July","Aug","Sept","Oct","Nov","Dec"};
     int adj=1;
-    int start=getDayofYear(28,10);
-    int end=getDayofYear(26,13);
+    int start=getDayofYear(25,11);
+    int end=getDayofYear(9,14);
     int rows=(int)(Math.ceil((end-start)/7.0));
     int currentDay=start;
     ArrayList<String>[] events;
@@ -84,16 +84,13 @@ public class Calendar extends Applet implements Runnable, KeyListener {
     //           ADD EVENTS TO THE CALENDAR
     public void addEvents(){
         addWeeklyEvents();
-        addEvent("MAT Test", getDayofYear(30,10), 3);
-        addEvent("MIT App Due", getDayofYear(1,11), 3);
-        addEvent("Princeton App Due", getDayofYear(1,11), 3);
-        addEvent("Michigan App Due", getDayofYear(1,11), 3);
-        addEvent("Submit Art Portfolio", getDayofYear(6,11), 1);
-        addEvent("Shortlisted Mail Start", getDayofYear(15,11), 1);
-        addEvent("Shortlisted Mail End", getDayofYear(30,11), 1);
-        addEvent("Stanford App Due", getDayofYear(1,12), 3);
         addEvent("Princeton Mail Start", getDayofYear(10,12), 1);
+        addEvent("Half Day", getDayofYear(19,12), 1);
         addEvent("Princeton Mail End", getDayofYear(20,12), 1);
+        addEvent("MIT App Due", getDayofYear(1,13), 1);
+        addEvent("Cornell App Due", getDayofYear(2,13), 1);
+        addEvent("Stanford App Due", getDayofYear(3,13), 1);
+        addEvent("Carnegie Melon App Due", getDayofYear(15,13), 1);
     }
 
 
@@ -118,13 +115,19 @@ public class Calendar extends Applet implements Runnable, KeyListener {
                 noSchool[i-start]=true;
             }
         }
-        int lastday1=getDayofYear(23,12);
+        int lastday1=getDayofYear(20,12);
         int firstDayBack=getDayofYear(5,13);
         for (int i=lastday1; i<firstDayBack; i++){
             if (i>end||i-start<0){continue;}
             noSchool[i-start]=true;
         }
-        //noSchool[getDayofYear(2,9)-start]=true;
+        lastday1=getDayofYear(24,11);
+        firstDayBack=getDayofYear(2,12);
+        for (int i=lastday1; i<firstDayBack; i++){
+            if (i>end||i-start<0){continue;}
+            noSchool[i-start]=true;
+        }
+        noSchool[getDayofYear(20,13)-start]=true;
         //noSchool[getDayofYear(11,10)-start]=true;
         //noSchool[getDayofYear(10,10)-start]=true;
         //noSchool[getDayofYear(19,4)-start]=true;
@@ -235,7 +238,7 @@ public class Calendar extends Applet implements Runnable, KeyListener {
     public int getDayofYear(int dayOfMonth, int month){
         int d=0;
         for (int i=0; i<month-1; i++) {
-            if (i > 12) {
+            if (i >= 12) {
                 d += daysPerMonth[i-12];
             } else {
                 d += daysPerMonth[i];
@@ -253,8 +256,8 @@ public class Calendar extends Applet implements Runnable, KeyListener {
     public void keyTyped(KeyEvent e) { }
 
     public void exportImg(){
-        //String export="B:\\Libraries\\Programming\\Calender\\Calendar-Generator\\calendarImgs\\t.png";
-        String export="C:\\Users\\Mike\\Documents\\GitHub\\Calendar-Generator\\calendarImgs\\t.png";
+        String export="B:\\Libraries\\Programming\\Calender\\Calendar-Generator\\calendarImgs\\t.png";
+        //String export="C:\\Users\\Mike\\Documents\\GitHub\\Calendar-Generator\\calendarImgs\\t.png";
         //String export="C:\\Users\\dillemic000\\Documents\\GitHub\\Calendar-Generator\\t.png";
 
         RenderedImage rendImage = toBufferedImage(img);
