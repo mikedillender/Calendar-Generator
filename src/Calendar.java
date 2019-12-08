@@ -84,11 +84,10 @@ public class Calendar extends Applet implements Runnable, KeyListener {
     //           ADD EVENTS TO THE CALENDAR
     public void addEvents(){
         addWeeklyEvents();
-        addEvent("Princeton Mail Start", getDayofYear(10,12), 1);
+        addEvent("Princeton Decisions", getDayofYear(12,12), 1);
         addEvent("Half Day", getDayofYear(19,12), 1);
         addEvent("Sarah Arrives", getDayofYear(16,12), 1);
         addEvent("Sarah Leaves", getDayofYear(6,13), 1);
-        addEvent("Princeton Mail End", getDayofYear(20,12), 1);
         addEvent("MIT App Due", getDayofYear(1,13), 1);
         addEvent("Cornell App Due", getDayofYear(2,13), 1);
         addEvent("Stanford App Due", getDayofYear(3,13), 1);
@@ -204,9 +203,10 @@ public class Calendar extends Applet implements Runnable, KeyListener {
         for (int i=0; i<24; i++){
             int j=i;
             if(j>11){j-=12;}
-            if (day-daysPerMonth[j]>0){
+            int dpm=daysPerMonth[j];if (i==13){dpm=dpm+1;}
+            if (day-dpm>0){
                 month=i;
-                day-=daysPerMonth[j];
+                day-=dpm;
             }else {
                 month=j;
                 break;
@@ -244,6 +244,9 @@ public class Calendar extends Applet implements Runnable, KeyListener {
         for (int i=0; i<month-1; i++) {
             if (i >= 12) {
                 d += daysPerMonth[i-12];
+                if (i==14){
+                    d++;
+                }
             } else {
                 d += daysPerMonth[i];
             }
