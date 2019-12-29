@@ -30,8 +30,8 @@ public class Calendar extends Applet implements Runnable, KeyListener {
     int[] daysPerMonth=new int[]{ 31  , 28  , 31  , 30  , 31  , 30   , 31   , 31  , 30   , 31  , 30  , 31  };
     String[] months=new String[]{"Jan","Feb","Mar","Apr","May","June","July","Aug","Sept","Oct","Nov","Dec"};
     int adj=1;
-    int start=getDayofYear(25,11);
-    int end=getDayofYear(2,15);
+    int start=getDayofYear(16,12);
+    int end=getDayofYear(3,14);
     int rows=(int)(Math.ceil((end-start)/7.0));
     int currentDay=start;
     ArrayList<String>[] events;
@@ -87,13 +87,22 @@ public class Calendar extends Applet implements Runnable, KeyListener {
         addEvent("Princeton Decisions", getDayofYear(12,12), 1);
         addEvent("Half Day", getDayofYear(19,12), 1);
         addEvent("Sarah Arrives", getDayofYear(16,12), 1);
+        addEvent("Christmas", getDayofYear(25,12), 1);
         addEvent("Sarah Leaves", getDayofYear(6,13), 1);
         addEvent("MIT App Due", getDayofYear(1,13), 1);
+        addEvent("Olin App Due", getDayofYear(2,13), 1);
+        addEvent("Rice App Due", getDayofYear(1,13), 1);
+        addEvent("Harvard App Due", getDayofYear(1,13), 1);
         addEvent("Cornell App Due", getDayofYear(2,13), 1);
-        addEvent("Stanford App Due", getDayofYear(3,13), 1);
-        addEvent("Carnegie Melon App Due", getDayofYear(15,13), 1);
+        addEvent("Stanford App Due", getDayofYear(2,13), 1);
+        addEvent("Caltech App Due", getDayofYear(3,13), 1);
+        addEvent("UPenn App Due", getDayofYear(5,13), 1);
+        addEvent("Carnegie Mellon App Due", getDayofYear(1,13), 1);
+        addEvent("Purdue App Due", getDayofYear(15,13), 1);
         addEvent("SciOly Invitationals", getDayofYear(25,13), 1);
         addEvent("SciOly/Bowl Regionals", getDayofYear(29,14), 1);
+        addEvent("Michigan Essay Due", getDayofYear(1,14), 1);
+        addEvent("Rose Hulman App Due", getDayofYear(1,14), 1);
     }
 
 
@@ -118,7 +127,7 @@ public class Calendar extends Applet implements Runnable, KeyListener {
                 noSchool[i-start]=true;
             }
         }
-        int lastday1=getDayofYear(20,12);
+        int lastday1=getDayofYear(16,12);
         int firstDayBack=getDayofYear(5,13);
         for (int i=lastday1; i<firstDayBack; i++){
             if (i>end||i-start<0){continue;}
