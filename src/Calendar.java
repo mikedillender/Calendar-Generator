@@ -30,8 +30,8 @@ public class Calendar extends Applet implements Runnable, KeyListener {
     int[] daysPerMonth=new int[]{ 31  , 28  , 31  , 30  , 31  , 30   , 31   , 31  , 30   , 31  , 30  , 31  };
     String[] months=new String[]{"Jan","Feb","Mar","Apr","May","June","July","Aug","Sept","Oct","Nov","Dec"};
     int adj=1;
-    int start=getDayofYear(16,12);
-    int end=getDayofYear(3,14);
+    int start=getDayofYear(30,12);
+    int end=getDayofYear(3,15);
     int rows=(int)(Math.ceil((end-start)/7.0));
     int currentDay=start;
     ArrayList<String>[] events;
@@ -75,7 +75,7 @@ public class Calendar extends Applet implements Runnable, KeyListener {
         DateFormat sdf = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
         DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy/MM/dd HH:mm:ss");
         LocalDate localDate = LocalDate.now();
-        int month= Integer.parseInt( DateTimeFormatter.ofPattern("MM").format(localDate));
+        int month= Integer.parseInt( DateTimeFormatter.ofPattern("MM").format(localDate))+12;
         int day=Integer.parseInt(DateTimeFormatter.ofPattern("dd").format(localDate));
         System.out.println(day+", "+month);
         currentDay=getDayofYear(day,month);
@@ -88,7 +88,6 @@ public class Calendar extends Applet implements Runnable, KeyListener {
         addEvent("Half Day", getDayofYear(19,12), 1);
         addEvent("Sarah Arrives", getDayofYear(16,12), 1);
         addEvent("Christmas", getDayofYear(25,12), 1);
-        addEvent("Sarah Leaves", getDayofYear(6,13), 1);
         addEvent("MIT App Due", getDayofYear(1,13), 1);
         addEvent("Olin App Due", getDayofYear(2,13), 1);
         addEvent("Rice App Due", getDayofYear(1,13), 1);
@@ -103,6 +102,7 @@ public class Calendar extends Applet implements Runnable, KeyListener {
         addEvent("SciOly/Bowl Regionals", getDayofYear(29,14), 1);
         addEvent("Michigan Essay Due", getDayofYear(1,14), 1);
         addEvent("Rose Hulman App Due", getDayofYear(1,14), 1);
+        addEvent("FLVS 5/6 Week Mark", getDayofYear(12,14), 1);
     }
 
 
