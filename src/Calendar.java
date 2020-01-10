@@ -30,8 +30,8 @@ public class Calendar extends Applet implements Runnable, KeyListener {
     int[] daysPerMonth=new int[]{ 31  , 28  , 31  , 30  , 31  , 30   , 31   , 31  , 30   , 31  , 30  , 31  };
     String[] months=new String[]{"Jan","Feb","Mar","Apr","May","June","July","Aug","Sept","Oct","Nov","Dec"};
     int adj=1;
-    int start=getDayofYear(30,12);
-    int end=getDayofYear(3,15);
+    int start=getDayofYear(6,13);
+    int end=getDayofYear(20,16);
     int rows=(int)(Math.ceil((end-start)/7.0));
     int currentDay=start;
     ArrayList<String>[] events;
@@ -103,6 +103,18 @@ public class Calendar extends Applet implements Runnable, KeyListener {
         addEvent("Michigan Essay Due", getDayofYear(1,14), 1);
         addEvent("Rose Hulman App Due", getDayofYear(1,14), 1);
         addEvent("FLVS 5/6 Week Mark", getDayofYear(12,14), 1);
+        addEvent("CM Notification", getDayofYear(15,16), 1);
+        addEvent("MIT Notification", getDayofYear(1,16), 1);
+        addEvent("Stanford Notification", getDayofYear(1,16), 1);
+        addEvent("Penn Notification", getDayofYear(1,16), 1);
+        addEvent("Rice Notification", getDayofYear(1,16), 1);
+        addEvent("Cornell Notification", getDayofYear(28,15), 1);
+        addEvent("Caltech Notification", getDayofYear(15,15), 1);
+        addEvent("Purdue Notification", getDayofYear(31,15), 1);
+        addEvent("Harvard Notification", getDayofYear(25,15), 1);
+        addEvent("Rose-Hulman Notification", getDayofYear(25,15), 1);
+        addEvent("Olin Notification", getDayofYear(8,14), 1);
+        addEvent("GATech Notification", getDayofYear(18,13), 1);
     }
 
 
