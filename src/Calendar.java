@@ -112,7 +112,7 @@ public class Calendar extends Applet implements Runnable, KeyListener {
         addEvent("Caltech Notification", getDayofYear(15,15), 1);
         addEvent("Purdue Notification", getDayofYear(31,15), 1);
         addEvent("Harvard Notification", getDayofYear(25,15), 1);
-        addEvent("Rose-Hulman Notification", getDayofYear(25,15), 1);
+        addEvent("Rose-Hulman Notification", getDayofYear(15,15), 1);
         addEvent("Olin Notification", getDayofYear(8,14), 1);
         addEvent("GATech Notification", getDayofYear(18,13), 1);
     }
