@@ -120,6 +120,7 @@ public class Calendar extends Applet implements Runnable, KeyListener {
         addEvent("Rose Hulman App Due", getDayofYear(1,14), 1);
         addEvent("FLVS 5/6 Week Mark", getDayofYear(12,14), 1);
         addEvent("CM Notification", getDayofYear(15,16), 1);
+        addEvent("End of Q3", getDayofYear(11,15), 1);
         addEvent("MIT Notification", getDayofYear(1,16), 1);
         addEvent("Stanford Notification", getDayofYear(1,16), 1);
         addEvent("Penn Notification", getDayofYear(1,16), 1);
@@ -170,6 +171,14 @@ public class Calendar extends Applet implements Runnable, KeyListener {
             noSchool[i-start]=true;
         }
         noSchool[getDayofYear(20,13)-start]=true;
+        noSchool[getDayofYear(10,16)-start]=true;
+        noSchool[getDayofYear(17,14)-start]=true;
+        noSchool[getDayofYear(3,15)-start]=true;
+        noSchool[getDayofYear(16,15)-start]=true;
+        noSchool[getDayofYear(17,15)-start]=true;
+        noSchool[getDayofYear(18,15)-start]=true;
+        noSchool[getDayofYear(19,15)-start]=true;
+        noSchool[getDayofYear(20,15)-start]=true;
         //noSchool[getDayofYear(11,10)-start]=true;
         //noSchool[getDayofYear(10,10)-start]=true;
         //noSchool[getDayofYear(19,4)-start]=true;
