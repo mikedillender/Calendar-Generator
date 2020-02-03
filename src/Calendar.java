@@ -30,7 +30,7 @@ public class Calendar extends Applet implements Runnable, KeyListener {
     int[] daysPerMonth=new int[]{ 31  , 28  , 31  , 30  , 31  , 30   , 31   , 31  , 30   , 31  , 30  , 31  };
     String[] months=new String[]{"Jan","Feb","Mar","Apr","May","June","July","Aug","Sept","Oct","Nov","Dec"};
     int adj=1;
-    int start=getDayofYear(6,13);
+    int start=getDayofYear(20,13);
     int end=getDayofYear(20,16);
     int rows=(int)(Math.ceil((end-start)/7.0));
     int currentDay=start;
@@ -120,6 +120,8 @@ public class Calendar extends Applet implements Runnable, KeyListener {
         addEvent("Rose Hulman App Due", getDayofYear(1,14), 1);
         addEvent("FLVS 5/6 Week Mark", getDayofYear(12,14), 1);
         addEvent("CM Notification", getDayofYear(15,16), 1);
+        addEvent("Olin Weekend", getDayofYear(6,16), 1);
+        addEvent("Olin Weekend", getDayofYear(7,16), 1);
         addEvent("End of Q3", getDayofYear(11,15), 1);
         addEvent("MIT Notification", getDayofYear(1,16), 1);
         addEvent("Stanford Notification", getDayofYear(1,16), 1);
@@ -311,8 +313,8 @@ public class Calendar extends Applet implements Runnable, KeyListener {
     public void keyTyped(KeyEvent e) { }
 
     public void exportImg(){
-        //String export="B:\\Libraries\\Programming\\Calender\\Calendar-Generator\\calendarImgs\\t.png";
-        String export="C:\\Users\\Mike\\Documents\\GitHub\\Calendar-Generator\\calendarImgs\\t.png";
+        String export="B:\\Libraries\\Programming\\Calender\\Calendar-Generator\\calendarImgs\\t.png";
+        //String export="C:\\Users\\Mike\\Documents\\GitHub\\Calendar-Generator\\calendarImgs\\t.png";
         //String export="C:\\Users\\dillemic000\\Documents\\GitHub\\Calendar-Generator\\t.png";
 
         RenderedImage rendImage = toBufferedImage(img);
