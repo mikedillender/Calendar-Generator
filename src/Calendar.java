@@ -30,7 +30,7 @@ public class Calendar extends Applet implements Runnable, KeyListener {
     int[] daysPerMonth=new int[]{ 31  , 28  , 31  , 30  , 31  , 30   , 31   , 31  , 30   , 31  , 30  , 31  };
     String[] months=new String[]{"Jan","Feb","Mar","Apr","May","June","July","Aug","Sept","Oct","Nov","Dec"};
     int adj=1;
-    int start=getDayofYear(20,13);
+    int start=getDayofYear(3,14);
     int end=getDayofYear(20,16);
     int rows=(int)(Math.ceil((end-start)/7.0));
     int currentDay=start;
@@ -115,6 +115,7 @@ public class Calendar extends Applet implements Runnable, KeyListener {
 
         addEvent("APAH Essay Due", getDayofYear(17,13), 1);
         addEvent("Fences Essay Due", getDayofYear(22,13), 1);
+        addEvent("Rice Interview", getDayofYear(15,14), 1);
         addEvent("SciOly/Bowl Regionals", getDayofYear(29,14), 1);
         addEvent("Michigan Essay Due", getDayofYear(1,14), 1);
         addEvent("Rose Hulman App Due", getDayofYear(1,14), 1);
@@ -172,7 +173,7 @@ public class Calendar extends Applet implements Runnable, KeyListener {
             if (i>end||i-start<0){continue;}
             noSchool[i-start]=true;
         }
-        noSchool[getDayofYear(20,13)-start]=true;
+        //noSchool[getDayofYear(20,13)-start]=true;
         noSchool[getDayofYear(10,16)-start]=true;
         noSchool[getDayofYear(17,14)-start]=true;
         noSchool[getDayofYear(3,15)-start]=true;
