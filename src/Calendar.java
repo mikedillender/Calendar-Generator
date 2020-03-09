@@ -30,8 +30,8 @@ public class Calendar extends Applet implements Runnable, KeyListener {
     int[] daysPerMonth=new int[]{ 31  , 28  , 31  , 30  , 31  , 30   , 31   , 31  , 30   , 31  , 30  , 31  };
     String[] months=new String[]{"Jan","Feb","Mar","Apr","May","June","July","Aug","Sept","Oct","Nov","Dec"};
     int adj=1;
-    int start=getDayofYear(3,14);
-    int end=getDayofYear(20,16);
+    int start=getDayofYear(2,15);
+    int end=getDayofYear(4,17);
     int rows=(int)(Math.ceil((end-start)/7.0));
     int currentDay=start;
     ArrayList<String>[] events;
@@ -94,7 +94,7 @@ public class Calendar extends Applet implements Runnable, KeyListener {
         addEvent("Harvard App Due", getDayofYear(1,13), 1);
         addEvent("Cornell App Due", getDayofYear(2,13), 1);
         addEvent("Stanford App Due", getDayofYear(2,13), 1);
-        addEvent("Caltech App Due", getDayofYear(3,13), 1);
+        //addEvent("Caltech App Due", getDayofYear(3,13), 1);
         addEvent("UPenn App Due", getDayofYear(5,13), 1);
         addEvent("Carnegie Mellon App Due", getDayofYear(1,13), 1);
         addEvent("Purdue App Due", getDayofYear(15,13), 1);
@@ -129,14 +129,16 @@ public class Calendar extends Applet implements Runnable, KeyListener {
         addEvent("Penn Notification", getDayofYear(1,16), 1);
         addEvent("Rice Notification", getDayofYear(1,16), 1);
         addEvent("Cornell Notification", getDayofYear(28,15), 1);
-        addEvent("Caltech Notification", getDayofYear(15,15), 1);
+        //addEvent("Caltech Notification", getDayofYear(15,15), 1);
+        addEvent("GATech Notification", getDayofYear(14,15), 1);
         addEvent("Purdue Notification", getDayofYear(31,15), 1);
         addEvent("Harvard Notification", getDayofYear(25,15), 1);
-        addEvent("Rose-Hulman Notification", getDayofYear(15,15), 1);
+        //addEvent("Rose-Hulman Notification", getDayofYear(15,15), 1);
         addEvent("Olin Notification", getDayofYear(8,14), 1);
-        addEvent("GATech Notification", getDayofYear(18,13), 1);
+        //addEvent("GATech Notification", getDayofYear(18,13), 1);
         addEvent("Princeton Notification", getDayofYear(25,15), 1);
         addEvent("Michigan Notification", getDayofYear(10,16), 1);
+        addEvent("SciOly State", getDayofYear(25,16), 1);
     }
 
 
@@ -175,7 +177,7 @@ public class Calendar extends Applet implements Runnable, KeyListener {
         }
         //noSchool[getDayofYear(20,13)-start]=true;
         noSchool[getDayofYear(10,16)-start]=true;
-        noSchool[getDayofYear(17,14)-start]=true;
+        //noSchool[getDayofYear(17,14)-start]=true;
         noSchool[getDayofYear(3,15)-start]=true;
         noSchool[getDayofYear(16,15)-start]=true;
         noSchool[getDayofYear(17,15)-start]=true;
