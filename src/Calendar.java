@@ -30,7 +30,7 @@ public class Calendar extends Applet implements Runnable, KeyListener {
     int[] daysPerMonth=new int[]{ 31  , 28  , 31  , 30  , 31  , 30   , 31   , 31  , 30   , 31  , 30  , 31  };
     String[] months=new String[]{"Jan","Feb","Mar","Apr","May","June","July","Aug","Sept","Oct","Nov","Dec"};
     int adj=1;
-    int start=getDayofYear(2,15);
+    int start=getDayofYear(16,15);
     int end=getDayofYear(4,17);
     int rows=(int)(Math.ceil((end-start)/7.0));
     int currentDay=start;
@@ -124,14 +124,14 @@ public class Calendar extends Applet implements Runnable, KeyListener {
         addEvent("Olin Weekend", getDayofYear(6,15), 1);
         addEvent("Olin Weekend", getDayofYear(7,15), 1);
         addEvent("End of Q3", getDayofYear(11,15), 1);
-        addEvent("MIT Notification", getDayofYear(1,16), 1);
+        //addEvent("MIT Notification", getDayofYear(1,16), 1);
         addEvent("Stanford Notification", getDayofYear(1,16), 1);
         addEvent("Penn Notification", getDayofYear(1,16), 1);
         addEvent("Rice Notification", getDayofYear(1,16), 1);
         addEvent("Cornell Notification", getDayofYear(28,15), 1);
         //addEvent("Caltech Notification", getDayofYear(15,15), 1);
-        addEvent("GATech Notification", getDayofYear(14,15), 1);
-        addEvent("Purdue Notification", getDayofYear(31,15), 1);
+        //addEvent("GATech Notification", getDayofYear(14,15), 1);
+        //addEvent("Purdue Notification", getDayofYear(31,15), 1);
         addEvent("Harvard Notification", getDayofYear(25,15), 1);
         //addEvent("Rose-Hulman Notification", getDayofYear(15,15), 1);
         addEvent("Olin Notification", getDayofYear(8,14), 1);
@@ -169,8 +169,8 @@ public class Calendar extends Applet implements Runnable, KeyListener {
             if (i>end||i-start<0){continue;}
             noSchool[i-start]=true;
         }
-        lastday1=getDayofYear(24,11);
-        firstDayBack=getDayofYear(2,12);
+        lastday1=getDayofYear(14,15);
+        firstDayBack=getDayofYear(4,16);
         for (int i=lastday1; i<firstDayBack; i++){
             if (i>end||i-start<0){continue;}
             noSchool[i-start]=true;
@@ -178,12 +178,6 @@ public class Calendar extends Applet implements Runnable, KeyListener {
         //noSchool[getDayofYear(20,13)-start]=true;
         noSchool[getDayofYear(10,16)-start]=true;
         //noSchool[getDayofYear(17,14)-start]=true;
-        noSchool[getDayofYear(3,15)-start]=true;
-        noSchool[getDayofYear(16,15)-start]=true;
-        noSchool[getDayofYear(17,15)-start]=true;
-        noSchool[getDayofYear(18,15)-start]=true;
-        noSchool[getDayofYear(19,15)-start]=true;
-        noSchool[getDayofYear(20,15)-start]=true;
         //noSchool[getDayofYear(11,10)-start]=true;
         //noSchool[getDayofYear(10,10)-start]=true;
         //noSchool[getDayofYear(19,4)-start]=true;
