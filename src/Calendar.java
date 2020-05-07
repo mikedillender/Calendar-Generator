@@ -128,7 +128,7 @@ public class Calendar extends Applet implements Runnable, KeyListener {
             noSchool[i-start]=true;
         }
         //noSchool[getDayofYear(20,13)-start]=true;
-        //noSchool[getDayofYear(10,16)-start]=true;
+        //noSchool[getDayofYear(10,16)-start]=true;D
         //noSchool[getDayofYear(17,14)-start]=true;
         //noSchool[getDayofYear(11,10)-start]=true;
         //noSchool[getDayofYear(10,10)-start]=true;
