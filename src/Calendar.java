@@ -42,7 +42,8 @@ public class Calendar extends Applet implements Runnable, KeyListener {
             new Color(0,0,0),
             new Color(82, 92, 170),
             new Color(138, 53, 49),
-            new Color(91, 146, 86)
+            new Color(91, 146, 86),
+            new Color(92, 29, 84)
     };
 
     public void init(){//STARTS THE PROGRAM
@@ -86,8 +87,17 @@ public class Calendar extends Applet implements Runnable, KeyListener {
         addEvent("Engr Essay", getDayofYear(8,9), 1);
         addEvent("215 HW", getDayofYear(12,9), 1);
         addEvent("M216 HW", getDayofYear(16,9), 3);
-        addEvent("M216 Web HW", getDayofYear(9,10), 3);
-        addEvent("M216 Web HW", getDayofYear(20,11), 3);
+        addEvent("M216 WebWork 0", getDayofYear(11,9), 4);
+        addEvent("M216 WebWork 1", getDayofYear(11,9), 4);
+        addEvent("M216 WebWork 2", getDayofYear(18,9), 4);
+        addEvent("M216 WebWork 3", getDayofYear(25,9), 4);
+        addEvent("M216 WebWork 4", getDayofYear(2,10), 4);
+        addEvent("M216 WebWork 5", getDayofYear(9,10), 4);
+        addEvent("M216 WebWork 6", getDayofYear(23,10), 4);
+        addEvent("M216 WebWork 7", getDayofYear(30,10), 4);
+        addEvent("M216 WebWork 8", getDayofYear(6,11), 4);
+        addEvent("M216 WebWork 9", getDayofYear(13,11), 4);
+        addEvent("M216 WebWork 10", getDayofYear(20,11), 4);
         addEvent("100 Lab 1", getDayofYear(11,9), 1);
         addEvent("200 Lab 1", getDayofYear(14,9), 2);
         addEvent("200 Lab 2", getDayofYear(21,9), 2);
