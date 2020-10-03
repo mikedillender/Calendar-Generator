@@ -99,6 +99,9 @@ public class Calendar extends Applet implements Runnable, KeyListener {
         addEvent("215 Lab 3", getDayofYear(30,9), 1);
         addEvent("215 Lab 4", getDayofYear(7,10), 1);
         addEvent("215 Quiz 1", getDayofYear(16,9), 1);
+        addEvent("215 Quiz 2", getDayofYear(5,10), 1);
+        addEvent("215 Quiz 3", getDayofYear(26,10), 1);
+        addEvent("215 Quiz 4", getDayofYear(16,11), 1);
         addEvent("216 Quiz 3", getDayofYear(18,9), 4);
         addEvent("216 Quiz 4", getDayofYear(25,9), 4);
         addEvent("216 Quiz 5", getDayofYear(2,10), 4);
@@ -124,7 +127,11 @@ public class Calendar extends Applet implements Runnable, KeyListener {
         addEvent("M216 WebWork 8", getDayofYear(6,11), 4);
         addEvent("M216 WebWork 9", getDayofYear(13,11), 4);
         addEvent("M216 WebWork 10", getDayofYear(20,11), 4);
+        addEvent("M216 Final", getDayofYear(10,12), 4);
         addEvent("100 Lab 1", getDayofYear(11,9), 1);
+        addEvent("100 In/Post 4", getDayofYear(8,10), 1);
+        addEvent("100 Proj Proposal", getDayofYear(8,10), 1);
+        addEvent("100 Team Docs", getDayofYear(12,11), 1);
         addEvent("200 Lab 1", getDayofYear(14,9), 2);
         addEvent("200 Lab 2", getDayofYear(21,9), 2);
         addEvent("200 Lab 3", getDayofYear(28,9), 2);
