@@ -94,12 +94,16 @@ public class Calendar extends Applet implements Runnable, KeyListener {
         addEvent("215 HW 4", getDayofYear(3,10), 1);
         addEvent("HW 4 Analysis", getDayofYear(5,10), 1);
         addEvent("215 HW 5", getDayofYear(10,10), 1);
+        addEvent("215 HW 6", getDayofYear(17,10), 1);
+        addEvent("215 HW 7", getDayofYear(24,10), 1);
+        addEvent("215 HW 8", getDayofYear(31,10), 1);
         addEvent("215 Lab 1", getDayofYear(16,9), 1);
         addEvent("215 Lab 2", getDayofYear(23,9), 1);
         addEvent("215 Lab 3", getDayofYear(30,9), 1);
         addEvent("215 Lab 4", getDayofYear(7,10), 1);
         addEvent("215 Quiz 1", getDayofYear(16,9), 1);
         addEvent("215 Quiz 2", getDayofYear(5,10), 1);
+        addEvent("215 Quiz Due", getDayofYear(7,10), 1);
         addEvent("215 Quiz 3", getDayofYear(26,10), 1);
         addEvent("215 Quiz 4", getDayofYear(16,11), 1);
         addEvent("216 Quiz 3", getDayofYear(18,9), 4);
@@ -121,7 +125,7 @@ public class Calendar extends Applet implements Runnable, KeyListener {
         addEvent("M216 WebWork 4", getDayofYear(2,10), 4);
         addEvent("M216 Written 3", getDayofYear(14,10), 4);
         addEvent("M216 Midterm", getDayofYear(15,10), 4);
-        addEvent("M216 WebWork 5", getDayofYear(9,10), 4);
+        addEvent("M216 WebWork 5", getDayofYear(16,10), 4);
         addEvent("M216 WebWork 6", getDayofYear(23,10), 4);
         addEvent("M216 WebWork 7", getDayofYear(30,10), 4);
         addEvent("M216 WebWork 8", getDayofYear(6,11), 4);
