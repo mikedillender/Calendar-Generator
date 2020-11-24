@@ -29,9 +29,9 @@ public class Calendar extends Applet implements Runnable, KeyListener {
     String[] days=new String[]{"Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"};
     int[] daysPerMonth=new int[]{ 31  , 28  , 31  , 30  , 31  , 30   , 31   , 31  , 30   , 31  , 30  , 31  };
     String[] months=new String[]{"Jan","Feb","Mar","Apr","May","June","July","Aug","Sept","Oct","Nov","Dec"};
-    int adj=1;
-    int start=getDayofYear(31,8);
-    int end=getDayofYear(14,12);
+    int adj=3;
+    int start=getDayofYear(23,11);
+    int end=getDayofYear(18,13);
     int rows=(int)(Math.ceil((end-start)/7.0));
     int currentDay=start;
     ArrayList<String>[] events;
@@ -84,86 +84,21 @@ public class Calendar extends Applet implements Runnable, KeyListener {
     //           ADD EVENTS TO THE CALENDAR
     public void addEvents(){
         addWeeklyEvents();
-        addEvent("Engr Essay", getDayofYear(8,9), 1);
-        addEvent("Engr Essay", getDayofYear(24,9), 1);
-        addEvent("Engr PreLab 3", getDayofYear(24,9), 1);
-        addEvent("Engr PreLab 3", getDayofYear(24,9), 1);
-        addEvent("Advisor Meeting", getDayofYear(20,10), 1);
-        addEvent("Engr PreLab 3", getDayofYear(24,9), 1);
-        addEvent("Engr Midterm", getDayofYear(29,9), 1);
-        addEvent("Engr PostLab 2", getDayofYear(24,9), 1);
-        addEvent("215 HW", getDayofYear(12,9), 1);
-        addEvent("215 HW 2", getDayofYear(19,9), 1);
-        addEvent("215 HW 3", getDayofYear(26,9), 1);
-        addEvent("215 HW 4", getDayofYear(3,10), 1);
-        addEvent("HW 4 Analysis", getDayofYear(5,10), 1);
-        addEvent("215 HW 5", getDayofYear(10,10), 1);
-        addEvent("215 HW 6", getDayofYear(17,10), 1);
-        addEvent("215 HW 7", getDayofYear(24,10), 1);
-        addEvent("215 HW 8", getDayofYear(31,10), 1);
-        addEvent("215 Lab 1", getDayofYear(16,9), 1);
-        addEvent("215 Lab 2", getDayofYear(23,9), 1);
-        addEvent("215 Lab 3", getDayofYear(30,9), 1);
-        addEvent("215 Lab 4", getDayofYear(7,10), 1);
-        addEvent("215 Lab 5", getDayofYear(21,10), 1);
-        addEvent("215 Quiz 1", getDayofYear(16,9), 1);
-        addEvent("215 Quiz 2", getDayofYear(5,10), 1);
-        addEvent("215 Quiz Due", getDayofYear(7,10), 1);
-        addEvent("215 Quiz 3", getDayofYear(26,10), 1);
         addEvent("215 Quiz 4", getDayofYear(16,11), 1);
-        addEvent("216 Quiz 3", getDayofYear(18,9), 4);
-        addEvent("216 Quiz 4", getDayofYear(25,9), 4);
-        addEvent("216 Quiz 5", getDayofYear(2,10), 4);
-        addEvent("216 Quiz 6", getDayofYear(9,10), 4);
-        addEvent("M216 HW", getDayofYear(16,9), 4);
-        addEvent("M216 WebWork 0", getDayofYear(11,9), 4);
-        addEvent("M216 WebWork 1", getDayofYear(11,9), 4);
-        addEvent("M216 Lab Writeup", getDayofYear(22,9), 4);
-        addEvent("M216 Lab 2 Prelab", getDayofYear(22,9), 4);
-        addEvent("M216 Peer-Review", getDayofYear(25,9), 4);
-        addEvent("M216 Lab 2 Final", getDayofYear(6,10), 4);
-        addEvent("M216 PreLab 3", getDayofYear(6,10), 4);
-        addEvent("M216 Written 2", getDayofYear(30,9), 4);
-        addEvent("M216 Lab Final", getDayofYear(29,9), 4);
-        addEvent("M216 L3 First", getDayofYear(20,10), 4);
-        addEvent("M216 L4 Prelab", getDayofYear(20,10), 4);
-        addEvent("M216 L3 Review", getDayofYear(23,10), 4);
-        addEvent("M216 L3 Final", getDayofYear(27,10), 4);
-        addEvent("M216 WebWork 2", getDayofYear(18,9), 4);
-        addEvent("M216 WebWork 3", getDayofYear(25,9), 4);
-        addEvent("M216 WebWork 4", getDayofYear(2,10), 4);
-        addEvent("M216 Written 3", getDayofYear(14,10), 4);
-        addEvent("M216 Midterm", getDayofYear(15,10), 4);
-        addEvent("M216 WebWork 5", getDayofYear(16,10), 4);
-        addEvent("M216 WebWork 6", getDayofYear(23,10), 4);
-        addEvent("M216 WebWork 7", getDayofYear(30,10), 4);
-        addEvent("M216 WebWork 8", getDayofYear(6,11), 4);
-        addEvent("M216 WebWork 9", getDayofYear(13,11), 4);
-        addEvent("M216 WebWork 10", getDayofYear(20,11), 4);
+        addEvent("215 HW 11", getDayofYear(24,11), 1);
+        addEvent("215 Lab 7", getDayofYear(4,12), 1);
+        addEvent("M216 Lab 5 Final", getDayofYear(1,12), 4);
+        addEvent("M216 Written 6", getDayofYear(2,12), 4);
         addEvent("M216 Final", getDayofYear(10,12), 4);
-        addEvent("100 Lab 1", getDayofYear(11,9), 1);
-        addEvent("100 In/Post 4", getDayofYear(8,10), 1);
-        addEvent("100 Proj Proposal", getDayofYear(8,10), 1);
-        addEvent("100 Team Docs", getDayofYear(12,11), 1);
-        addEvent("200 Lab 1", getDayofYear(14,9), 2);
-        addEvent("200 Lab 2", getDayofYear(21,9), 2);
-        addEvent("200 Lab 3", getDayofYear(28,9), 2);
-        addEvent("ECE Grad Session", getDayofYear(20,10), 1);
+        addEvent("100 Presentation", getDayofYear(4,12), 1);
         addEvent("Backpack Opens", getDayofYear(9,11), 1);
-        addEvent("200 Lab 4", getDayofYear(5,10), 2);
-        addEvent("200 Lab 5", getDayofYear(12,10), 2);
-        addEvent("200 Lab 6", getDayofYear(19,10), 2);
-        addEvent("200 Lab 7", getDayofYear(26,10), 2);
-        addEvent("200 Lab 8", getDayofYear(2,11), 2);
-        addEvent("200 Plan", getDayofYear(9,11), 2);
-        addEvent("280 Proj 1", getDayofYear(14,9), 1);
-        addEvent("280 Lab 1", getDayofYear(13,9), 1);
-        addEvent("280 Lab 2", getDayofYear(27,9), 1);
-        addEvent("280 Midterm", getDayofYear(26,10), 1);
-        addEvent("280 Proj 2", getDayofYear(29,9), 1);
-        addEvent("280 Proj 3", getDayofYear(16,10), 1);
-        addEvent("280 Proj 4", getDayofYear(11,11), 1);
+        addEvent("200 Details 1", getDayofYear(30,11), 2);
+        addEvent("Advisor Meeting", getDayofYear(30,11), 3);
+        addEvent("Registration", getDayofYear(1,12), 3);
+        addEvent("280 Lab 10", getDayofYear(6,12), 1);
         addEvent("280 Proj 5", getDayofYear(4,12), 1);
+        addEvent("280 Exit Survey", getDayofYear(8,12), 1);
+        addEvent("280 Final", getDayofYear(10,12), 1);
     }
 
 
@@ -181,10 +116,13 @@ public class Calendar extends Applet implements Runnable, KeyListener {
     }
 
     private void setHasSchool(){
-        int lastday=getDayofYear(24,5);
+        int firstday=getDayofYear(23,11);
+        int lastday=getDayofYear(28,11);
         for (int i=start; i<=end; i++){
             int day=getDayOfWeek(i);
             if (day==5||day==6){
+                noSchool[i-start]=true;
+            }if (firstday<=i&&i<lastday){
                 noSchool[i-start]=true;
             }
         }
@@ -255,7 +193,7 @@ public class Calendar extends Applet implements Runnable, KeyListener {
         for (int i=0; i<24; i++){
             int j=i;
             if(j>11){j-=12;}
-            int dpm=daysPerMonth[j];if (i==13){dpm=dpm+1;}
+            int dpm=daysPerMonth[j];
             if (day-dpm>0){
                 month=i;
                 day-=dpm;
@@ -264,7 +202,7 @@ public class Calendar extends Applet implements Runnable, KeyListener {
                 break;
             }
         }
-        if (month>12){month-=12;}
+        //if (month>12){month-=12;}
         String i=months[month]+" "+day;
         return i;
     }
@@ -292,7 +230,6 @@ public class Calendar extends Applet implements Runnable, KeyListener {
     }
 
     public int getDayofYear(int dayOfMonth, int month){
-        month+=12;
         int d=0;
         for (int i=0; i<month-1; i++) {
             if (i >= 12) {
@@ -316,8 +253,8 @@ public class Calendar extends Applet implements Runnable, KeyListener {
     public void keyTyped(KeyEvent e) { }
 
     public void exportImg(){
-        //String export="B:\\Libraries\\Programming\\Calender\\Calendar-Generator\\calendarImgs\\t.png";
-        String export="C:\\Users\\Mike\\Documents\\GitHub\\Calendar-Generator\\calendarImgs\\t.png";
+        String export="B:\\Libraries\\Programming\\Calender\\Calendar-Generator\\calendarImgs\\t.png";
+        //String export="C:\\Users\\Mike\\Documents\\GitHub\\Calendar-Generator\\calendarImgs\\t.png";
         //String export="C:\\Users\\dillemic000\\Documents\\GitHub\\Calendar-Generator\\t.png";
 
         RenderedImage rendImage = toBufferedImage(img);
