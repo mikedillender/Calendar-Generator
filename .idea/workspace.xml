@@ -122,19 +122,17 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Applet.Unnamed">
+  <component name="RunManager">
     <configuration name="Unnamed" type="Applet" factoryName="Applet">
-      <option name="MAIN_CLASS_NAME" value="Calendar" />
-      <option name="WIDTH" value="0" />
       <option name="HEIGHT" value="0" />
-      <module name="Calendar Generator">
-        <option name="moduleName" value="Calendar Generator" />
-      </module>
+      <option name="MAIN_CLASS_NAME" value="Calendar" />
+      <module name="Calendar Generator" />
       <option name="POLICY_FILE" value="file://$PROJECT_DIR$/src/java.policy.applet" />
+      <option name="WIDTH" value="0" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
     </configuration>
-  </component>
-  <component name="ShelveChangesManager" show_recycled="false">
-    <option name="remove_strategy" value="false" />
   </component>
   <component name="SvnConfiguration">
     <configuration />

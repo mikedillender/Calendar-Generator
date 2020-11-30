@@ -86,6 +86,7 @@ public class Calendar extends Applet implements Runnable, KeyListener {
         addWeeklyEvents();
         addEvent("215 Quiz 4", getDayofYear(16,11), 1);
         addEvent("215 HW 11", getDayofYear(24,11), 1);
+        addEvent("215 HW Analysis", getDayofYear(2,12), 1);
         addEvent("215 HW 12", getDayofYear(8,12), 1);
         addEvent("215 Final", getDayofYear(13,12), 1);
         addEvent("215 Lab 7", getDayofYear(4,12), 1);
@@ -100,7 +101,7 @@ public class Calendar extends Applet implements Runnable, KeyListener {
         addEvent("Fly Back to AA", getDayofYear(29,11), 3);
         addEvent("Registration", getDayofYear(1,12), 3);
         addEvent("280 Lab 10", getDayofYear(6,12), 1);
-        addEvent("280 Proj 5", getDayofYear(4,12), 1);
+        addEvent("280 Proj 5", getDayofYear(7,12), 1);
         addEvent("280 Exit Survey", getDayofYear(8,12), 1);
         addEvent("280 Final", getDayofYear(10,12), 1);
     }
@@ -257,8 +258,8 @@ public class Calendar extends Applet implements Runnable, KeyListener {
     public void keyTyped(KeyEvent e) { }
 
     public void exportImg(){
-        String export="B:\\Libraries\\Programming\\Calender\\Calendar-Generator\\calendarImgs\\t.png";
-        //String export="C:\\Users\\Mike\\Documents\\GitHub\\Calendar-Generator\\calendarImgs\\t.png";
+        //String export="B:\\Libraries\\Programming\\Calender\\Calendar-Generator\\calendarImgs\\t.png";
+        String export="C:\\Users\\Mike\\Documents\\GitHub\\Calendar-Generator\\calendarImgs\\t.png";
         //String export="C:\\Users\\dillemic000\\Documents\\GitHub\\Calendar-Generator\\t.png";
 
         RenderedImage rendImage = toBufferedImage(img);
