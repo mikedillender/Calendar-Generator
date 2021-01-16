@@ -29,9 +29,9 @@ public class Calendar extends Applet implements Runnable, KeyListener {
     String[] days=new String[]{"Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"};
     int[] daysPerMonth=new int[]{ 31  , 28  , 31  , 30  , 31  , 30   , 31   , 31  , 30   , 31  , 30  , 31  };
     String[] months=new String[]{"Jan","Feb","Mar","Apr","May","June","July","Aug","Sept","Oct","Nov","Dec"};
-    int adj=3;
-    int start=getDayofYear(23,11);
-    int end=getDayofYear(18,13);
+    int adj=4;
+    int start=getDayofYear(18,1);
+    int end=getDayofYear(2,5);
     int rows=(int)(Math.ceil((end-start)/7.0));
     int currentDay=start;
     ArrayList<String>[] events;
@@ -84,31 +84,8 @@ public class Calendar extends Applet implements Runnable, KeyListener {
     //           ADD EVENTS TO THE CALENDAR
     public void addEvents(){
         addWeeklyEvents();
-        addEvent("215 Quiz 4", getDayofYear(16,11), 1);
-        addEvent("215 HW 11", getDayofYear(24,11), 1);
-        addEvent("215 HW Analysis", getDayofYear(2,12), 1);
-        addEvent("215 HW 12", getDayofYear(8,12), 1);
-        addEvent("215 Final", getDayofYear(13,12), 1);
-        addEvent("215 Lab 7", getDayofYear(4,12), 1);
-        addEvent("M216 Lab 5 Final", getDayofYear(1,12), 4);
-        addEvent("M216 Written 6", getDayofYear(2,12), 4);
-        addEvent("M216 Final", getDayofYear(10,12), 4);
-        addEvent("100 Slides Due", getDayofYear(4,12), 1);
-        addEvent("100 Presentation", getDayofYear(5,12), 1);
-        addEvent("100 Final Report", getDayofYear(9,12), 1);
-        addEvent("100 Final", getDayofYear(16,12), 1);
-        addEvent("Backpack Opens", getDayofYear(9,11), 1);
-        addEvent("200 Details 1", getDayofYear(30,11), 2);
-        addEvent("200 Details 2", getDayofYear(7,12), 2);
-        addEvent("Advisor Meeting", getDayofYear(30,11), 3);
-        addEvent("Fly Back to AA", getDayofYear(29,11), 3);
-        addEvent("Fly Back Home", getDayofYear(18,12), 3);
-        addEvent("Fly Back to AA", getDayofYear(17,13), 3);
-        addEvent("Registration", getDayofYear(1,12), 3);
-        addEvent("280 Lab 10", getDayofYear(6,12), 1);
-        addEvent("280 Proj 5", getDayofYear(7,12), 1);
-        addEvent("280 Exit Survey", getDayofYear(8,12), 1);
-        addEvent("280 Final", getDayofYear(10,12), 1);
+        addEvent("Pick Up Kit", getDayofYear(20,1), 1);
+        addEvent("Classes End", getDayofYear(21,4), 2);
     }
 
 
@@ -119,7 +96,6 @@ public class Calendar extends Applet implements Runnable, KeyListener {
             int day=getDayOfWeek(i);
             if (!noSchool[i-start]) {
                 if (day == 3&& i<lastSciOly) {
-                    addEvent("Science Olympiad", i, 2);
                 }
             }
         }
