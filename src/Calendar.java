@@ -97,6 +97,19 @@ public class Calendar extends Applet implements Runnable, KeyListener {
         addEvent("216 HW 10 Due", getDayofYear(15,4), 3);
         addEvent("216 Final", getDayofYear(28,4), 3);
 
+        addEvent("270 HW 1 Due", getDayofYear(3,2), 4);
+        addEvent("270 HW 2 Due", getDayofYear(10,2), 4);
+        addEvent("270 HW 3 Due", getDayofYear(17,2), 4);
+        addEvent("270 HW 4 Due", getDayofYear(3,3), 4);
+        addEvent("270 HW 5 Due", getDayofYear(10,3), 4);
+        addEvent("270 HW 6 Due", getDayofYear(22,23), 4);
+        addEvent("270 HW GA2 Due", getDayofYear(31,3), 4);
+        addEvent("270 HW 7 Due", getDayofYear(12,4), 4);
+        addEvent("270 HW 8 Due", getDayofYear(21,4), 4);
+        addEvent("270 Final", getDayofYear(29,4), 4);
+        addEvent("270 Exam 1", getDayofYear(1,3), 4);
+        addEvent("270 Exam 2", getDayofYear(5,4), 4);
+
         addEvent("Classes End", getDayofYear(21,4), 1);
         addEvent("WebHW 0 Due", getDayofYear(23,1), 2);
         addEvent("WebHW 1 Due", getDayofYear(30,1), 2);
