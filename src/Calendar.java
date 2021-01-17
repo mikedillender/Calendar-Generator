@@ -84,8 +84,53 @@ public class Calendar extends Applet implements Runnable, KeyListener {
     //           ADD EVENTS TO THE CALENDAR
     public void addEvents(){
         addWeeklyEvents();
-        addEvent("Pick Up Kit", getDayofYear(20,1), 1);
-        addEvent("Classes End", getDayofYear(21,4), 2);
+        addEvent("Pick Up Kit", getDayofYear(20,1), 3);
+        addEvent("216 HW 1 Due", getDayofYear(28,1), 3);
+        addEvent("216 HW 2 Due", getDayofYear(4,2), 3);
+        addEvent("216 HW 3 Due", getDayofYear(11,2), 3);
+        addEvent("216 HW 4 Due", getDayofYear(18,2), 3);
+        addEvent("216 HW 5 Due", getDayofYear(4,3), 3);
+        addEvent("216 HW 6 Due", getDayofYear(11,3), 3);
+        addEvent("216 HW 7 Due", getDayofYear(18,3), 3);
+        addEvent("216 HW 8 Due", getDayofYear(1,4), 3);
+        addEvent("216 HW 9 Due", getDayofYear(8,4), 3);
+        addEvent("216 HW 10 Due", getDayofYear(15,4), 3);
+        addEvent("216 Final", getDayofYear(28,4), 3);
+
+        addEvent("Classes End", getDayofYear(21,4), 1);
+        addEvent("WebHW 0 Due", getDayofYear(23,1), 2);
+        addEvent("WebHW 1 Due", getDayofYear(30,1), 2);
+        addEvent("WebHW 2 Due", getDayofYear(6,2), 2);
+        addEvent("WebHW 3 Due", getDayofYear(13,2), 2);
+        addEvent("WebHW 4 Due", getDayofYear(27,2), 2);
+        addEvent("WebHW 5 Due", getDayofYear(6,3), 2);
+        addEvent("WebHW 6 Due", getDayofYear(13,3), 2);
+        addEvent("WebHW 7 Due", getDayofYear(20,3), 2);
+        addEvent("WebHW 8 Due", getDayofYear(3,4), 2);
+        addEvent("WebHW 9 Due", getDayofYear(10,4), 2);
+        addEvent("WebHW 10 Due", getDayofYear(17,4), 2);
+        addEvent("215 Exam 1", getDayofYear(18,2), 2);
+        addEvent("215 Exam 2", getDayofYear(25,3), 2);
+        addEvent("215 Written 0", getDayofYear(27,1), 2);
+        addEvent("215 Written 1", getDayofYear(1,2), 2);
+        addEvent("215 Written 1J", getDayofYear(3,2), 2);
+        addEvent("215 Written 2", getDayofYear(8,2), 2);
+        addEvent("215 Written 2J", getDayofYear(10,2), 2);
+        addEvent("215 Written 3J", getDayofYear(15,2), 2);
+        addEvent("215 Written 4", getDayofYear(1,3), 2);
+        addEvent("215 Written 4J", getDayofYear(3,3), 2);
+        addEvent("215 Written 5", getDayofYear(8,3), 2);
+        addEvent("215 Written 5J", getDayofYear(10,3), 2);
+        addEvent("215 Written 6", getDayofYear(15,3), 2);
+        addEvent("215 Written 6J", getDayofYear(17,3), 2);
+        addEvent("215 Written 7J", getDayofYear(22,3), 2);
+        addEvent("215 Written 8", getDayofYear(5,4), 2);
+        addEvent("215 Written 8J", getDayofYear(7,4), 2);
+        addEvent("215 Written 9", getDayofYear(12,4), 2);
+        addEvent("215 Written 9J", getDayofYear(14,4), 2);
+        addEvent("215 Written 10J", getDayofYear(19,4), 2);
+        addEvent("215 Final", getDayofYear(23,4), 2);
+
     }
 
 
