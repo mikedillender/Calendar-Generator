@@ -84,6 +84,24 @@ public class Calendar extends Applet implements Runnable, KeyListener {
     //           ADD EVENTS TO THE CALENDAR
     public void addEvents(){
         addWeeklyEvents();
+
+
+        addEvent("203 HW 1 Due", getDayofYear(28,1), 1);
+        addEvent("203 HW 2 Due", getDayofYear(4,2), 1);
+        addEvent("203 HW 3 Due", getDayofYear(11,2), 1);
+        addEvent("203 HW 4 Due", getDayofYear(18,2), 1);
+        addEvent("203 HW 5 Due", getDayofYear(25,2), 1);
+        addEvent("203 HW 6 Due", getDayofYear(4,3), 1);
+        addEvent("203 HW 7 Due", getDayofYear(11,3), 1);
+        addEvent("203 HW 8 Due", getDayofYear(18,3), 1);
+        addEvent("203 HW 9 Due", getDayofYear(26,3), 1);
+        addEvent("203 HW 10 Due", getDayofYear(1,4), 1);
+        addEvent("203 HW 11 Due", getDayofYear(8,4), 1);
+        addEvent("203 HW 12 Due", getDayofYear(15,4), 1);
+        addEvent("203 Midterm 1", getDayofYear(23,2), 1);
+        addEvent("203 Midterm 2", getDayofYear(30,3), 1);
+        addEvent("203 Final Exam", getDayofYear(28,4), 1);
+
         addEvent("Pick Up Kit", getDayofYear(20,1), 3);
         addEvent("216 HW 1 Due", getDayofYear(28,1), 3);
         addEvent("216 HW 2 Due", getDayofYear(4,2), 3);
@@ -110,7 +128,7 @@ public class Calendar extends Applet implements Runnable, KeyListener {
         addEvent("270 Exam 1", getDayofYear(1,3), 4);
         addEvent("270 Exam 2", getDayofYear(5,4), 4);
 
-        addEvent("Classes End", getDayofYear(21,4), 1);
+        addEvent("Classes End", getDayofYear(21,4), 0);
         addEvent("WebHW 0 Due", getDayofYear(23,1), 2);
         addEvent("WebHW 1 Due", getDayofYear(30,1), 2);
         addEvent("WebHW 2 Due", getDayofYear(6,2), 2);
