@@ -85,6 +85,7 @@ public class Calendar extends Applet implements Runnable, KeyListener {
     public void addEvents(){
         addWeeklyEvents();
 
+        addEvent("MathWorks Due", getDayofYear(15,2), 1);
 
         addEvent("203 HW 1 Due", getDayofYear(28,1), 1);
         addEvent("203 HW 2 Due", getDayofYear(4,2), 1);
