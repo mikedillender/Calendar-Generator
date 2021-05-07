@@ -16,22 +16,22 @@ import java.util.Date;
 
 public class Calendar extends Applet implements Runnable, KeyListener {
 
-    float pw=8f, ph=11f;
+    float pw=8.5f, ph=11f;
     private int WIDTH=1480, HEIGHT=1480;
     int defaultFont=20;
     private Thread thread;
     Graphics gfx;
     Image img;
     Color background=new Color(255, 255, 255);
-    Color noSchoolCol=new Color(217, 219, 255);
+    Color noSchoolCol=new Color(229, 234, 255);
     Color gridColor=new Color(0,0,0);
     int borderSize=40;
     String[] days=new String[]{"Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"};
     int[] daysPerMonth=new int[]{ 31  , 28  , 31  , 30  , 31  , 30   , 31   , 31  , 30   , 31  , 30  , 31  };
     String[] months=new String[]{"Jan","Feb","Mar","Apr","May","June","July","Aug","Sept","Oct","Nov","Dec"};
     int adj=4;
-    int start=getDayofYear(18,1);
-    int end=getDayofYear(2,5);
+    int start=getDayofYear(3,5);
+    int end=getDayofYear(25,7);
     int rows=(int)(Math.ceil((end-start)/7.0));
     int currentDay=start;
     ArrayList<String>[] events;
@@ -84,118 +84,36 @@ public class Calendar extends Applet implements Runnable, KeyListener {
     //           ADD EVENTS TO THE CALENDAR
     public void addEvents(){
         addWeeklyEvents();
+        setHasSchool();
+        addEvent("Project 1 Due", getDayofYear(11,5), 1);
+        addEvent("Project 2 Due", getDayofYear(24,5), 1);
+        addEvent("Project 3 Due", getDayofYear(8,6), 1);
+        addEvent("Project 4 Due", getDayofYear(21,6), 1);
 
-        addEvent("MathWorks Due", getDayofYear(15,2), 1);
+        addEvent("Lab 1 Due", getDayofYear(14,5), 2);
+        addEvent("Lab 2 Due", getDayofYear(21,5), 2);
+        addEvent("Lab 3 Due", getDayofYear(21,5), 2);
+        addEvent("Lab 4 Due", getDayofYear(25,5), 2);
+        addEvent("Lab 5 Due", getDayofYear(25,5), 2);
+        addEvent("Lab 7 Due", getDayofYear(11,6), 2);
+        addEvent("Lab 8 Due", getDayofYear(18,6), 2);
+        addEvent("Lab 9 Due", getDayofYear(18,6), 2);
+        addEvent("Lab 10 Due", getDayofYear(22,6), 2);
 
-        addEvent("203 HW 1 Due", getDayofYear(28,1), 1);
-        addEvent("203 HW 2 Due", getDayofYear(4,2), 1);
-        addEvent("203 HW 3 Due", getDayofYear(11,2), 1);
-        addEvent("203 HW 4 Due", getDayofYear(18,2), 1);
-        addEvent("203 HW 5 Due", getDayofYear(25,2), 1);
-        addEvent("203 HW 6 Due", getDayofYear(4,3), 1);
-        addEvent("203 HW 7 Due", getDayofYear(11,3), 1);
-        addEvent("203 HW 8 Due", getDayofYear(18,3), 1);
-        addEvent("203 HW 9 Due", getDayofYear(26,3), 1);
-        addEvent("203 HW 10 Due", getDayofYear(1,4), 1);
-        addEvent("203 HW 11 Due", getDayofYear(8,4), 1);
-        addEvent("203 HW 12 Due", getDayofYear(15,4), 1);
-        addEvent("203 GHW 2 Due", getDayofYear(4,2), 1);
-        addEvent("203 GHW 3 Due", getDayofYear(11,2), 1);
-        addEvent("203 GHW 4 Due", getDayofYear(18,2), 1);
-        addEvent("203 GHW 5 Due", getDayofYear(25,2), 1);
-        addEvent("203 GHW 6 Due", getDayofYear(4,3), 1);
-        addEvent("203 GHW 7 Due", getDayofYear(11,3), 1);
-        addEvent("203 GHW 8 Due", getDayofYear(18,3), 1);
-        addEvent("203 GHW 9 Due", getDayofYear(26,3), 1);
-        addEvent("203 GHW 10 Due", getDayofYear(1,4), 1);
-        addEvent("203 GHW 11 Due", getDayofYear(8,4), 1);
-        addEvent("203 GHW 12 Due", getDayofYear(15,4), 1);
-        addEvent("203 Midterm 1", getDayofYear(23,2), 1);
-        addEvent("203 Midterm 2", getDayofYear(30,3), 1);
-        addEvent("203 Final Exam", getDayofYear(28,4), 1);
+        addEvent("Written 1 Due", getDayofYear(6,5), 3);
+        addEvent("Written 2 Due", getDayofYear(11,5), 3);
+        addEvent("Written 3 Due", getDayofYear(13,5), 3);
+        addEvent("Written 4 Due", getDayofYear(18,5), 3);
+        addEvent("Written 5 Due", getDayofYear(20,5), 3);
+        addEvent("Written 6 Due", getDayofYear(1,6), 3);
+        addEvent("Written 7 Due", getDayofYear(3,6), 3);
+        addEvent("Written 8 Due", getDayofYear(8,6), 3);
+        addEvent("Written 9 Due", getDayofYear(10,6), 3);
+        addEvent("Written 10 Due", getDayofYear(15,6), 3);
 
-        addEvent("Pick Up Kit", getDayofYear(20,1), 3);
-        addEvent("216 HW 1 Due", getDayofYear(28,1), 3);
-        addEvent("216 HW 2 Due", getDayofYear(4,2), 3);
-        addEvent("216 HW 3 Due", getDayofYear(11,2), 3);
-        addEvent("216 HW 4 Due", getDayofYear(18,2), 3);
-        addEvent("216 HW 5 Due", getDayofYear(4,3), 3);
-        addEvent("216 HW 6 Due", getDayofYear(11,3), 3);
-        addEvent("216 HW 7 Due", getDayofYear(18,3), 3);
-        addEvent("216 HW 8 Due", getDayofYear(1,4), 3);
-        addEvent("216 HW 9 Due", getDayofYear(8,4), 3);
-        addEvent("216 HW 10 Due", getDayofYear(15,4), 3);
-        addEvent("216 Exam 1", getDayofYear(23,2), 3);
-        addEvent("216 Exam 2", getDayofYear(25,3), 3);
-        addEvent("216 Final", getDayofYear(28,4), 3);
-        addEvent("216 PreLab 1", getDayofYear(15,2), 3);
-        addEvent("216 PreLab 2", getDayofYear(1,3), 3);
-        addEvent("216 PreLab 3", getDayofYear(15,3), 3);
-        addEvent("216 PreLab 4", getDayofYear(29,3), 3);
-        addEvent("216 PreLab 5", getDayofYear(12,4), 3);
-        addEvent("216 PostLab 1", getDayofYear(26,2), 3);
-        addEvent("216 PostLab 2", getDayofYear(12,3), 3);
-        addEvent("216 PostLab 3", getDayofYear(26,3), 3);
-        addEvent("216 PostLab 4", getDayofYear(9,4), 3);
-        addEvent("216 PostLab 5", getDayofYear(23,4), 3);
 
-        addEvent("270 HW 1 Due", getDayofYear(3,2), 4);
-        addEvent("270 HW 2 Due", getDayofYear(10,2), 4);
-        addEvent("270 HW 3 Due", getDayofYear(17,2), 4);
-        addEvent("270 HW 4 Due", getDayofYear(3,3), 4);
-        addEvent("270 HW 5 Due", getDayofYear(10,3), 4);
-        addEvent("270 HW 6 Due", getDayofYear(22,3), 4);
-        addEvent("270 HW GA2 Due", getDayofYear(31,3), 4);
-        addEvent("270 HW 7 Due", getDayofYear(12,4), 4);
-        addEvent("270 HW 8 Due", getDayofYear(21,4), 4);
-        addEvent("270 Final", getDayofYear(29,4), 4);
-        addEvent("270 Exam 1", getDayofYear(1,3), 4);
-        addEvent("270 Exam 2", getDayofYear(5,4), 4);
-        addEvent("270 Exam 2", getDayofYear(5,4), 4);
-        addEvent("270 Post 1", getDayofYear(3,2), 4);
-        addEvent("270 Pre 2", getDayofYear(3,2), 4);
-        addEvent("270 Post 2", getDayofYear(10,2), 4);
-        addEvent("270 Post 3", getDayofYear(3,3), 4);
-        addEvent("270 Pre 4", getDayofYear(3,3), 4);
-        addEvent("270 Post 4", getDayofYear(10,3), 4);
-        addEvent("270 Pre 5", getDayofYear(17,3), 4);
-        addEvent("270 Post 5", getDayofYear(24,3), 4);
-        addEvent("270 Pre 6", getDayofYear(24,3), 4);
-        addEvent("270 Post 6", getDayofYear(31,3), 4);
-
-        addEvent("Classes End", getDayofYear(21,4), 0);
-        addEvent("WebHW 0 Due", getDayofYear(23,1), 2);
-        addEvent("WebHW 1 Due", getDayofYear(30,1), 2);
-        addEvent("WebHW 2 Due", getDayofYear(6,2), 2);
-        addEvent("WebHW 3 Due", getDayofYear(13,2), 2);
-        addEvent("WebHW 4 Due", getDayofYear(27,2), 2);
-        addEvent("WebHW 5 Due", getDayofYear(6,3), 2);
-        addEvent("WebHW 6 Due", getDayofYear(13,3), 2);
-        addEvent("WebHW 7 Due", getDayofYear(20,3), 2);
-        addEvent("WebHW 8 Due", getDayofYear(3,4), 2);
-        addEvent("WebHW 9 Due", getDayofYear(10,4), 2);
-        addEvent("WebHW 10 Due", getDayofYear(17,4), 2);
-        addEvent("215 Exam 1", getDayofYear(18,2), 2);
-        addEvent("215 Exam 2", getDayofYear(25,3), 2);
-        addEvent("215 Written 0", getDayofYear(27,1), 2);
-        addEvent("215 Written 1", getDayofYear(1,2), 2);
-        addEvent("215 Written 1J", getDayofYear(3,2), 2);
-        addEvent("215 Written 2", getDayofYear(8,2), 2);
-        addEvent("215 Written 2J", getDayofYear(10,2), 2);
-        addEvent("215 Written 3J", getDayofYear(15,2), 2);
-        addEvent("215 Written 4", getDayofYear(1,3), 2);
-        addEvent("215 Written 4J", getDayofYear(3,3), 2);
-        addEvent("215 Written 5", getDayofYear(8,3), 2);
-        addEvent("215 Written 5J", getDayofYear(10,3), 2);
-        addEvent("215 Written 6", getDayofYear(15,3), 2);
-        addEvent("215 Written 6J", getDayofYear(17,3), 2);
-        addEvent("215 Written 7J", getDayofYear(22,3), 2);
-        addEvent("215 Written 8", getDayofYear(5,4), 2);
-        addEvent("215 Written 8J", getDayofYear(7,4), 2);
-        addEvent("215 Written 9", getDayofYear(12,4), 2);
-        addEvent("215 Written 9J", getDayofYear(14,4), 2);
-        addEvent("215 Written 10J", getDayofYear(19,4), 2);
-        addEvent("215 Final", getDayofYear(23,4), 2);
+        addEvent("Midterm", getDayofYear(26,5), 1);
+        addEvent("Final", getDayofYear(25,6), 1);
 
     }
 
@@ -213,8 +131,8 @@ public class Calendar extends Applet implements Runnable, KeyListener {
     }
 
     private void setHasSchool(){
-        int firstday=getDayofYear(23,11);
-        int lastday=getDayofYear(28,11);
+        int firstday=getDayofYear(26,6);//of summer
+        int lastday=getDayofYear(27,8);
         for (int i=start; i<=end; i++){
             int day=getDayOfWeek(i);
             if (day==5||day==6){
@@ -350,8 +268,8 @@ public class Calendar extends Applet implements Runnable, KeyListener {
     public void keyTyped(KeyEvent e) { }
 
     public void exportImg(){
-        //String export="B:\\Libraries\\Programming\\Calender\\Calendar-Generator\\calendarImgs\\t.png";
-        String export="C:\\Users\\Mike\\Documents\\GitHub\\Calendar-Generator\\calendarImgs\\t.png";
+        String export="B:\\Libraries\\Programming\\Calender\\Calendar-Generator\\calendarImgs\\t.png";
+        //String export="C:\\Users\\Mike\\Documents\\GitHub\\Calendar-Generator\\calendarImgs\\t.png";
         //String export="C:\\Users\\dillemic000\\Documents\\GitHub\\Calendar-Generator\\t.png";
 
         RenderedImage rendImage = toBufferedImage(img);
