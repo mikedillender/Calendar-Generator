@@ -16,22 +16,22 @@ import java.util.Date;
 
 public class Calendar extends Applet implements Runnable, KeyListener {
 
-    float pw=8.5f, ph=11f;
+    float pw=8f, ph=11f;
     private int WIDTH=1480, HEIGHT=1480;
     int defaultFont=20;
     private Thread thread;
     Graphics gfx;
     Image img;
     Color background=new Color(255, 255, 255);
-    Color noSchoolCol=new Color(229, 234, 255);
+    Color noSchoolCol=new Color(217, 219, 255);
     Color gridColor=new Color(0,0,0);
     int borderSize=40;
     String[] days=new String[]{"Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"};
     int[] daysPerMonth=new int[]{ 31  , 28  , 31  , 30  , 31  , 30   , 31   , 31  , 30   , 31  , 30  , 31  };
     String[] months=new String[]{"Jan","Feb","Mar","Apr","May","June","July","Aug","Sept","Oct","Nov","Dec"};
     int adj=4;
-    int start=getDayofYear(3,5);
-    int end=getDayofYear(25,7);
+    int start=getDayofYear(23,8);
+    int end=getDayofYear(26,12);
     int rows=(int)(Math.ceil((end-start)/7.0));
     int currentDay=start;
     ArrayList<String>[] events;
@@ -41,9 +41,10 @@ public class Calendar extends Applet implements Runnable, KeyListener {
     Color[] catcolors= new Color[]{
             new Color(0,0,0),
             new Color(82, 92, 170),
-            new Color(138, 53, 49),
+            new Color(138, 24, 22),
             new Color(91, 146, 86),
-            new Color(92, 29, 84)
+            new Color(92, 29, 84),
+            new Color(161, 102, 0)
     };
 
     public void init(){//STARTS THE PROGRAM
@@ -84,74 +85,99 @@ public class Calendar extends Applet implements Runnable, KeyListener {
     //           ADD EVENTS TO THE CALENDAR
     public void addEvents(){
         addWeeklyEvents();
-        setHasSchool();
-        addEvent("Project 1 Due", getDayofYear(11,5), 1);
-        addEvent("Project 2 Due", getDayofYear(24,5), 1);
-        addEvent("Project 3 Due", getDayofYear(8,6), 1);
-        addEvent("Project 4 Due", getDayofYear(21,6), 1);
 
-        addEvent("Lab 1 Due", getDayofYear(14,5), 2);
-        addEvent("Lab 2 Due", getDayofYear(21,5), 2);
-        addEvent("Lab 3 Due", getDayofYear(21,5), 2);
-        addEvent("Lab 4 Due", getDayofYear(25,5), 2);
-        addEvent("Lab 5 Due", getDayofYear(25,5), 2);
-        addEvent("Lab 7 Due", getDayofYear(11,6), 2);
-        addEvent("Lab 8 Due", getDayofYear(18,6), 2);
-        addEvent("Lab 9 Due", getDayofYear(18,6), 2);
-        addEvent("Lab 10 Due", getDayofYear(22,6), 2);
-
-        addEvent("Written 1 Due", getDayofYear(6,5), 3);
-        addEvent("Written 2 Due", getDayofYear(11,5), 3);
-        addEvent("Written 3 Due", getDayofYear(13,5), 3);
-        addEvent("Written 4 Due", getDayofYear(18,5), 3);
-        addEvent("Written 5 Due", getDayofYear(20,5), 3);
-        addEvent("Written 6 Due", getDayofYear(1,6), 3);
-        addEvent("Written 7 Due", getDayofYear(3,6), 3);
-        addEvent("Written 8 Due", getDayofYear(8,6), 3);
-        addEvent("Written 9 Due", getDayofYear(10,6), 3);
-        addEvent("Written 10 Due", getDayofYear(15,6), 3);
-
-
-        addEvent("Midterm", getDayofYear(26,5), 1);
-        addEvent("Final", getDayofYear(25,6), 1);
+        addEvent("301 Midterm", getDayofYear(21,10), 5);
+        addEvent("301 Final", getDayofYear(17,12), 5);
+        add320Q();
+        addEvent("320 Exam 1", getDayofYear(11,10), 2);
+        addEvent("320 Exam 2", getDayofYear(17,11), 2);
+        addEvent("320 Final", getDayofYear(14,12), 2);
 
     }
 
 
 
-    private void addWeeklyEvents(){
-        int lastSciOly=getDayofYear(1,5);
-        for (int i=start; i<=end; i++){
-            int day=getDayOfWeek(i);
-            if (!noSchool[i-start]) {
-                if (day == 3&& i<lastSciOly) {
+    private void add320Q(){
+        String table="Sept. 1 Crystal structures and crystal growth 1.1-1.3\n" +
+                "Sept. 8 Semiconductor models and carriers 2.1-2.4\n" +
+                "Sept. 13 Semiconductor under equilibrium 2.4, 2.5\n" +
+                "Sept. 15 Equilibrium carrier distribution 2.5\n" +
+                "Sept. 20 Drift and diffusion 3.1, 3.2\n" +
+                "Sept. 22 Recombination-generation 3.3\n" +
+                "Sept. 27 Equations of state 3.4.1-3.4.3, 3.5\n" +
+                "Sept. 29 Minority carrier diffusion equation: problem solving 3.4.4\n" +
+                "Oct. 4 Diode electrostatics 5.1\n" +
+                "Oct. 6 Review\n" +
+                "Oct. 11 Exam I\n" +
+                "Oct. 13 Diode electrostatics: quantitative analysis 5.2\n" +
+                "Oct. 20 The ideal diode equation 6.1\n" +
+                "Oct. 25 Deviation from ideal diodes 6.2\n" +
+                "Oct. 27 Optoelectronic devices, and metal-semiconductor junctions 9, 14\n" +
+                "Nov. 1 MOS fundamentals I 16.1, 16.2\n" +
+                "Nov. 3 MOS fundamentals II 16.3, 16.4\n" +
+                "Nov. 8 MOSFET I 17.1, 17.2\n" +
+                "Nov. 10 MOSFET II 17.2, 17.3\n" +
+                "Nov. 15 Review\n" +
+                "Nov. 17 Exam\n" +
+                "Nov. 22 MOSFET non-ideal 18\n" +
+                "Nov. 29 MOSFET non-ideal 18\n" +
+                "Dec. 1 BJT I 10\n" +
+                "Dec. 6 BJT II 11\n" +
+                "Dec. 8 Conclusion\n";
+        while (table.contains("\n")){
+            String line=table.substring(0,table.indexOf("\n"));
+            table=table.substring(table.indexOf("\n")+1);
+            for (int i=0; i<12; i++){
+                if (line.substring(0,months[i].length()).equals(months[i])){
+                    line=line.substring(months[i].length()+2);
+                    if (line.charAt(0)==' '){ line=line.substring(1); }
+                    int date=Integer.parseInt(line.substring(0,line.indexOf(" ")));
+                    line=line.substring(line.indexOf(" "));
+                    while (line.length()>0&& (line.charAt(0)<48||line.charAt(0)>57)){
+                        line=line.substring(1);
+                    }
+                    if (line.length()==0){i=12;continue;}
+                    addEvent("320 R&Q "+line, getDayofYear(date,i+1)-1, 2);
+                    i=12;
                 }
             }
+
+        }
+    }
+
+    private void addWeeklyEvents(){
+        int fdos=getDayofYear(30,8);
+        int ldos=getDayofYear(10,12);
+        int secondweek=getDayofYear(5,9);
+        for (int i=start; i<=end; i++){
+            int day=getDayOfWeek(i);
+            if (!(i<fdos || i>ldos)) {
+                if (i>secondweek){
+                    if (day == 2) {
+                        addEvent("301 HW Due", i, 5);
+                    }
+                }
+
+            }
+
         }
     }
 
     private void setHasSchool(){
-        int firstday=getDayofYear(26,6);//of summer
-        int lastday=getDayofYear(27,8);
+        int fdos=getDayofYear(30,8);
+        int ldos=getDayofYear(10,12);
         for (int i=start; i<=end; i++){
             int day=getDayOfWeek(i);
             if (day==5||day==6){
                 noSchool[i-start]=true;
-            }if (firstday<=i&&i<lastday){
+            }if (i<fdos || i>ldos){
                 noSchool[i-start]=true;
             }
         }
-    }
+        noSchool[getDayofYear(18,10)-start]=true;
+        noSchool[getDayofYear(19,10)-start]=true;
+        noSchool[getDayofYear(23,11)-start]=true;
 
-    private void addPowerMondays(){
-        int lastMonday=getDayofYear(8,4);
-        for (int i=getDayofYear(19,8); i<=end; i++){
-            if(i-start<0){continue;}
-            int day=getDayOfWeek(i);
-            if (day==0&&!noSchool[i-start]&&i!=getDayofYear(7,10)){
-                addEvent("Power Monday", i, 2);
-            }
-        }
     }
 
 
@@ -268,8 +294,8 @@ public class Calendar extends Applet implements Runnable, KeyListener {
     public void keyTyped(KeyEvent e) { }
 
     public void exportImg(){
-        String export="B:\\Libraries\\Programming\\Calender\\Calendar-Generator\\calendarImgs\\t.png";
-        //String export="C:\\Users\\Mike\\Documents\\GitHub\\Calendar-Generator\\calendarImgs\\t.png";
+        //String export="B:\\Libraries\\Programming\\Calender\\Calendar-Generator\\calendarImgs\\t.png";
+        String export="C:\\Users\\Mike\\Documents\\GitHub\\Calendar-Generator\\calendarImgs\\t.png";
         //String export="C:\\Users\\dillemic000\\Documents\\GitHub\\Calendar-Generator\\t.png";
 
         RenderedImage rendImage = toBufferedImage(img);
@@ -358,12 +384,13 @@ public class Calendar extends Applet implements Runnable, KeyListener {
         }
 
 
+        int maxstrlen=(int)(WIDTH/7.0)-10;
 
         for (int i=start; i<=end; i++){
             gfx.setColor(catcolors[0]);
             int x=(i-start+adj)%7;
             int y=((i+adj-start)/7);
-            int x1=WIDTH/7*(x)+10;
+            int x1=WIDTH/7*(x)+7;
             int y1=fontsize+10+borderSize+((HEIGHT-borderSize)/rows)*y;
             gfx.drawString(getDay(i), x1, y1);
             if (events[i-start]!=null){
@@ -383,10 +410,15 @@ public class Calendar extends Applet implements Runnable, KeyListener {
                         gfx.setColor(catcolors[0]);
                     }
 
-                    if (text.length()>16){
-                        gfx.setFont(gfx.getFont().deriveFont(defaultFont*.9f));
+                    if (gfx.getFontMetrics().stringWidth(text)>maxstrlen){
+                        float fm=.99f;
+                        gfx.setFont(gfx.getFont().deriveFont(defaultFont*(fm)));
+                        while(gfx.getFontMetrics().stringWidth(text)>maxstrlen){
+                            fm-=.01f;
+                            gfx.setFont(gfx.getFont().deriveFont(defaultFont*(fm)));
+                        }
                         gfx.drawString(text, x1, y1 + ((e + 1) * (fontsize + 5)));
-                        gfx.setFont(gfx.getFont().deriveFont(defaultFont));
+                        gfx.setFont(gfx.getFont().deriveFont(defaultFont*1f));
                     }else {
                         gfx.drawString(text, x1, y1 + ((e + 1) * (fontsize + 5)));
                     }
