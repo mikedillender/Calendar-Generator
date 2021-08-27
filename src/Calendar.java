@@ -86,6 +86,10 @@ public class Calendar extends Applet implements Runnable, KeyListener {
     public void addEvents(){
         addWeeklyEvents();
 
+        addEvent("C-Catalog Released ", getDayofYear(18,10), 4);
+        addEvent("Backpack Opens", getDayofYear(8,11), 4);
+        addEvent("Registration Begins", getDayofYear(15,11), 4);
+
         addEvent("301 Midterm", getDayofYear(21,10), 5);
         addEvent("301 Final", getDayofYear(17,12), 5);
         add320Q();
