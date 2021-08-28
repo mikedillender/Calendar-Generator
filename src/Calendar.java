@@ -175,8 +175,8 @@ public class Calendar extends Applet implements Runnable, KeyListener {
                 "11/11\tPS8: Freq. response\n" +
                 "11/23\tLab 4 report due\n" +
                 "12/2\tPS9: BJT amps\n" +
-                "12/9\t\"PS10: MOS circuits\n" +
-                "12/10\t\"Lab 5 Report due\n"+
+                "12/9\tPS10: MOS circuits\n" +
+                "12/10\tLab 5 Report due\n"+
                 "End";
         while (table.contains("\n")){
             String line=table.substring(0,table.indexOf("\n"));
