@@ -93,9 +93,14 @@ public class Calendar extends Applet implements Runnable, KeyListener {
         addEvent("301 Midterm", getDayofYear(21,10), 5);
         addEvent("301 Final", getDayofYear(17,12), 5);
         add320Q();
+        add311Q();
         addEvent("320 Exam 1", getDayofYear(11,10), 2);
         addEvent("320 Exam 2", getDayofYear(17,11), 2);
         addEvent("320 Final", getDayofYear(14,12), 2);
+
+        addEvent("311 Exam 1", getDayofYear(8,10), 2);
+        addEvent("311 Exam 2", getDayofYear(11,11), 2);
+        addEvent("311 Final", getDayofYear(20,12), 2);
 
     }
 
@@ -145,6 +150,44 @@ public class Calendar extends Applet implements Runnable, KeyListener {
                     i=12;
                 }
             }
+
+        }
+    }
+    private void add311Q(){
+        String table="09/9\tPS1: Basics\n" +
+                "09/14\tLab 0 Report due\n" +
+                "09/16\tPS2: Real opamps\n" +
+                "09/21\tLab 1 Pre-lab due\n" +
+                "09/23\tPS3: f(w), ps, zs\n" +
+                "09/28\tLab 1 Report due\n" +
+                "09/30\tPS4: Filters\n" +
+                "10/5\tLab 2 Exercise Rep due\n" +
+                "10/5\tLab 2 Pre-lab due\n" +
+                "10/7\tPS5: Diodes\n" +
+                "10/12\tLab 2 report due\n" +
+                "10/14\tPS6: BJT basics\n" +
+                "10/26\tLab 3 Ex Report due\n" +
+                "10/26\tLab 3 Pre-lab due\n" +
+                "11/2\tLab 3 report due\n" +
+                "11/4\tPS7: CE Amps, biasing\n" +
+                "11/9\tLab 4 Ex Report due\n" +
+                "11/9\tLab 4 pre-lab due\n" +
+                "11/11\tPS8: Freq. response\n" +
+                "11/23\tLab 4 report due\n" +
+                "12/2\tPS9: BJT amps\n" +
+                "12/9\t\"PS10: MOS circuits\n" +
+                "12/10\t\"Lab 5 Report due\n"+
+                "End";
+        while (table.contains("\n")){
+            String line=table.substring(0,table.indexOf("\n"));
+            table=table.substring(table.indexOf("\n")+1);
+            String date=line.substring(0,line.indexOf("\t"));
+            line=line.substring(line.indexOf("\t")+1);
+
+            int month=Integer.parseInt(date.substring(0,2));//NOTE: THIS IS LAZY
+            int day=Integer.parseInt(date.substring(3));//NOTE: THIS IS LAZY
+            System.out.println(month+" & "+day);
+            addEvent("311 "+line, getDayofYear(day,month), 3);
 
         }
     }
