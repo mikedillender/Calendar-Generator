@@ -195,7 +195,7 @@ public class Calendar extends Applet implements Runnable, KeyListener {
     private void addWeeklyEvents(){
         int fdos=getDayofYear(30,8);
         int ldos=getDayofYear(10,12);
-        int secondweek=getDayofYear(5,9);
+        int secondweek=getDayofYear(12,9);
         for (int i=start; i<=end; i++){
             int day=getDayOfWeek(i);
             if (!(i<fdos || i>ldos)) {
@@ -221,9 +221,11 @@ public class Calendar extends Applet implements Runnable, KeyListener {
                 noSchool[i-start]=true;
             }
         }
+        noSchool[getDayofYear(6,9)-start]=true;
         noSchool[getDayofYear(18,10)-start]=true;
         noSchool[getDayofYear(19,10)-start]=true;
-        noSchool[getDayofYear(23,11)-start]=true;
+        for (int i=23; i<28; i++)
+            noSchool[getDayofYear(i,11)-start]=true;
 
     }
 
