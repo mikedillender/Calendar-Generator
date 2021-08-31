@@ -89,6 +89,7 @@ public class Calendar extends Applet implements Runnable, KeyListener {
         addEvent("C-Catalog Released ", getDayofYear(18,10), 4);
         addEvent("Backpack Opens", getDayofYear(8,11), 4);
         addEvent("Registration Begins", getDayofYear(15,11), 4);
+        addEvent("Somin Lee Interview", getDayofYear(1,9), 4);
 
         addEvent("301 Midterm", getDayofYear(21,10), 5);
         addEvent("301 Final", getDayofYear(17,12), 5);
@@ -98,9 +99,34 @@ public class Calendar extends Applet implements Runnable, KeyListener {
         addEvent("320 Exam 2", getDayofYear(17,11), 2);
         addEvent("320 Final", getDayofYear(14,12), 2);
 
-        addEvent("311 Exam 1", getDayofYear(8,10), 2);
-        addEvent("311 Exam 2", getDayofYear(11,11), 2);
-        addEvent("311 Final", getDayofYear(20,12), 2);
+        addEvent("311 Exam 1", getDayofYear(8,10), 3);
+        addEvent("311 Exam 1", getDayofYear(8,10), 3);
+        addEvent("311 Exam 2", getDayofYear(11,11), 3);
+
+        addEvent("311 L0 Quiz", getDayofYear(1,9), 3);
+        addEvent("311 L1 Quiz", getDayofYear(2,9), 3);
+        addEvent("311 L2 Quiz", getDayofYear(7,9), 3);
+        addEvent("311 L3 Quiz", getDayofYear(9,9), 3);
+        addEvent("311 L4 Quiz", getDayofYear(14,9), 3);
+        addEvent("311 L5 Quiz", getDayofYear(17,9), 3);
+        addEvent("311 L6 Quiz", getDayofYear(21,9), 3);
+        addEvent("311 L7 Quiz", getDayofYear(23,9), 3);
+        addEvent("311 L8 Quiz", getDayofYear(28,9), 3);
+        addEvent("311 L9 Quiz", getDayofYear(30,9), 3);
+        addEvent("311 L10 Quiz", getDayofYear(5,10), 3);
+        addEvent("311 L11 Quiz", getDayofYear(11,10), 3);
+        addEvent("311 L12 Quiz", getDayofYear(13,10), 3);
+        addEvent("311 L13 Quiz", getDayofYear(17,10), 3);
+        addEvent("311 L14 Quiz", getDayofYear(19,10), 3);
+        addEvent("311 L16 Quiz", getDayofYear(26,10), 3);
+        addEvent("311 L17 Quiz", getDayofYear(28,10), 3);
+        addEvent("311 L18 Quiz", getDayofYear(4,11), 3);
+        addEvent("311 L19 Quiz", getDayofYear(9,11), 3);
+        addEvent("311 L20 Quiz", getDayofYear(12,11), 3);
+        addEvent("311 L21 Quiz", getDayofYear(17,11), 3);
+        addEvent("311 L22 Quiz", getDayofYear(18,11), 3);
+        addEvent("311 L23 Quiz", getDayofYear(1,12), 3);
+        addEvent("311 L24 Quiz", getDayofYear(3,12), 3);
 
     }
 
@@ -146,7 +172,7 @@ public class Calendar extends Applet implements Runnable, KeyListener {
                         line=line.substring(1);
                     }
                     if (line.length()==0){i=12;continue;}
-                    addEvent("320 R&Q "+line, getDayofYear(date,i+1)-1, 2);
+                    addEvent("320 R&Q "+line, getDayofYear(date,i+1), 2);
                     i=12;
                 }
             }
