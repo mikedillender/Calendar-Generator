@@ -86,11 +86,6 @@ public class Calendar extends Applet implements Runnable, KeyListener {
     public void addEvents(){
         addWeeklyEvents();
 
-        addEvent("C-Catalog Released ", getDayofYear(18,10), 4);
-        addEvent("Backpack Opens", getDayofYear(8,11), 4);
-        addEvent("Registration Begins", getDayofYear(15,11), 4);
-        addEvent("Somin Lee Interview", getDayofYear(1,9), 4);
-
         addEvent("301 Midterm", getDayofYear(21,10), 5);
         addEvent("301 Final", getDayofYear(17,12), 5);
         add320Q();
@@ -100,8 +95,8 @@ public class Calendar extends Applet implements Runnable, KeyListener {
         addEvent("320 Final", getDayofYear(14,12), 2);
 
         addEvent("311 Exam 1", getDayofYear(8,10), 3);
-        addEvent("311 Exam 1", getDayofYear(8,10), 3);
         addEvent("311 Exam 2", getDayofYear(11,11), 3);
+        addEvent("311 Final", getDayofYear(20,12), 3);
 
         addEvent("311 L0 Quiz", getDayofYear(1,9), 3);
         addEvent("311 L1 Quiz", getDayofYear(2,9), 3);
@@ -128,13 +123,20 @@ public class Calendar extends Applet implements Runnable, KeyListener {
         addEvent("311 L23 Quiz", getDayofYear(1,12), 3);
         addEvent("311 L24 Quiz", getDayofYear(3,12), 3);
 
+        addEvent("C-Catalog Released ", getDayofYear(18,10), 4);
+        addEvent("Backpack Opens", getDayofYear(8,11), 4);
+        addEvent("Registration Begins", getDayofYear(15,11), 4);
+        addEvent("Somin Lee Interview", getDayofYear(1,9), 4);
+        addEvent("Somin Lee Interview", getDayofYear(8,9), 4);
+        addEvent("MASA Meeting 1", getDayofYear(8,9), 4);
+        addEvent("MASA Meeting 2", getDayofYear(9,9), 4);
+
     }
 
 
 
     private void add320Q(){
-        String table="Sept. 1 Crystal structures and crystal growth 1.1-1.3\n" +
-                "Sept. 8 Semiconductor models and carriers 2.1-2.4\n" +
+        String table="Sept. 8 Semiconductor models and carriers 2.1-2.4\n" +
                 "Sept. 13 Semiconductor under equilibrium 2.4, 2.5\n" +
                 "Sept. 15 Equilibrium carrier distribution 2.5\n" +
                 "Sept. 20 Drift and diffusion 3.1, 3.2\n" +
