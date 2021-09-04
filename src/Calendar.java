@@ -215,7 +215,9 @@ public class Calendar extends Applet implements Runnable, KeyListener {
             int month=Integer.parseInt(date.substring(0,2));//NOTE: THIS IS LAZY
             int day=Integer.parseInt(date.substring(3));//NOTE: THIS IS LAZY
             System.out.println(month+" & "+day);
-            addEvent("311 "+line, getDayofYear(day,month), 3);
+            int doy=getDayofYear(day,month);
+            if (line.contains("PS")){doy--;}
+            addEvent("311 "+line, doy, 3);
 
         }
     }
@@ -468,7 +470,7 @@ public class Calendar extends Applet implements Runnable, KeyListener {
             int x=(i-start+adj)%7;
             int y=((i+adj-start)/7);
             int x1=WIDTH/7*(x)+7;
-            int y1=fontsize+10+borderSize+((HEIGHT-borderSize)/rows)*y;
+            int y1=fontsize+5+borderSize+((HEIGHT-borderSize)/rows)*y;
             gfx.drawString(getDay(i), x1, y1);
             if (events[i-start]!=null){
                 for (int e=0; e<events[i-start].size(); e++){
@@ -494,10 +496,10 @@ public class Calendar extends Applet implements Runnable, KeyListener {
                             fm-=.01f;
                             gfx.setFont(gfx.getFont().deriveFont(defaultFont*(fm)));
                         }
-                        gfx.drawString(text, x1, y1 + ((e + 1) * (fontsize + 5)));
+                        gfx.drawString(text, x1, y1 + ((e + 1) * (fontsize+1)));
                         gfx.setFont(gfx.getFont().deriveFont(defaultFont*1f));
                     }else {
-                        gfx.drawString(text, x1, y1 + ((e + 1) * (fontsize + 5)));
+                        gfx.drawString(text, x1, y1 + ((e + 1) * (fontsize+1)));
                     }
 
                 }
