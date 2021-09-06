@@ -90,6 +90,7 @@ public class Calendar extends Applet implements Runnable, KeyListener {
         addEvent("301 Final", getDayofYear(17,12), 5);
         add320Q();
         add311Q();
+        addEvent("320 PSet 1", getDayofYear(13,9), 2);
         addEvent("320 Exam 1", getDayofYear(11,10), 2);
         addEvent("320 Exam 2", getDayofYear(17,11), 2);
         addEvent("320 Final", getDayofYear(14,12), 2);
@@ -174,7 +175,7 @@ public class Calendar extends Applet implements Runnable, KeyListener {
                         line=line.substring(1);
                     }
                     if (line.length()==0){i=12;continue;}
-                    addEvent("320 R&Q "+line, getDayofYear(date,i+1), 2);
+                    addEvent("320 R&Q "+line, getDayofYear(date-1,i+1), 2);
                     i=12;
                 }
             }
@@ -423,6 +424,9 @@ public class Calendar extends Applet implements Runnable, KeyListener {
 
             }
         }
+        Color bord=new Color(197, 202, 215);
+        gfx.setColor(bord);
+        gfx.fillRect(0, 0, WIDTH, borderSize);
         gfx.setColor(Color.black);
 
         gfx.fillRect(0, borderSize, WIDTH, 3);
@@ -430,11 +434,13 @@ public class Calendar extends Applet implements Runnable, KeyListener {
         gfx.fillRect(0, HEIGHT-3, WIDTH, 3);
         gfx.fillRect(0, 0, 3, HEIGHT);
         gfx.fillRect(WIDTH-3, 0, 3, HEIGHT);
-
         for (int i=1; i<8; i++){
             int x1=WIDTH/7*(i-1);
+
+            gfx.setColor(Color.BLACK);
             gfx.drawString("" + days[i - 1], x1+10, fontsize+10);
 
+            gfx.setColor(Color.BLACK);
             if (i<7) {
                 int x = WIDTH / 7 * i ;
                 gfx.fillRect(x, 0, 3, HEIGHT);
