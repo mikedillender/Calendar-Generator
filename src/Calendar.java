@@ -85,6 +85,37 @@ public class Calendar extends Applet implements Runnable, KeyListener {
     //           ADD EVENTS TO THE CALENDAR
     public void addEvents(){
         addWeeklyEvents();
+        addEvent("230 Lab 1", getDayofYear(28,9), 1);
+        addEvent("230 Lab 2", getDayofYear(12,10), 1);
+        addEvent("230 Lab 3", getDayofYear(16,11), 1);
+        addEvent("230 HW 1", getDayofYear(14,9), 1);
+        addEvent("230 HW 2", getDayofYear(17,9), 1);
+        addEvent("230 HW 3", getDayofYear(21,9), 1);
+        addEvent("230 HW 4", getDayofYear(24,9), 1);
+        addEvent("230 HW 5", getDayofYear(28,9), 1);
+        addEvent("230 HW 6", getDayofYear(1,10), 1);
+        addEvent("230 HW 7", getDayofYear(5,10), 1);
+        addEvent("230 HW 8", getDayofYear(8,10), 1);
+        addEvent("230 HW 9", getDayofYear(12,10), 1);
+        addEvent("230 HW 10", getDayofYear(15,10), 1);
+        addEvent("230 HW 11", getDayofYear(26,10), 1);
+        addEvent("230 HW 12", getDayofYear(29,10), 1);
+        addEvent("230 HW 13", getDayofYear(2,11), 1);
+        addEvent("230 HW 14", getDayofYear(5,11), 1);
+        addEvent("230 HW 15", getDayofYear(9,11), 1);
+        addEvent("230 HW 16", getDayofYear(12,11), 1);
+        addEvent("230 HW 17", getDayofYear(16,11), 1);
+        addEvent("230 HW 18", getDayofYear(19,11), 1);
+        addEvent("230 HW 19", getDayofYear(23,11), 1);
+        addEvent("230 HW 20", getDayofYear(30,11), 1);
+        addEvent("230 HW 21", getDayofYear(2,12), 1);
+        addEvent("230 HW 22", getDayofYear(3,12), 1);
+        addEvent("230 HW 23", getDayofYear(7,12), 1);
+        addEvent("230 HW 24", getDayofYear(9,12), 1);
+        addEvent("230 HW 25", getDayofYear(10,12), 1);
+        addEvent("230 HW 26", getDayofYear(10,12), 1);
+        addEvent("230 HW 27", getDayofYear(17,12), 1);
+
 
         addEvent("301 Midterm", getDayofYear(21,10), 5);
         addEvent("301 Final", getDayofYear(17,12), 5);
