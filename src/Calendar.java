@@ -85,9 +85,9 @@ public class Calendar extends Applet implements Runnable, KeyListener {
     //           ADD EVENTS TO THE CALENDAR
     public void addEvents(){
         addWeeklyEvents();
-        addEvent("230 Lab 1", getDayofYear(28,9), 1);
-        addEvent("230 Lab 2", getDayofYear(12,10), 1);
-        addEvent("230 Lab 3", getDayofYear(16,11), 1);
+        addEvent("230 Lab 1", getDayofYear(28,9)+2, 1);
+        addEvent("230 Lab 2", getDayofYear(12,10)+2, 1);
+        addEvent("230 Lab 3", getDayofYear(16,11)+2, 1);
         addEvent("230 HW 1", getDayofYear(14,9), 1);
         addEvent("230 HW 2", getDayofYear(17,9), 1);
         addEvent("230 HW 3", getDayofYear(21,9), 1);
@@ -259,6 +259,7 @@ public class Calendar extends Applet implements Runnable, KeyListener {
     private void addWeeklyEvents(){
         int fdos=getDayofYear(30,8);
         int ldos=getDayofYear(10,12);
+        int fdbg=getDayofYear(25,9);
         int secondweek=getDayofYear(12,9);
         for (int i=start; i<=end; i++){
             int day=getDayOfWeek(i);
@@ -269,6 +270,13 @@ public class Calendar extends Applet implements Runnable, KeyListener {
                     }
                 }
 
+            }
+            if(i>fdbg) {
+                if (day == 0) {
+                    addEvent("BPG Org Call", i, 0);
+                }else if (day == 4) {
+                    addEvent("BPG Results Call", i, 0);
+                }
             }
 
         }
