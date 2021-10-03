@@ -122,6 +122,8 @@ public class Calendar extends Applet implements Runnable, KeyListener {
         add320Q();
         add311Q();
         addEvent("320 PSet 1", getDayofYear(12,9), 2);
+        addEvent("320 PSet 2", getDayofYear(19,9), 2);
+        addEvent("320 PSet 3", getDayofYear(3,10), 2);
         addEvent("320 Exam 1", getDayofYear(11,10), 2);
         addEvent("320 Exam 2", getDayofYear(17,11), 2);
         addEvent("320 Final", getDayofYear(14,12), 2);
