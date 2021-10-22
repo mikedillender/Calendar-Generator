@@ -16,7 +16,7 @@ import java.util.Date;
 
 public class Calendar extends Applet implements Runnable, KeyListener {
 
-    float pw=8f, ph=11f;
+    float pw=8.5f, ph=11f;
     private int WIDTH=1480, HEIGHT=1480;
     int defaultFont=20;
     private Thread thread;
@@ -30,7 +30,7 @@ public class Calendar extends Applet implements Runnable, KeyListener {
     int[] daysPerMonth=new int[]{ 31  , 28  , 31  , 30  , 31  , 30   , 31   , 31  , 30   , 31  , 30  , 31  };
     String[] months=new String[]{"Jan","Feb","Mar","Apr","May","June","July","Aug","Sept","Oct","Nov","Dec"};
     int adj=4;
-    int start=getDayofYear(23,8);
+    int start=getDayofYear(30,8);
     int end=getDayofYear(26,12);
     int rows=(int)(Math.ceil((end-start)/7.0));
     int currentDay=start;
@@ -86,8 +86,13 @@ public class Calendar extends Applet implements Runnable, KeyListener {
     public void addEvents(){
         addWeeklyEvents();
         addEvent("230 Lab 1", getDayofYear(28,9)+2, 1);
-        addEvent("230 Lab 2", getDayofYear(26,10)+2, 1);
+        addEvent("230 PreLab 2", getDayofYear(28,10), 1);
+        addEvent("230 Lab 2", getDayofYear(28,10), 1);
+        addEvent("230 PostLab 2", getDayofYear(28,10)+7, 1);
         addEvent("230 Lab 3", getDayofYear(16,11)+2, 1);
+        addEvent("230 PreLab 3", getDayofYear(16,11)+2, 1);
+        addEvent("230 PostLab 3", getDayofYear(16,11)+2, 1);
+        addEvent("Lee Meeting", getDayofYear(22,10), 1);
         addEvent("230 HW 1", getDayofYear(14,9), 1);
         addEvent("230 HW 2", getDayofYear(17,9), 1);
         addEvent("230 HW 3", getDayofYear(21,9), 1);
@@ -162,6 +167,8 @@ public class Calendar extends Applet implements Runnable, KeyListener {
         addEvent("Registration Begins", getDayofYear(15,11), 4);
         addEvent("Somin Lee Interview", getDayofYear(1,9), 4);
         addEvent("Somin Lee Interview", getDayofYear(8,9), 4);
+        addEvent("Physics Advising", getDayofYear(25,10), 4);
+        addEvent("ECE Advising", getDayofYear(20,10), 4);
         addEvent("MASA Meeting 1", getDayofYear(8,9), 4);
         addEvent("MASA Meeting 2", getDayofYear(9,9), 4);
 
