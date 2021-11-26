@@ -30,8 +30,8 @@ public class Calendar extends Applet implements Runnable, KeyListener {
     int[] daysPerMonth=new int[]{ 31  , 28  , 31  , 30  , 31  , 30   , 31   , 31  , 30   , 31  , 30  , 31  };
     String[] months=new String[]{"Jan","Feb","Mar","Apr","May","June","July","Aug","Sept","Oct","Nov","Dec"};
     int adj=4;
-    int start=getDayofYear(30,8);
-    int end=getDayofYear(26,12);
+    int start=getDayofYear(22,11);
+    int end=getDayofYear(15,13);
     int rows=(int)(Math.ceil((end-start)/7.0));
     int currentDay=start;
     ArrayList<String>[] events;
@@ -91,7 +91,7 @@ public class Calendar extends Applet implements Runnable, KeyListener {
         addEvent("230 PostLab 2", getDayofYear(28,10)+7, 1);
         addEvent("230 Lab 3", getDayofYear(16,11)+2, 1);
         addEvent("230 PreLab 3", getDayofYear(16,11)+2, 1);
-        addEvent("230 PostLab 3", getDayofYear(16,11)+2, 1);
+        addEvent("230 PostLab 3", getDayofYear(2,12), 1);
         addEvent("Lee Meeting", getDayofYear(22,10), 1);
         addEvent("230 HW 1", getDayofYear(14,9), 1);
         addEvent("230 HW 2", getDayofYear(17,9), 1);
@@ -111,15 +111,14 @@ public class Calendar extends Applet implements Runnable, KeyListener {
         addEvent("230 HW 16", getDayofYear(12,11), 1);
         addEvent("230 HW 17", getDayofYear(16,11), 1);
         addEvent("230 HW 18", getDayofYear(19,11), 1);
-        addEvent("230 HW 19", getDayofYear(23,11), 1);
-        addEvent("230 HW 20", getDayofYear(30,11), 1);
-        addEvent("230 HW 21", getDayofYear(2,12), 1);
-        addEvent("230 HW 22", getDayofYear(3,12), 1);
-        addEvent("230 HW 23", getDayofYear(7,12), 1);
-        addEvent("230 HW 24", getDayofYear(9,12), 1);
-        addEvent("230 HW 25", getDayofYear(10,12), 1);
-        addEvent("230 HW 26", getDayofYear(10,12), 1);
-        addEvent("230 HW 27", getDayofYear(17,12), 1);
+        addEvent("230 Presentation", getDayofYear(29,11), 1);
+        addEvent("230 HW 20", getDayofYear(2,12), 1);
+        addEvent("230 HW 21", getDayofYear(3,12), 1);
+        addEvent("230 HW 22", getDayofYear(7,12), 1);
+        addEvent("230 HW 23 Prev", getDayofYear(9,12), 1);
+        addEvent("230 Written Report", getDayofYear(10,12), 1);
+        addEvent("230 HW 25 PRev", getDayofYear(10,12), 1);
+        addEvent("230 HW 26 PRev", getDayofYear(17,12), 1);
 
 
         addEvent("301 Midterm", getDayofYear(21,10), 5);
@@ -135,7 +134,10 @@ public class Calendar extends Applet implements Runnable, KeyListener {
 
         addEvent("311 Exam 1", getDayofYear(8,10), 3);
         addEvent("311 Exam 2", getDayofYear(11,11), 3);
-        addEvent("311 Final", getDayofYear(20,12), 3);
+        addEvent("311 Final", getDayofYear(15,12), 3);
+
+        addEvent("311 L5 Calc", getDayofYear(3,12), 3);
+        addEvent("311 L5 Demo", getDayofYear(9,12), 3);
 
         addEvent("311 L0 Quiz", getDayofYear(1,9), 3);
         addEvent("311 L1 Quiz", getDayofYear(2,9), 3);
@@ -300,9 +302,9 @@ public class Calendar extends Applet implements Runnable, KeyListener {
                 noSchool[i-start]=true;
             }
         }
-        noSchool[getDayofYear(6,9)-start]=true;
-        noSchool[getDayofYear(18,10)-start]=true;
-        noSchool[getDayofYear(19,10)-start]=true;
+        //noSchool[getDayofYear(6,9)-start]=true;
+        //noSchool[getDayofYear(18,10)-start]=true;
+        //noSchool[getDayofYear(19,10)-start]=true;
         for (int i=23; i<28; i++)
             noSchool[getDayofYear(i,11)-start]=true;
 
