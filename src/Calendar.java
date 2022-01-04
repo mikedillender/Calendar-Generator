@@ -17,8 +17,8 @@ import java.util.Date;
 public class Calendar extends Applet implements Runnable, KeyListener {
 
     float pw=8.5f, ph=11f;
-    private int WIDTH=1480, HEIGHT=1480;
-    int defaultFont=20;
+    private int WIDTH=1080, HEIGHT=1080;
+    int defaultFont=14;
     private Thread thread;
     Graphics gfx;
     Image img;
@@ -29,9 +29,9 @@ public class Calendar extends Applet implements Runnable, KeyListener {
     String[] days=new String[]{"Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"};
     int[] daysPerMonth=new int[]{ 31  , 28  , 31  , 30  , 31  , 30   , 31   , 31  , 30   , 31  , 30  , 31  };
     String[] months=new String[]{"Jan","Feb","Mar","Apr","May","June","July","Aug","Sept","Oct","Nov","Dec"};
-    int adj=4;
-    int start=getDayofYear(22,11);
-    int end=getDayofYear(15,13);
+    int adj=5;
+    int start=getDayofYear(3,1);
+    int end=getDayofYear(1,5);
     int rows=(int)(Math.ceil((end-start)/7.0));
     int currentDay=start;
     ArrayList<String>[] events;
@@ -85,95 +85,49 @@ public class Calendar extends Applet implements Runnable, KeyListener {
     //           ADD EVENTS TO THE CALENDAR
     public void addEvents(){
         addWeeklyEvents();
-        addEvent("230 Lab 1", getDayofYear(28,9)+2, 1);
-        addEvent("230 PreLab 2", getDayofYear(28,10), 1);
-        addEvent("230 Lab 2", getDayofYear(28,10), 1);
-        addEvent("230 PostLab 2", getDayofYear(28,10)+7, 1);
-        addEvent("230 Lab 3", getDayofYear(16,11)+2, 1);
-        addEvent("230 PreLab 3", getDayofYear(16,11)+2, 1);
-        addEvent("230 PostLab 3", getDayofYear(2,12), 1);
-        addEvent("Lee Meeting", getDayofYear(22,10), 1);
-        addEvent("230 HW 1", getDayofYear(14,9), 1);
-        addEvent("230 HW 2", getDayofYear(17,9), 1);
-        addEvent("230 HW 3", getDayofYear(21,9), 1);
-        addEvent("230 HW 4", getDayofYear(24,9), 1);
-        addEvent("230 HW 5", getDayofYear(28,9), 1);
-        addEvent("230 HW 6", getDayofYear(1,10), 1);
-        addEvent("230 HW 7", getDayofYear(5,10), 1);
-        addEvent("230 HW 8", getDayofYear(8,10), 1);
-        addEvent("230 HW 9", getDayofYear(12,10), 1);
-        addEvent("230 HW 10", getDayofYear(15,10), 1);
-        addEvent("230 HW 11", getDayofYear(26,10), 1);
-        addEvent("230 HW 12", getDayofYear(29,10), 1);
-        addEvent("230 HW 13", getDayofYear(2,11), 1);
-        addEvent("230 HW 14", getDayofYear(5,11), 1);
-        addEvent("230 HW 15", getDayofYear(9,11), 1);
-        addEvent("230 HW 16", getDayofYear(12,11), 1);
-        addEvent("230 HW 17", getDayofYear(16,11), 1);
-        addEvent("230 HW 18", getDayofYear(19,11), 1);
-        addEvent("230 Presentation", getDayofYear(29,11), 1);
-        addEvent("230 HW 20", getDayofYear(2,12), 1);
-        addEvent("230 HW 21", getDayofYear(3,12), 1);
-        addEvent("230 HW 22", getDayofYear(7,12), 1);
-        addEvent("230 HW 23 Prev", getDayofYear(9,12), 1);
-        addEvent("230 Written Report", getDayofYear(10,12), 1);
-        addEvent("230 HW 25 PRev", getDayofYear(10,12), 1);
-        addEvent("230 HW 26 PRev", getDayofYear(17,12), 1);
 
+        addEvent("330 Midterm", getDayofYear(21,2), 4);
+        addEvent("330 Final", getDayofYear(21,4), 4);
 
-        addEvent("301 Midterm", getDayofYear(21,10), 5);
-        addEvent("301 Final", getDayofYear(17,12), 5);
-        add320Q();
-        add311Q();
-        addEvent("320 PSet 1", getDayofYear(12,9), 2);
-        addEvent("320 PSet 2", getDayofYear(19,9), 2);
-        addEvent("320 PSet 3", getDayofYear(3,10), 2);
-        addEvent("320 Exam 1", getDayofYear(11,10), 2);
-        addEvent("320 Exam 2", getDayofYear(17,11), 2);
-        addEvent("320 Final", getDayofYear(14,12), 2);
+        addEvent("300 PreLab 1", getDayofYear(14,1), 3);
+        addEvent("300 PostLab 1", getDayofYear(24,1), 3);
 
-        addEvent("311 Exam 1", getDayofYear(8,10), 3);
-        addEvent("311 Exam 2", getDayofYear(11,11), 3);
-        addEvent("311 Final", getDayofYear(15,12), 3);
+        addEvent("300 PreLab 2", getDayofYear(24,1), 3);
+        addEvent("300 PostLab 2", getDayofYear(31,1), 3);
+        addEvent("300 PreLab 3", getDayofYear(31,1), 3);
+        addEvent("300 PostLab 3", getDayofYear(7,2), 3);
+        addEvent("300 PreLab 4", getDayofYear(7,2), 3);
+        addEvent("300 PostLab 4", getDayofYear(7,2)+7, 3);
+        addEvent("300 PreLab 5", getDayofYear(7,2)+7, 3);
+        addEvent("300 Proj Demo 1", getDayofYear(21,2), 3);
+        addEvent("300 PostLab 5", getDayofYear(7,3), 3);
+        addEvent("300 PreLab 6", getDayofYear(7,3), 3);
+        addEvent("300 PostLab 6", getDayofYear(14,3), 3);
+        addEvent("300 PreLab 7", getDayofYear(14,3), 3);
+        addEvent("300 PostLab 7", getDayofYear(21,3), 3);
+        addEvent("300 PreLab 8", getDayofYear(21,3), 3);
+        addEvent("300 PostLab 8", getDayofYear(28,3), 3);
+        addEvent("300 Proj Demo 2", getDayofYear(4,4), 3);
+        addEvent("300 Proj Demo 3", getDayofYear(18,4), 3);
+        addEvent("300 Report Draft", getDayofYear(18,4), 3);
+        addEvent("300 Peer Eval", getDayofYear(21,4), 3);
+        addEvent("300 Fin Report", getDayofYear(25,4), 3);
+        //TODO dont think i got all the stuff due on thursday
 
-        addEvent("311 L5 Calc", getDayofYear(3,12), 3);
-        addEvent("311 L5 Demo", getDayofYear(9,12), 3);
-
-        addEvent("311 L0 Quiz", getDayofYear(1,9), 3);
-        addEvent("311 L1 Quiz", getDayofYear(2,9), 3);
-        addEvent("311 L2 Quiz", getDayofYear(7,9), 3);
-        addEvent("311 L3 Quiz", getDayofYear(8,9), 3);
-        addEvent("311 L4 Quiz", getDayofYear(13,9), 3);
-        addEvent("311 L5 Quiz", getDayofYear(15,9), 3);
-        addEvent("311 L6 Quiz", getDayofYear(20,9), 3);
-        addEvent("311 L7 Quiz", getDayofYear(22,9), 3);
-        addEvent("311 L8 Quiz", getDayofYear(27,9), 3);
-        addEvent("311 L9 Quiz", getDayofYear(29,9), 3);
-        addEvent("311 L10 Quiz", getDayofYear(4,10), 3);
-        addEvent("311 L11 Quiz", getDayofYear(11,10), 3);
-        addEvent("311 L12 Quiz", getDayofYear(13,10), 3);
-        addEvent("311 L13 Quiz", getDayofYear(17,10), 3);
-        addEvent("311 L14 Quiz", getDayofYear(18,10), 3);
-        addEvent("311 L16 Quiz", getDayofYear(25,10), 3);
-        addEvent("311 L17 Quiz", getDayofYear(27,10), 3);
-        addEvent("311 L18 Quiz", getDayofYear(3,11), 3);
-        addEvent("311 L19 Quiz", getDayofYear(8,11), 3);
-        addEvent("311 L20 Quiz", getDayofYear(10,11), 3);
-        addEvent("311 L21 Quiz", getDayofYear(15,11), 3);
-        addEvent("311 L22 Quiz", getDayofYear(17,11), 3);
-        addEvent("311 L23 Quiz", getDayofYear(30,12), 3);
-        addEvent("311 L24 Quiz", getDayofYear(1,12), 3);
-
-        addEvent("C-Catalog Released ", getDayofYear(18,10), 4);
-        addEvent("Backpack Opens", getDayofYear(8,11), 4);
-        addEvent("Registration Begins", getDayofYear(15,11), 4);
-        addEvent("Somin Lee Interview", getDayofYear(1,9), 4);
-        addEvent("Somin Lee Interview", getDayofYear(8,9), 4);
-        addEvent("Physics Advising", getDayofYear(25,10), 4);
-        addEvent("ECE Advising", getDayofYear(20,10), 4);
-        addEvent("MASA Meeting 1", getDayofYear(8,9), 4);
-        addEvent("MASA Meeting 2", getDayofYear(9,9), 4);
-
+        addEvent("390 HW 1 Due", getDayofYear(14,1), 2);
+        addEvent("390 HW 2 Due", getDayofYear(21,1), 2);
+        addEvent("390 HW 3 Due", getDayofYear(28,1), 2);
+        addEvent("390 HW 4 Due", getDayofYear(11,2), 2);
+        addEvent("390 HW 5 Due", getDayofYear(18,2), 2);
+        addEvent("390 HW 6 Due", getDayofYear(25,2), 2);
+        addEvent("390 HW 7 Due", getDayofYear(11,3), 2);
+        addEvent("390 HW 8 Due", getDayofYear(25,3), 2);
+        addEvent("390 HW 9 Due", getDayofYear(1,4), 2);
+        addEvent("390 HW 10 Due", getDayofYear(8,4), 2);
+        addEvent("390 HW 11 Due", getDayofYear(15,4), 2);
+        addEvent("390 Final", getDayofYear(27,4), 2);
+        addEvent("390 Midterm 1", getDayofYear(4,2), 2);
+        addEvent("390 Midterm 2", getDayofYear(18,3), 2);
     }
 
 
@@ -266,34 +220,29 @@ public class Calendar extends Applet implements Runnable, KeyListener {
     }
 
     private void addWeeklyEvents(){
-        int fdos=getDayofYear(30,8);
-        int ldos=getDayofYear(10,12);
-        int fdbg=getDayofYear(25,9);
-        int secondweek=getDayofYear(12,9);
+        int fdos=getDayofYear(5,1);
+        int ldos=getDayofYear(19,4);
+        int secondweek=fdos+7;
         for (int i=start; i<=end; i++){
             int day=getDayOfWeek(i);
             if (!(i<fdos || i>ldos)) {
-                if (i>secondweek){
+                /*if (i>secondweek){
                     if (day == 2) {
-                        addEvent("301 HW Due", i, 5);
+                        //addEvent("301 HW Due", i, 5);
                     }
-                }
-
-            }
-            if(i>fdbg) {
+                }*/
                 if (day == 0) {
                     addEvent("BPG Org Call", i, 0);
                 }else if (day == 4) {
                     addEvent("BPG Results Call", i, 0);
                 }
             }
-
         }
     }
 
     private void setHasSchool(){
-        int fdos=getDayofYear(30,8);
-        int ldos=getDayofYear(10,12);
+        int fdos=getDayofYear(5,1);
+        int ldos=getDayofYear(19,4);
         for (int i=start; i<=end; i++){
             int day=getDayOfWeek(i);
             if (day==5||day==6){
@@ -305,8 +254,9 @@ public class Calendar extends Applet implements Runnable, KeyListener {
         //noSchool[getDayofYear(6,9)-start]=true;
         //noSchool[getDayofYear(18,10)-start]=true;
         //noSchool[getDayofYear(19,10)-start]=true;
-        for (int i=23; i<28; i++)
-            noSchool[getDayofYear(i,11)-start]=true;
+        noSchool[getDayofYear(17,1)-start]=true;
+        for (int i=0; i<7; i++)
+           noSchool[getDayofYear(26,2)+i-start]=true;
 
     }
 
@@ -425,7 +375,8 @@ public class Calendar extends Applet implements Runnable, KeyListener {
 
     public void exportImg(){
         //String export="B:\\Libraries\\Programming\\Calender\\Calendar-Generator\\calendarImgs\\t.png";
-        String export="C:\\Users\\Mike\\Documents\\GitHub\\Calendar-Generator\\calendarImgs\\t.png";
+        //String export="C:\\Users\\Mike\\Documents\\GitHub\\Calendar-Generator\\calendarImgs\\t.png";
+        String export="C:\\Users\\dille\\Documents\\Calendar-Generator\\calendarImgs\\t.png";
         //String export="C:\\Users\\dillemic000\\Documents\\GitHub\\Calendar-Generator\\t.png";
 
         RenderedImage rendImage = toBufferedImage(img);
@@ -479,11 +430,11 @@ public class Calendar extends Applet implements Runnable, KeyListener {
         gfx.fillRect(0, 0, WIDTH, borderSize);
         gfx.setColor(Color.black);
 
-        gfx.fillRect(0, borderSize, WIDTH, 3);
-        gfx.fillRect(0, 0, WIDTH, 3);
-        gfx.fillRect(0, HEIGHT-3, WIDTH, 3);
-        gfx.fillRect(0, 0, 3, HEIGHT);
-        gfx.fillRect(WIDTH-3, 0, 3, HEIGHT);
+        gfx.fillRect(0, borderSize, WIDTH, 2);
+        gfx.fillRect(0, 0, WIDTH, 2);
+        gfx.fillRect(0, HEIGHT-3, WIDTH, 2);
+        gfx.fillRect(0, 0, 2, HEIGHT);
+        gfx.fillRect(WIDTH-3, 0, 2, HEIGHT);
         for (int i=1; i<8; i++){
             int x1=WIDTH/7*(i-1);
 
@@ -493,7 +444,7 @@ public class Calendar extends Applet implements Runnable, KeyListener {
             gfx.setColor(Color.BLACK);
             if (i<7) {
                 int x = WIDTH / 7 * i ;
-                gfx.fillRect(x, 0, 3, HEIGHT);
+                gfx.fillRect(x, 0, 2, HEIGHT);
             }
         }
 
