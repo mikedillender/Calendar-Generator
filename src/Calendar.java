@@ -30,7 +30,7 @@ public class Calendar extends Applet implements Runnable, KeyListener {
     int[] daysPerMonth=new int[]{ 31  , 28  , 31  , 30  , 31  , 30   , 31   , 31  , 30   , 31  , 30  , 31  };
     String[] months=new String[]{"Jan","Feb","Mar","Apr","May","June","July","Aug","Sept","Oct","Nov","Dec"};
     int adj=5;
-    int start=getDayofYear(3,1);
+    int start=getDayofYear(3+14,1);
     int end=getDayofYear(1,5);
     int rows=(int)(Math.ceil((end-start)/7.0));
     int currentDay=start;
@@ -42,7 +42,7 @@ public class Calendar extends Applet implements Runnable, KeyListener {
             new Color(0,0,0),
             new Color(82, 92, 170),
             new Color(138, 24, 22),
-            new Color(91, 146, 86),
+            new Color(21, 106, 36),
             new Color(92, 29, 84),
             new Color(161, 102, 0)
     };
@@ -86,11 +86,43 @@ public class Calendar extends Applet implements Runnable, KeyListener {
     public void addEvents(){
         addWeeklyEvents();
 
+
+        //addEvent("330 HW 2", getDayofYear(31,1), 4);
+        for (int i=1; i<5; i++){ addEvent("330 HW "+i, getDayofYear(24,1)+7*(i-1), 4);}
+        for (int i=1; i<5; i++){ addEvent("330 HW "+(i+4), getDayofYear(7,3)+7*(i-1), 4);}
+
+        addEvent("330 Proj 1 Prelab", getDayofYear(24,1)+1, 4);
+        addEvent("330 Proj 1 Postlab", getDayofYear(24,1)+1+7, 4);
+        addEvent("330 Proj 2 Prelab", getDayofYear(24,1)+1+7, 4);
+        addEvent("330 Proj 2 Postlab", getDayofYear(14,2)+1, 4);
+        addEvent("330 Proj 3 Prelab", getDayofYear(7,3)+1, 4);
+        addEvent("330 HFSS 1 Postlab", getDayofYear(7,3)+1, 4);
+        addEvent("330 Proj 3 Postlab", getDayofYear(21,3)+1, 4);
+        addEvent("330 HFSS 2 Postlab", getDayofYear(4,4)+1, 4);
+        addEvent("330 HFSS 3 Postlab", getDayofYear(18,4)+1, 4);
+
+
         addEvent("330 Midterm", getDayofYear(21,2), 4);
         addEvent("330 Final", getDayofYear(21,4), 4);
 
+        addEvent("496 HW 1 Due", getDayofYear(21,1)+7, 5);
+        addEvent("496 HW 2 Due", getDayofYear(4,2)+7, 5);
+        addEvent("496 HW 3 Due", getDayofYear(11,3)+7, 5);
+        addEvent("496 HW 4 Due", getDayofYear(25,3)+7, 5);
+        addEvent("496 Project Due", getDayofYear(15,4), 5);
+
         addEvent("300 PreLab 1", getDayofYear(14,1), 3);
         addEvent("300 PostLab 1", getDayofYear(24,1), 3);
+
+        for (int i=1; i<13; i++){
+            if(i==6) continue;
+            addEvent("300 Team Update", getDayofYear(27,1)+7*(i-1), 3);}
+        addEvent("300 Brainstorming", getDayofYear(27,1), 3);
+        addEvent("300 Design Rev 1", getDayofYear(10,2), 3);
+        addEvent("300 CATME 1", getDayofYear(17,2), 3);
+        addEvent("300 Design Rev 2", getDayofYear(17,3), 3);
+
+
 
         addEvent("300 PreLab 2", getDayofYear(24,1), 3);
         addEvent("300 PostLab 2", getDayofYear(31,1), 3);
@@ -114,20 +146,28 @@ public class Calendar extends Applet implements Runnable, KeyListener {
         addEvent("300 Fin Report", getDayofYear(25,4), 3);
         //TODO dont think i got all the stuff due on thursday
 
-        addEvent("390 HW 1 Due", getDayofYear(14,1), 2);
-        addEvent("390 HW 2 Due", getDayofYear(21,1), 2);
-        addEvent("390 HW 3 Due", getDayofYear(28,1), 2);
-        addEvent("390 HW 4 Due", getDayofYear(11,2), 2);
-        addEvent("390 HW 5 Due", getDayofYear(18,2), 2);
-        addEvent("390 HW 6 Due", getDayofYear(25,2), 2);
-        addEvent("390 HW 7 Due", getDayofYear(11,3), 2);
-        addEvent("390 HW 8 Due", getDayofYear(25,3), 2);
-        addEvent("390 HW 9 Due", getDayofYear(1,4), 2);
-        addEvent("390 HW 10 Due", getDayofYear(8,4), 2);
-        addEvent("390 HW 11 Due", getDayofYear(15,4), 2);
-        addEvent("390 Final", getDayofYear(27,4), 2);
+        for (int i=1; i<7; i++){ addEvent("391 Lab "+i, getDayofYear(19,1)+7*(i-1), 1);}
+        for (int i=8; i<14; i++){ addEvent("391 Lab "+(i-1), getDayofYear(19,1)+7*(i-1), 1);}
+        for (int i=2; i<7; i++){ addEvent("391 Lab "+(i-1)+" Due", getDayofYear(19,1)+7*(i-1)-1, 1);}
+        for (int i=8; i<15; i++){ addEvent("391 Lab "+(i-2)+" Due", getDayofYear(19,1)+7*(i-1)-1, 1);}
+
+
+        addEvent("390 HW 0 Due", getDayofYear(14,1), 2);
+        addEvent("390 HW 1 Due", getDayofYear(21,1), 2);
+        addEvent("390 HW 2 Due", getDayofYear(28,1), 2);
+        addEvent("390 HW 3 Due", getDayofYear(11,2), 2);
+        addEvent("390 HW 4 Due", getDayofYear(18,2), 2);
+        addEvent("390 HW 5 Due", getDayofYear(25,2), 2);
+        addEvent("390 HW 6 Due", getDayofYear(11,3), 2);
+        addEvent("390 HW 7 Due", getDayofYear(25,3), 2);
+        addEvent("390 HW 8 Due", getDayofYear(1,4), 2);
+        addEvent("390 HW 9 Due", getDayofYear(8,4), 2);
+        addEvent("390 HW 10 Due", getDayofYear(15,4), 2);
         addEvent("390 Midterm 1", getDayofYear(4,2), 2);
         addEvent("390 Midterm 2", getDayofYear(18,3), 2);
+        addEvent("390 Final", getDayofYear(27,4), 2);
+
+
     }
 
 
@@ -231,10 +271,12 @@ public class Calendar extends Applet implements Runnable, KeyListener {
                         //addEvent("301 HW Due", i, 5);
                     }
                 }*/
-                if (day == 0) {
-                    addEvent("BPG Org Call", i, 0);
-                }else if (day == 4) {
+                if (day == 4) {
                     addEvent("BPG Results Call", i, 0);
+                }else if (day == 5) {
+                    addEvent("Solar Car GTM", i, 0);
+                }else if (day == 2) {
+                    addEvent("Solar Car GTM", i, 0);
                 }
             }
         }
