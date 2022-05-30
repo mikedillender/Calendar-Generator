@@ -30,8 +30,8 @@ public class Calendar extends Applet implements Runnable, KeyListener {
     int[] daysPerMonth=new int[]{ 31  , 28  , 31  , 30  , 31  , 30   , 31   , 31  , 30   , 31  , 30  , 31  };
     String[] months=new String[]{"Jan","Feb","Mar","Apr","May","June","July","Aug","Sept","Oct","Nov","Dec"};
     int adj=5;
-    int start=getDayofYear(3+14,1);
-    int end=getDayofYear(1,5);
+    int start=getDayofYear(2,5);
+    int end=getDayofYear(4,9);
     int rows=(int)(Math.ceil((end-start)/7.0));
     int currentDay=start;
     ArrayList<String>[] events;
@@ -85,206 +85,66 @@ public class Calendar extends Applet implements Runnable, KeyListener {
     //           ADD EVENTS TO THE CALENDAR
     public void addEvents(){
         addWeeklyEvents();
-
-
-        //addEvent("330 HW 2", getDayofYear(31,1), 4);
-        for (int i=1; i<5; i++){ addEvent("330 HW "+i, getDayofYear(24,1)+7*(i-1), 4);}
-        for (int i=1; i<5; i++){ addEvent("330 HW "+(i+4), getDayofYear(7,3)+7*(i-1), 4);}
-
-        addEvent("330 Proj 1 Prelab", getDayofYear(24,1)+1, 4);
-        addEvent("330 Proj 1 Postlab", getDayofYear(24,1)+1+7, 4);
-        addEvent("330 Proj 2 Prelab", getDayofYear(24,1)+1+7, 4);
-        addEvent("330 Proj 2 Postlab", getDayofYear(14,2)+1, 4);
-        addEvent("330 Proj 3 Prelab", getDayofYear(7,3)+1, 4);
-        addEvent("330 HFSS 1 Postlab", getDayofYear(7,3)+1, 4);
-        addEvent("330 Proj 3 Postlab", getDayofYear(21,3)+1, 4);
-        addEvent("330 HFSS 2 Postlab", getDayofYear(4,4)+1, 4);
-        addEvent("330 HFSS 3 Postlab", getDayofYear(18,4)+1, 4);
-
-
-        addEvent("330 Midterm", getDayofYear(21,2), 4);
-        addEvent("330 Final", getDayofYear(21,4), 4);
-
-        addEvent("496 HW 1 Due", getDayofYear(21,1)+7, 5);
-        addEvent("496 HW 2 Due", getDayofYear(4,2)+7, 5);
-        addEvent("496 HW 3 Due", getDayofYear(11,3)+7, 5);
-        addEvent("496 HW 4 Due", getDayofYear(25,3)+7, 5);
-        addEvent("496 Project Due", getDayofYear(15,4), 5);
-
-        addEvent("300 PreLab 1", getDayofYear(14,1), 3);
-        addEvent("300 PostLab 1", getDayofYear(24,1), 3);
-
-        for (int i=1; i<13; i++){
-            if(i==6) continue;
-            addEvent("300 Team Update", getDayofYear(27,1)+7*(i-1), 3);}
-        addEvent("300 Brainstorming", getDayofYear(27,1), 3);
-        addEvent("300 Design Rev 1", getDayofYear(10,2), 3);
-        addEvent("300 CATME 1", getDayofYear(17,2), 3);
-        addEvent("300 Design Rev 2", getDayofYear(17,3), 3);
-
-
-
-        addEvent("300 PreLab 2", getDayofYear(24,1), 3);
-        addEvent("300 PostLab 2", getDayofYear(31,1), 3);
-        addEvent("300 PreLab 3", getDayofYear(31,1), 3);
-        addEvent("300 PostLab 3", getDayofYear(7,2), 3);
-        addEvent("300 PreLab 4", getDayofYear(7,2), 3);
-        addEvent("300 PostLab 4", getDayofYear(7,2)+7, 3);
-        addEvent("300 PreLab 5", getDayofYear(7,2)+7, 3);
-        addEvent("300 Proj Demo 1", getDayofYear(21,2), 3);
-        addEvent("300 PostLab 5", getDayofYear(7,3), 3);
-        addEvent("300 PreLab 6", getDayofYear(7,3), 3);
-        addEvent("300 PostLab 6", getDayofYear(14,3), 3);
-        addEvent("300 PreLab 7", getDayofYear(14,3), 3);
-        addEvent("300 PostLab 7", getDayofYear(21,3), 3);
-        addEvent("300 PreLab 8", getDayofYear(21,3), 3);
-        addEvent("300 PostLab 8", getDayofYear(28,3), 3);
-        addEvent("300 Proj Demo 2", getDayofYear(4,4), 3);
-        addEvent("300 Proj Demo 3", getDayofYear(18,4), 3);
-        addEvent("300 Report Draft", getDayofYear(18,4), 3);
-        addEvent("300 Peer Eval", getDayofYear(21,4), 3);
-        addEvent("300 Fin Report", getDayofYear(25,4), 3);
-        //TODO dont think i got all the stuff due on thursday
-
-        for (int i=1; i<7; i++){ addEvent("391 Lab "+i, getDayofYear(19,1)+7*(i-1), 1);}
-        for (int i=8; i<14; i++){ addEvent("391 Lab "+(i-1), getDayofYear(19,1)+7*(i-1), 1);}
-        for (int i=2; i<7; i++){ addEvent("391 Lab "+(i-1)+" Due", getDayofYear(19,1)+7*(i-1)-1, 1);}
-        for (int i=8; i<15; i++){ addEvent("391 Lab "+(i-2)+" Due", getDayofYear(19,1)+7*(i-1)-1, 1);}
-
-
-        addEvent("390 HW 0 Due", getDayofYear(14,1), 2);
-        addEvent("390 HW 1 Due", getDayofYear(21,1), 2);
-        addEvent("390 HW 2 Due", getDayofYear(28,1), 2);
-        addEvent("390 HW 3 Due", getDayofYear(11,2), 2);
-        addEvent("390 HW 4 Due", getDayofYear(18,2), 2);
-        addEvent("390 HW 5 Due", getDayofYear(25,2), 2);
-        addEvent("390 HW 6 Due", getDayofYear(11,3), 2);
-        addEvent("390 HW 7 Due", getDayofYear(25,3), 2);
-        addEvent("390 HW 8 Due", getDayofYear(1,4), 2);
-        addEvent("390 HW 9 Due", getDayofYear(8,4), 2);
-        addEvent("390 HW 10 Due", getDayofYear(15,4), 2);
-        addEvent("390 Midterm 1", getDayofYear(4,2), 2);
-        addEvent("390 Midterm 2", getDayofYear(18,3), 2);
-        addEvent("390 Final", getDayofYear(27,4), 2);
-
+        addEvent("BPG Report Due",getDayofYear(24,5),0);
+        addEvent("Deotare Meeting",getDayofYear(11,5),2);
+        add428();
 
     }
 
 
+    private void add428(){
+        int first=getDayofYear(30,5);
+        int last=getDayofYear(27,8);
+        int diff=last-first; float ch=18-2;
+        addEvent("428 Ch 3 Reading",first+5,4);
+        addEvent("428 Ch 4,5 Reading",first+5+7,4);
+        addEvent("428 Ch 6 Reading",first+5+7+3,4);
+        addEvent("428 Ch 7 Reading",first+5+7*2+3,4);
+        addEvent("428 Ch 8 Reading",first+5+7*3,4);
+        addEvent("428 Ch 9 Reading",first+5+7*4,4);
+        addEvent("428 Ch 10 Reading",first+5+7*5,4);
+        addEvent("428 Ch 11,12 Reading",first+5+7*6,4);
+        addEvent("428 Ch 13,14 Reading",first+5+7*7,4);
+        addEvent("428 Ch 15 Reading",first+5+7*8,4);
+        addEvent("428 Ch 16 Reading",first+5+7*8+3,4);
+        addEvent("428 Ch 17 Reading",first+5+7*9+3,4);
+        addEvent("428 Ch 18 Reading",first+5+7*10,4);
 
-    private void add320Q(){
-        String table="Sept. 8 Semiconductor models and carriers 2.1-2.4\n" +
-                "Sept. 13 Semiconductor under equilibrium 2.4, 2.5\n" +
-                "Sept. 15 Equilibrium carrier distribution 2.5\n" +
-                "Sept. 20 Drift and diffusion 3.1, 3.2\n" +
-                "Sept. 22 Recombination-generation 3.3\n" +
-                "Sept. 27 Equations of state 3.4.1-3.4.3, 3.5\n" +
-                "Sept. 29 Minority carrier diffusion equation: problem solving 3.4.4\n" +
-                "Oct. 4 Diode electrostatics 5.1\n" +
-                "Oct. 6 Review\n" +
-                "Oct. 11 Exam I\n" +
-                "Oct. 13 Diode electrostatics: quantitative analysis 5.2\n" +
-                "Oct. 20 The ideal diode equation 6.1\n" +
-                "Oct. 25 Deviation from ideal diodes 6.2\n" +
-                "Oct. 27 Optoelectronic devices, and metal-semiconductor junctions 9, 14\n" +
-                "Nov. 1 MOS fundamentals I 16.1, 16.2\n" +
-                "Nov. 3 MOS fundamentals II 16.3, 16.4\n" +
-                "Nov. 8 MOSFET I 17.1, 17.2\n" +
-                "Nov. 10 MOSFET II 17.2, 17.3\n" +
-                "Nov. 15 Review\n" +
-                "Nov. 17 Exam\n" +
-                "Nov. 22 MOSFET non-ideal 18\n" +
-                "Nov. 29 MOSFET non-ideal 18\n" +
-                "Dec. 1 BJT I 10\n" +
-                "Dec. 6 BJT II 11\n" +
-                "Dec. 8 Conclusion\n";
-        while (table.contains("\n")){
-            String line=table.substring(0,table.indexOf("\n"));
-            table=table.substring(table.indexOf("\n")+1);
-            for (int i=0; i<12; i++){
-                if (line.substring(0,months[i].length()).equals(months[i])){
-                    line=line.substring(months[i].length()+2);
-                    if (line.charAt(0)==' '){ line=line.substring(1); }
-                    int date=Integer.parseInt(line.substring(0,line.indexOf(" ")));
-                    line=line.substring(line.indexOf(" "));
-                    while (line.length()>0&& (line.charAt(0)<48||line.charAt(0)>57)){
-                        line=line.substring(1);
-                    }
-                    if (line.length()==0){i=12;continue;}
-                    addEvent("320 R&Q "+line, getDayofYear(date-1,i+1), 2);
-                    i=12;
-                }
-            }
-
-        }
-    }
-    private void add311Q(){
-        String table="09/9\tPS1: Basics\n" +
-                "09/14\tLab 0 Report due\n" +
-                "09/16\tPS2: Real opamps\n" +
-                "09/21\tLab 1 Pre-lab due\n" +
-                "09/23\tPS3: f(w), ps, zs\n" +
-                "09/28\tLab 1 Report due\n" +
-                "09/30\tPS4: Filters\n" +
-                "10/5\tLab 2 Exercise Rep due\n" +
-                "10/5\tLab 2 Pre-lab due\n" +
-                "10/7\tPS5: Diodes\n" +
-                "10/12\tLab 2 report due\n" +
-                "10/14\tPS6: BJT basics\n" +
-                "10/26\tLab 3 Ex Report due\n" +
-                "10/26\tLab 3 Pre-lab due\n" +
-                "11/2\tLab 3 report due\n" +
-                "11/4\tPS7: CE Amps, biasing\n" +
-                "11/9\tLab 4 Ex Report due\n" +
-                "11/9\tLab 4 pre-lab due\n" +
-                "11/11\tPS8: Freq. response\n" +
-                "11/23\tLab 4 report due\n" +
-                "12/2\tPS9: BJT amps\n" +
-                "12/9\tPS10: MOS circuits\n" +
-                "12/10\tLab 5 Report due\n"+
-                "End";
-        while (table.contains("\n")){
-            String line=table.substring(0,table.indexOf("\n"));
-            table=table.substring(table.indexOf("\n")+1);
-            String date=line.substring(0,line.indexOf("\t"));
-            line=line.substring(line.indexOf("\t")+1);
-
-            int month=Integer.parseInt(date.substring(0,2));//NOTE: THIS IS LAZY
-            int day=Integer.parseInt(date.substring(3));//NOTE: THIS IS LAZY
-            System.out.println(month+" & "+day);
-            int doy=getDayofYear(day,month);
-            if (line.contains("PS")){doy--;}
-            addEvent("311 "+line, doy, 3);
-
-        }
+        System.out.println(diff);
     }
 
     private void addWeeklyEvents(){
         int fdos=getDayofYear(5,1);
         int ldos=getDayofYear(19,4);
         int secondweek=fdos+7;
+        int ldobpg=getDayofYear(30,5);
+        int fdoexp=getDayofYear(30-7,5);
         for (int i=start; i<=end; i++){
             int day=getDayOfWeek(i);
-            if (!(i<fdos || i>ldos)) {
+            /*if (!(i<fdos || i>ldos)) {
                 /*if (i>secondweek){
                     if (day == 2) {
                         //addEvent("301 HW Due", i, 5);
                     }
-                }*/
+                }
+
+            }*/
+            if (i<ldobpg+30) {
                 if (day == 4) {
                     addEvent("BPG Results Call", i, 0);
-                }else if (day == 5) {
-                    addEvent("Solar Car GTM", i, 0);
-                }else if (day == 2) {
-                    addEvent("Solar Car GTM", i, 0);
+                }
+            }
+            if(i>fdoexp){
+                if (day == 2) {
+                    addEvent("ExP Meeting", i, 0);
                 }
             }
         }
     }
 
     private void setHasSchool(){
-        int fdos=getDayofYear(5,1);
-        int ldos=getDayofYear(19,4);
+        int fdos=getDayofYear(29,8);
+        int ldos=getDayofYear(9,12);
         for (int i=start; i<=end; i++){
             int day=getDayOfWeek(i);
             if (day==5||day==6){
@@ -296,18 +156,24 @@ public class Calendar extends Applet implements Runnable, KeyListener {
         //noSchool[getDayofYear(6,9)-start]=true;
         //noSchool[getDayofYear(18,10)-start]=true;
         //noSchool[getDayofYear(19,10)-start]=true;
-        noSchool[getDayofYear(17,1)-start]=true;
-        for (int i=0; i<7; i++)
-           noSchool[getDayofYear(26,2)+i-start]=true;
+        //noSchool[getDayofYear(17,1)-start]=true;
+        //for (int i=0; i<7; i++)
+        //   noSchool[getDayofYear(26,2)+i-start]=true;
 
     }
 
 
 
     public void setColors(){
+        int homes=getDayofYear(1,5);
+        int homee=getDayofYear(9,5);
+        Color homec=new Color(200,250,200);
         for (int i=start; i<=end; i++){
             if (noSchool[i-start]){
                 colors[i-start]=noSchoolCol;
+            }
+            if (i<=homee&&i>=homes){
+                colors[i-start]=homec;
             }
         }
     }
