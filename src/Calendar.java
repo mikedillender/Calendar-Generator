@@ -87,31 +87,15 @@ public class Calendar extends Applet implements Runnable, KeyListener {
         addWeeklyEvents();
         //addEvent("BPG Report Due",getDayofYear(24,5),0);
         addEvent("520 Presentation",getDayofYear(27,9),4);
+        addEvent("520 Exam",getDayofYear(10,10),4);
+        addEvent("520 Exam",getDayofYear(14,11),4);
+        addEvent("540 Exam", getDayofYear(13,10), 1);
+        addEvent("540 Exam", getDayofYear(18,12), 1);
+
         //add428();
 
     }
 
-
-    private void add428(){
-        int first=getDayofYear(30,5);
-        int last=getDayofYear(27,8);
-        int diff=last-first; float ch=18-2;
-        addEvent("428 Ch 3 Reading",first+5,4);
-        addEvent("428 Ch 4,5 Reading",first+5+7,4);
-        addEvent("428 Ch 6 Reading",first+5+7+3,4);
-        addEvent("428 Ch 7 Reading",first+5+7*2+3,4);
-        addEvent("428 Ch 8 Reading",first+5+7*3,4);
-        addEvent("428 Ch 9 Reading",first+5+7*4,4);
-        addEvent("428 Ch 10 Reading",first+5+7*5,4);
-        addEvent("428 Ch 11,12 Reading",first+5+7*6,4);
-        addEvent("428 Ch 13,14 Reading",first+5+7*7,4);
-        addEvent("428 Ch 15 Reading",first+5+7*8,4);
-        addEvent("428 Ch 16 Reading",first+5+7*8+3,4);
-        addEvent("428 Ch 17 Reading",first+5+7*9+3,4);
-        addEvent("428 Ch 18 Reading",first+5+7*10,4);
-
-        System.out.println(diff);
-    }
 
     private void addWeeklyEvents(){
         int fdos=getDayofYear(5,1);
@@ -126,6 +110,10 @@ public class Calendar extends Applet implements Runnable, KeyListener {
                     if (day == 3) {
                         addEvent("540 HW Due", i, 1);
                     }
+                }
+                if(i> getDayofYear(13,9) && day==2){
+                    addEvent("520 HW Due", i, 4);
+
                 }
 
             }
