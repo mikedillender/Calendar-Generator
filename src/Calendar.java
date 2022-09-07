@@ -30,8 +30,8 @@ public class Calendar extends Applet implements Runnable, KeyListener {
     int[] daysPerMonth=new int[]{ 31  , 28  , 31  , 30  , 31  , 30   , 31   , 31  , 30   , 31  , 30  , 31  };
     String[] months=new String[]{"Jan","Feb","Mar","Apr","May","June","July","Aug","Sept","Oct","Nov","Dec"};
     int adj=5;
-    int start=getDayofYear(2,5);
-    int end=getDayofYear(4,9);
+    int start=getDayofYear(5,9);
+    int end=getDayofYear(8,12);
     int rows=(int)(Math.ceil((end-start)/7.0));
     int currentDay=start;
     ArrayList<String>[] events;
@@ -85,9 +85,9 @@ public class Calendar extends Applet implements Runnable, KeyListener {
     //           ADD EVENTS TO THE CALENDAR
     public void addEvents(){
         addWeeklyEvents();
-        addEvent("BPG Report Due",getDayofYear(24,5),0);
-        addEvent("Deotare Meeting",getDayofYear(11,5),2);
-        add428();
+        //addEvent("BPG Report Due",getDayofYear(24,5),0);
+        addEvent("520 Presentation",getDayofYear(27,9),4);
+        //add428();
 
     }
 
@@ -121,15 +121,15 @@ public class Calendar extends Applet implements Runnable, KeyListener {
         int fdoexp=getDayofYear(30-7,5);
         for (int i=start; i<=end; i++){
             int day=getDayOfWeek(i);
-            /*if (!(i<fdos || i>ldos)) {
-                /*if (i>secondweek){
-                    if (day == 2) {
-                        //addEvent("301 HW Due", i, 5);
+            if (i> getDayofYear(7,9) && i<getDayofYear(7,12)) {
+                if (i>secondweek){
+                    if (day == 3) {
+                        addEvent("540 HW Due", i, 1);
                     }
                 }
 
-            }*/
-            if (i<ldobpg+30) {
+            }
+            /*if (i<ldobpg+30) {
                 if (day == 4) {
                     addEvent("BPG Results Call", i, 0);
                 }
@@ -138,7 +138,7 @@ public class Calendar extends Applet implements Runnable, KeyListener {
                 if (day == 2) {
                     addEvent("ExP Meeting", i, 0);
                 }
-            }
+            }*/
         }
     }
 
@@ -153,7 +153,12 @@ public class Calendar extends Applet implements Runnable, KeyListener {
                 noSchool[i-start]=true;
             }
         }
-        //noSchool[getDayofYear(6,9)-start]=true;
+        noSchool[getDayofYear(5,9)-start]=true;
+        noSchool[getDayofYear(17,10)-start]=true;
+        noSchool[getDayofYear(18,10)-start]=true;
+        noSchool[getDayofYear(23,11)-start]=true;
+        noSchool[getDayofYear(24,11)-start]=true;
+        noSchool[getDayofYear(25,11)-start]=true;
         //noSchool[getDayofYear(18,10)-start]=true;
         //noSchool[getDayofYear(19,10)-start]=true;
         //noSchool[getDayofYear(17,1)-start]=true;

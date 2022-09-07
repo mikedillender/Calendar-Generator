@@ -4,7 +4,6 @@
     <list default="true" id="d24ecd70-70dc-40d0-9248-d3b2f52eb10e" name="Default Changelist" comment="updated">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/calendarImgs/t.png" beforeDir="false" afterPath="$PROJECT_DIR$/calendarImgs/t.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Calendar Generator/Calendar.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Calendar Generator/Calendar.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Calendar.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Calendar.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -109,6 +108,8 @@
       <workItem from="1647715223956" duration="14000" />
       <workItem from="1652047564688" duration="871000" />
       <workItem from="1653945377684" duration="1918000" />
+      <workItem from="1654229824368" duration="999000" />
+      <workItem from="1662560752100" duration="1245000" />
     </task>
     <task id="LOCAL-00001" summary="fixed math">
       <created>1599442304757</created>
