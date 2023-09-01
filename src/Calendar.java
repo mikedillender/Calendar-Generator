@@ -29,9 +29,9 @@ public class Calendar extends Applet implements Runnable, KeyListener {
     String[] days=new String[]{"Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"};
     int[] daysPerMonth=new int[]{ 31  , 28  , 31  , 30  , 31  , 30   , 31   , 31  , 30   , 31  , 30  , 31  };
     String[] months=new String[]{"Jan","Feb","Mar","Apr","May","June","July","Aug","Sept","Oct","Nov","Dec"};
-    int adj=5;
-    int start=getDayofYear(5,9);
-    int end=getDayofYear(8,12);
+    int adj=6;
+    int start=getDayofYear(28,8);
+    int end=getDayofYear(31,12);
     int rows=(int)(Math.ceil((end-start)/7.0));
     int currentDay=start;
     ArrayList<String>[] events;
@@ -86,11 +86,18 @@ public class Calendar extends Applet implements Runnable, KeyListener {
     public void addEvents(){
         addWeeklyEvents();
         //addEvent("BPG Report Due",getDayofYear(24,5),0);
-        addEvent("520 Presentation",getDayofYear(27,9),4);
-        addEvent("520 Exam",getDayofYear(10,10),4);
-        addEvent("520 Exam",getDayofYear(14,11),4);
-        addEvent("540 Exam", getDayofYear(13,10), 1);
-        addEvent("540 Exam", getDayofYear(18,12), 1);
+        addEvent("650 Final", getDayofYear(8,12), 3);
+        addEvent("NSF Eng. Due", getDayofYear(19,10), 1);
+        addEvent("NSF Physics Due", getDayofYear(20,10), 1);
+        addEvent("MIT/Harvard Due", getDayofYear(15,12), 1);
+        addEvent("Berkeley EE Due", getDayofYear(8,12), 1);
+        addEvent("Berkeley Phys Due", getDayofYear(15,12), 1);
+        addEvent("Stanford EE Due", getDayofYear(7,12), 1);
+        addEvent("Stanford Phys Due", getDayofYear(15,12), 1);
+        addEvent("Caltech Phys Due", getDayofYear(15,12), 1);
+        addEvent("Caltech EE Due", getDayofYear(15,13), 1);
+
+        addEvent("UC Boulder Due", getDayofYear(15,13), 1);
 
         //add428();
 
@@ -105,14 +112,18 @@ public class Calendar extends Applet implements Runnable, KeyListener {
         int fdoexp=getDayofYear(30-7,5);
         for (int i=start; i<=end; i++){
             int day=getDayOfWeek(i);
-            if (i> getDayofYear(7,9) && i<getDayofYear(7,12)) {
+            if (i> getDayofYear(3,9) && i<getDayofYear(7,12)) {
                 if (i>secondweek){
                     if (day == 3) {
-                        addEvent("540 HW Due", i, 1);
+                        //addEvent("540 HW Due", i, 1);
                     }
                 }
-                if(i> getDayofYear(13,9) && day==2){
-                    addEvent("520 HW Due", i, 4);
+                if(day==2){
+                    addEvent("619 HW Due", i, 4);
+
+                }
+                if(i> getDayofYear(2,9) && day==2){
+
 
                 }
 
@@ -131,8 +142,8 @@ public class Calendar extends Applet implements Runnable, KeyListener {
     }
 
     private void setHasSchool(){
-        int fdos=getDayofYear(29,8);
-        int ldos=getDayofYear(9,12);
+        int fdos=getDayofYear(28,8);
+        int ldos=getDayofYear(6,12);
         for (int i=start; i<=end; i++){
             int day=getDayOfWeek(i);
             if (day==5||day==6){
@@ -141,12 +152,13 @@ public class Calendar extends Applet implements Runnable, KeyListener {
                 noSchool[i-start]=true;
             }
         }
-        noSchool[getDayofYear(5,9)-start]=true;
+        noSchool[getDayofYear(4,9)-start]=true;
+        noSchool[getDayofYear(16,10)-start]=true;
         noSchool[getDayofYear(17,10)-start]=true;
-        noSchool[getDayofYear(18,10)-start]=true;
+        noSchool[getDayofYear(22,11)-start]=true;
         noSchool[getDayofYear(23,11)-start]=true;
         noSchool[getDayofYear(24,11)-start]=true;
-        noSchool[getDayofYear(25,11)-start]=true;
+        noSchool[getDayofYear(7,12)-start]=true;
         //noSchool[getDayofYear(18,10)-start]=true;
         //noSchool[getDayofYear(19,10)-start]=true;
         //noSchool[getDayofYear(17,1)-start]=true;

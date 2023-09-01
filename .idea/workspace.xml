@@ -4,6 +4,7 @@
     <list default="true" id="d24ecd70-70dc-40d0-9248-d3b2f52eb10e" name="Default Changelist" comment="updated">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/calendarImgs/t.png" beforeDir="false" afterPath="$PROJECT_DIR$/calendarImgs/t.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Calendar Generator/Calendar.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Calendar Generator/Calendar.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Calendar.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Calendar.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -77,6 +78,9 @@
     <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1630421293573" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/../GitHub/Time-Tracking" />
     <property name="nodejs_package_manager_path" value="npm" />
+    <property name="project.structure.last.edited" value="Project" />
+    <property name="project.structure.proportion" value="0.0" />
+    <property name="project.structure.side.proportion" value="0.0" />
     <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
   </component>
   <component name="RunManager">
@@ -110,7 +114,10 @@
       <workItem from="1653945377684" duration="1918000" />
       <workItem from="1654229824368" duration="999000" />
       <workItem from="1662560752100" duration="1365000" />
-      <workItem from="1662564817106" duration="464000" />
+      <workItem from="1662564817106" duration="509000" />
+      <workItem from="1663949448334" duration="294000" />
+      <workItem from="1663949787371" duration="49000" />
+      <workItem from="1693583414385" duration="2168000" />
     </task>
     <task id="LOCAL-00001" summary="fixed math">
       <created>1599442304757</created>
